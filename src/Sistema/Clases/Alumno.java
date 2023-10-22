@@ -9,7 +9,7 @@ package Sistema.Clases;
  *
  * @author USUARIO
  */
-public class Alumno {
+public class Alumno extends Usuario{
     private String codigoUsuarioAlumno;
     
 }
