@@ -8,29 +8,30 @@ package Sistema.Clases;
  *
  * @author USUARIO
  */
-class Usuario {
-    private String codigo;
-    private String nombre;
-    private String email;
-    private String genero;
-    private String nacionalidad;
-    private String contrasena;
+public abstract class Usuario {
+    protected String codeUser;
+    protected String nombre;
+    protected String email;
+    protected String nacionalidad;
+    protected String contrasenia;
 
-    public Usuario(String codigo, String nombre, String email, String genero, String nacionalidad, String contrasena) {
-        this.codigo = codigo;
+    public Usuario() {
+    }
+
+    public Usuario(String codeUser, String nombre, String email, String nacionalidad, String contrasenia) {
+        this.codeUser = codeUser;
         this.nombre = nombre;
         this.email = email;
-        this.genero = genero;
         this.nacionalidad = nacionalidad;
-        this.contrasena = contrasena;
+        this.contrasenia = contrasenia;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getCodeUser() {
+        return codeUser;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCodeUser(String codeUser) {
+        this.codeUser = codeUser;
     }
 
     public String getNombre() {
@@ -49,14 +50,6 @@ class Usuario {
         this.email = email;
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
     public String getNacionalidad() {
         return nacionalidad;
     }
@@ -65,12 +58,12 @@ class Usuario {
         this.nacionalidad = nacionalidad;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
     
     

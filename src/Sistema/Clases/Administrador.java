@@ -11,12 +11,10 @@ package Sistema.Clases;
 public class Administrador extends Usuario{
     private String area;
 
-    public Administrador(String area, String codigo, String nombre, String email, String genero, String nacionalidad, String contrasena) {
-        super(codigo, nombre, email, genero, nacionalidad, contrasena);
-        this.area = area;
-    }
-
-    
+    public Administrador() {
+        super();
+        area="";
+    }  
 
     public String getArea() {
         return area;
