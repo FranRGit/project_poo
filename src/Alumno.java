@@ -8,5 +8,6 @@
  * @author USUARIO
  */
 public class Alumno {
+    private String codigoUsuarioAlumno;
     
 }
