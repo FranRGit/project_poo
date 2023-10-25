@@ -198,6 +198,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IncioPanelMouseClicked"/>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IncioPanelMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IncioPanelMouseExited"/>
               </Events>
@@ -264,6 +265,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MateriasPanelMouseClicked"/>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MateriasPanelMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MateriasPanelMouseExited"/>
               </Events>
@@ -360,7 +362,7 @@
                 <Component class="javax.swing.JLabel" name="InicioIcono2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\USUARIO\OneDrive\Escritorio\APUNTES GENERALES\UNMSM\Ciclo 4\Programaci&#xf3;n_Orientada_A_Objetos\Proyecto\ProjectPOO\src\Sistema\Imagenes\ProfesoresIcono.png"/>
+                      <Image iconType="3" name="/Sistema/Imagenes/ProfesoresIcono.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -423,7 +425,7 @@
                 <Component class="javax.swing.JLabel" name="InicioIcono3">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\USUARIO\OneDrive\Escritorio\APUNTES GENERALES\UNMSM\Ciclo 4\Programaci&#xf3;n_Orientada_A_Objetos\Proyecto\ProjectPOO\src\Sistema\Imagenes\SignOutIcono.png"/>
+                      <Image iconType="3" name="/Sistema/Imagenes/SignOutIcono.png"/>
                     </Property>
                   </Properties>
                 </Component>

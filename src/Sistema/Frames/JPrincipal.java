@@ -4,6 +4,7 @@
  */
 package Sistema.Frames;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 /**
@@ -17,6 +18,10 @@ public class JPrincipal extends javax.swing.JFrame {
      */
     public JPrincipal() {
         initComponents();
+        
+        
+        
+        
     }
 
     /**
@@ -104,6 +109,9 @@ public class JPrincipal extends javax.swing.JFrame {
         IncioPanel.setBackground(new java.awt.Color(96, 131, 165));
         IncioPanel.setPreferredSize(new java.awt.Dimension(320, 60));
         IncioPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IncioPanelMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 IncioPanelMouseEntered(evt);
             }
@@ -144,6 +152,9 @@ public class JPrincipal extends javax.swing.JFrame {
         MateriasPanel.setBackground(new java.awt.Color(96, 131, 165));
         MateriasPanel.setPreferredSize(new java.awt.Dimension(320, 60));
         MateriasPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MateriasPanelMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 MateriasPanelMouseEntered(evt);
             }
@@ -191,7 +202,7 @@ public class JPrincipal extends javax.swing.JFrame {
             }
         });
 
-        InicioIcono2.setIcon(new javax.swing.ImageIcon("C:\\Users\\USUARIO\\OneDrive\\Escritorio\\APUNTES GENERALES\\UNMSM\\Ciclo 4\\Programación_Orientada_A_Objetos\\Proyecto\\ProjectPOO\\src\\Sistema\\Imagenes\\ProfesoresIcono.png")); // NOI18N
+        InicioIcono2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/ProfesoresIcono.png"))); // NOI18N
 
         InicioTexto2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         InicioTexto2.setForeground(new java.awt.Color(255, 255, 255));
@@ -230,7 +241,7 @@ public class JPrincipal extends javax.swing.JFrame {
             }
         });
 
-        InicioIcono3.setIcon(new javax.swing.ImageIcon("C:\\Users\\USUARIO\\OneDrive\\Escritorio\\APUNTES GENERALES\\UNMSM\\Ciclo 4\\Programación_Orientada_A_Objetos\\Proyecto\\ProjectPOO\\src\\Sistema\\Imagenes\\SignOutIcono.png")); // NOI18N
+        InicioIcono3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/SignOutIcono.png"))); // NOI18N
 
         InicioTexto3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         InicioTexto3.setForeground(new java.awt.Color(255, 255, 255));
@@ -353,6 +364,27 @@ public class JPrincipal extends javax.swing.JFrame {
     private void CerrarSesionPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarSesionPanelMouseExited
         CerrarSesionPanel.setBackground(new Color(96,131,165));
     }//GEN-LAST:event_CerrarSesionPanelMouseExited
+
+    private void IncioPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IncioPanelMouseClicked
+        InicioPanel ip1 = new InicioPanel();
+        
+        InformacionPanel.removeAll();
+        InformacionPanel.add(ip1, BorderLayout.CENTER);
+        InformacionPanel.revalidate();
+        InformacionPanel.repaint();
+    }//GEN-LAST:event_IncioPanelMouseClicked
+
+    private void MateriasPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MateriasPanelMouseClicked
+        MateriasPanel mp1 = new MateriasPanel();
+        
+        mp1.setSize(670, 580);
+        mp1.setLocation(0, 0);
+        
+        InformacionPanel.removeAll();
+        InformacionPanel.add(mp1, BorderLayout.CENTER);
+        InformacionPanel.revalidate();
+        InformacionPanel.repaint();
+    }//GEN-LAST:event_MateriasPanelMouseClicked
 
     /**
      * @param args the command line arguments
