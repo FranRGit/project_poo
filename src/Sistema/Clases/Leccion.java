@@ -14,15 +14,12 @@ import java.util.Scanner;
 public class Leccion {
     private String título;
     private String asignatura;
-    private ArrayList <Leccion> leccionT;
-    private ArrayList <Leccion> leccionA;
 
-    //AGREGAR FUNCIONES DE ASIGNAR, MODIFICAR, MOSTRAR
+
+
     public Leccion() {
         título = "";
         asignatura = "";
-        this.leccionT = new ArrayList<>();
-        this.leccionA = new ArrayList<>();
     }
 
     public String getTítulo() {
@@ -45,16 +42,15 @@ public class Leccion {
     public void agregarLección(){ 
         Scanner dato = new Scanner(System.in);
         System.out.println("Ingrese el titulo");
-        String título = dato.nextLine();
-        System.out.println(título);
+        título = dato.nextLine();
         System.out.println("Ingrese la asignatura");
-        String asignatura = dato.nextLine();
-        System.out.println(asignatura);;
+        asignatura = dato.nextLine();
     }
     
     public void mostrarLección(){
-        System.out.println("HOLA");
-        System.out.println(getTítulo());
-        System.out.println(getAsignatura());
+        System.out.println("-----[LECCION]------");
+        System.out.println(título);
+        System.out.println(asignatura);
+        System.out.println("----------------------");
     }
 }

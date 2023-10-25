@@ -29,12 +29,12 @@ public class Modulo {
     }
     
     public void mostrarLeccion(){
-        for(int i=0;i<lecciones.size();i++){
-            Leccion nuevaLeccion = new Leccion();
+        for(Leccion nuevaLeccion : lecciones){
             nuevaLeccion.mostrarLección();
         }
     }
     
+ 
     
     /*
     public void agregarModulo(){
