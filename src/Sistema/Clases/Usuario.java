@@ -15,9 +15,6 @@ public abstract class Usuario {
     protected String nacionalidad;
     protected String contrasenia;
 
-    public Usuario() {
-    }
-
     public Usuario(String codeUser, String nombre, String email, String nacionalidad, String contrasenia) {
         this.codeUser = codeUser;
         this.nombre = nombre;

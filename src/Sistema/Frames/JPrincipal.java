@@ -152,9 +152,6 @@ public class JPrincipal extends javax.swing.JFrame {
         MateriasPanel.setBackground(new java.awt.Color(96, 131, 165));
         MateriasPanel.setPreferredSize(new java.awt.Dimension(320, 60));
         MateriasPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MateriasPanelMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 MateriasPanelMouseEntered(evt);
             }
@@ -373,18 +370,6 @@ public class JPrincipal extends javax.swing.JFrame {
         InformacionPanel.revalidate();
         InformacionPanel.repaint();
     }//GEN-LAST:event_IncioPanelMouseClicked
-
-    private void MateriasPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MateriasPanelMouseClicked
-        MateriasPanel mp1 = new MateriasPanel();
-        
-        mp1.setSize(670, 580);
-        mp1.setLocation(0, 0);
-        
-        InformacionPanel.removeAll();
-        InformacionPanel.add(mp1, BorderLayout.CENTER);
-        InformacionPanel.revalidate();
-        InformacionPanel.repaint();
-    }//GEN-LAST:event_MateriasPanelMouseClicked
 
     /**
      * @param args the command line arguments

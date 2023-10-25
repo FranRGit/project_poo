@@ -8,7 +8,7 @@ package Sistema.Clases;
  *
  * @author Jorge
  */
-public class Administrador extends Usuario{
+public class Administrador {
     private String area;
 
     public Administrador() {
@@ -23,5 +23,8 @@ public class Administrador extends Usuario{
     public void setArea(String area) {
         this.area = area;
     }
+    
+    
+    
     
 }
