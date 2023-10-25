@@ -12,7 +12,7 @@ package Sistema.Clases;
 public class Alumno {
     private String codigoUsuarioAlumno;
     private String prueba;
-    
+    private String prueba2;
     
     
 }
