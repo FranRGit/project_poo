@@ -8,12 +8,12 @@ package Sistema.Frames;
  *
  * @author USUARIO
  */
-public class InicioPanel extends javax.swing.JPanel {
+public class MenuMateria extends javax.swing.JPanel {
 
     /**
-     * Creates new form InicioPanel
+     * Creates new form MenuMateria
      */
-    public InicioPanel() {
+    public MenuMateria() {
         initComponents();
     }
 

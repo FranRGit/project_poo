@@ -64,7 +64,6 @@ public class JPrincipal extends javax.swing.JFrame {
         UsuarioPanel.setPreferredSize(new java.awt.Dimension(320, 90));
 
         UsuarioIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/NombreUsuario.png"))); // NOI18N
-        UsuarioIcono.setPreferredSize(new java.awt.Dimension(36, 36));
 
         UsuarioTexto.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         UsuarioTexto.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,7 +76,7 @@ public class JPrincipal extends javax.swing.JFrame {
             UsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UsuarioPanelLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(UsuarioIcono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(UsuarioIcono)
                 .addGap(28, 28, 28)
                 .addComponent(UsuarioTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -121,7 +120,6 @@ public class JPrincipal extends javax.swing.JFrame {
         });
 
         InicioIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/InicioIcono.png"))); // NOI18N
-        InicioIcono.setPreferredSize(new java.awt.Dimension(26, 26));
 
         InicioTexto.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         InicioTexto.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,7 +132,7 @@ public class JPrincipal extends javax.swing.JFrame {
             IncioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IncioPanelLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(InicioIcono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(InicioIcono)
                 .addGap(18, 18, 18)
                 .addComponent(InicioTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -152,6 +150,9 @@ public class JPrincipal extends javax.swing.JFrame {
         MateriasPanel.setBackground(new java.awt.Color(96, 131, 165));
         MateriasPanel.setPreferredSize(new java.awt.Dimension(320, 60));
         MateriasPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MateriasPanelMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 MateriasPanelMouseEntered(evt);
             }
@@ -164,7 +165,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
         InicioTexto1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         InicioTexto1.setForeground(new java.awt.Color(255, 255, 255));
-        InicioTexto1.setText("MATERIAS");
+        InicioTexto1.setText("MENU PRINCIPAL");
         InicioTexto1.setPreferredSize(new java.awt.Dimension(90, 20));
 
         javax.swing.GroupLayout MateriasPanelLayout = new javax.swing.GroupLayout(MateriasPanel);
@@ -175,8 +176,8 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addComponent(InicioIcono1)
                 .addGap(18, 18, 18)
-                .addComponent(InicioTexto1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addComponent(InicioTexto1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MateriasPanelLayout.setVerticalGroup(
             MateriasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +204,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
         InicioTexto2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         InicioTexto2.setForeground(new java.awt.Color(255, 255, 255));
-        InicioTexto2.setText("PROFESORES");
+        InicioTexto2.setText("REPORTES");
         InicioTexto2.setPreferredSize(new java.awt.Dimension(90, 20));
 
         javax.swing.GroupLayout ProfesoresPanelLayout = new javax.swing.GroupLayout(ProfesoresPanel);
@@ -364,12 +365,23 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void IncioPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IncioPanelMouseClicked
         InicioPanel ip1 = new InicioPanel();
-        
+        ip1.setSize(670, 580);
+        ip1.setLocation(0, 0);
         InformacionPanel.removeAll();
         InformacionPanel.add(ip1, BorderLayout.CENTER);
         InformacionPanel.revalidate();
         InformacionPanel.repaint();
     }//GEN-LAST:event_IncioPanelMouseClicked
+
+    private void MateriasPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MateriasPanelMouseClicked
+        MenuPrincipal mp = new MenuPrincipal();
+        mp.setSize(670, 580);
+        mp.setLocation(0, 0);
+        InformacionPanel.removeAll();
+        InformacionPanel.add(mp, BorderLayout.CENTER);
+        InformacionPanel.revalidate();
+        InformacionPanel.repaint();
+    }//GEN-LAST:event_MateriasPanelMouseClicked
 
     /**
      * @param args the command line arguments
