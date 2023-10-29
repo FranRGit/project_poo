@@ -4,7 +4,6 @@
  */
 package Sistema.Clases;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -39,7 +38,7 @@ public class Leccion {
     }
 
     
-    public void agregarLección(){ 
+    public void agregarLeccion(){ 
         Scanner dato = new Scanner(System.in);
         System.out.println("Ingrese el titulo");
         título = dato.nextLine();
@@ -47,10 +46,18 @@ public class Leccion {
         asignatura = dato.nextLine();
     }
     
-    public void mostrarLección(){
+    public void mostrarLeccion(){
         System.out.println("-----[LECCION]------");
         System.out.println(título);
         System.out.println(asignatura);
         System.out.println("----------------------");
+    }
+    
+    public void eliminarLeccion(){
+        
+    }
+    
+    public void modificarLeccion(){
+        
     }
 }

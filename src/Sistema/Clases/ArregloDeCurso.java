@@ -21,11 +21,11 @@ public class ArregloDeCurso {
         
     }
     
-    public void modificarCursos(){
+    public void validarCurso(){
         
     }
     
-    public void eliminarCursos(){
+    public void eliminarCurso(){
         
     }
     

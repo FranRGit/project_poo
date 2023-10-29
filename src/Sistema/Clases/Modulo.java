@@ -24,15 +24,21 @@ public class Modulo {
     
     public void agregarLeccion(){
         Leccion nuevaLeccion = new Leccion();
-        nuevaLeccion.agregarLección();
+        nuevaLeccion.agregarLeccion();
         lecciones.add(nuevaLeccion);
     }
     
     public void mostrarLeccion(){
         for(Leccion nuevaLeccion : lecciones){
-            nuevaLeccion.mostrarLección();
+            nuevaLeccion.mostrarLeccion();
         }
     }
     
- 
+    public void eliminarLeccion(){
+        
+    }
+    
+    public void modificarLeccion(){
+        
+    }
 }

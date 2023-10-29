@@ -15,7 +15,6 @@ public class Seccion {
     private ArrayList<Modulo> modulos;
     private String horario;
     
-    //CRUD DE MODULOS - Modulos
     
     public Seccion() {
     }
@@ -27,14 +26,26 @@ public class Seccion {
         this.modulos = modulos;
         this.horario = horario;
     }
+    
+    //CRUD DE MODULOS 
+    
     public void agregarModulo(Modulo modulo) {
         modulos.add(modulo);
     }
 
-    public ArrayList<Modulo> obtenerModulos() {
-        return modulos;
+    public void modificarModulo(){
+        
     }
-
+    
+    public void eliminarModulo(){
+        
+    }
+    
+    public void mostraModulo(){
+        
+    }
+    //SETTERS Y GETTERS
+    
     public String getCodigoCurso() {
         return codigoCurso;
     }

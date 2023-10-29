@@ -63,4 +63,21 @@ public class Curso {
         this.secciones = secciones;
     }
   
+    public void agregarSeccion(){
+        
+    }
+    
+    public void eliminarSeccion(){
+        
+    }
+    
+    public void mostrarSeccion(){
+        
+    }
+    
+    public void buscarSeccion() {
+        
+    }
+    
+    
 }
