@@ -12,6 +12,7 @@ public class Modulo {
     String autor;
     String nivel;
     
+    //CRUD De lecciones
     //Arreglo de lecciones - Modificar
     ArrayList<Leccion> lecciones;
     public Modulo(String titulo, String autor, String nivel) {
@@ -34,47 +35,4 @@ public class Modulo {
     }
     
  
-    
-    /*
-    public void agregarModulo(){
-        String tipo;
-        String titulo;
-        String autor;
-        String nivel;
-        tipo = JOptionPane.showInputDialog("Ingrese el tipo de materia que desea agregar un modulo(Matematica o física): ");
-        switch(tipo.toLowerCase()){
-            case "matematica":
-                Matematica matematica = new Matematica();
-                titulo = JOptionPane.showInputDialog("Nombre del módulo: ");
-                autor = JOptionPane.showInputDialog("Autor del módulo: ");
-                nivel = JOptionPane.showInputDialog("Nivel del modulo (facil, intermedio, dificil): ");
-                matematica.agregarModulo(titulo, autor, nivel);
-                break;
-            case "fisica":
-                Ciencia fisica = new Ciencia();
-                titulo = JOptionPane.showInputDialog("Nombre del módulo: ");
-                autor = JOptionPane.showInputDialog("Autor del módulo: ");
-                nivel = JOptionPane.showInputDialog("Nivel del modulo (facil, intermedio, dificil): ");
-                fisica.agregarModulo(titulo, autor, nivel);
-                break;
-        }
-    }
-    
-    public void eliminarModulo(){
-        Modulo moduloEliminar = null;
-        for (Modulo modulo : modulos) {
-            if (modulo.titulo.equalsIgnoreCase(titulo)) {
-                moduloEliminar = modulo;
-                break;
-            }
-        }
-
-        if (moduloEliminar != null) {
-            modulos.remove(moduloEliminar);
-            JOptionPane.showMessageDialog(null, "Módulo eliminado: " + moduloEliminar.titulo);
-        } else {
-            JOptionPane.showMessageDialog(null, "No se encontró el módulo con el título especificado.");
-        }
-    }
-*/
 }

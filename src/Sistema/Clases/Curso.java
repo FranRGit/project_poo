@@ -3,7 +3,6 @@
  */
 package Sistema.Clases;
 
-
 import java.util.ArrayList;
 
 public class Curso {

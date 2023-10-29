@@ -16,6 +16,7 @@ public class Seccion {
     private String horario;
     
     //CRUD DE MODULOS - Modulos
+    
     public Seccion() {
     }
 
