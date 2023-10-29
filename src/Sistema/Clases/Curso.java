@@ -1,36 +1,27 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Sistema.Clases;
+
+
 import java.util.ArrayList;
-/**
- *
- * @author USUARIO
- */
+
 public class Curso {
+
     private String codigoCurso;
     private String nombreCurso;
     private String descripcion;
-    private ArrayList<Modulo> modulos;
-    private String horario;
+    private String categoriaCurso;
+    
+    //Metodos de CRUD para secciones
+    ArrayList<Seccion> secciones;
 
-    public Curso() {
-    }
-
-    public Curso(String codigoCurso, String nombreCurso, String descripcion, ArrayList<Modulo> modulos, String horario) {
+    public Curso(String codigoCurso, String nombreCurso, String descripcion, String categoriaCurso, ArrayList<Seccion> secciones) {
         this.codigoCurso = codigoCurso;
         this.nombreCurso = nombreCurso;
         this.descripcion = descripcion;
-        this.modulos = modulos;
-        this.horario = horario;
-    }
-    public void agregarModulo(Modulo modulo) {
-        modulos.add(modulo);
-    }
-
-    public ArrayList<Modulo> obtenerModulos() {
-        return modulos;
+        this.categoriaCurso = categoriaCurso;
+        this.secciones = new ArrayList<>();
     }
 
     public String getCodigoCurso() {
@@ -57,27 +48,20 @@ public class Curso {
         this.descripcion = descripcion;
     }
 
-    public ArrayList<Modulo> getModulos() {
-        return modulos;
+    public String getCategoriaCurso() {
+        return categoriaCurso;
     }
 
-    public void setModulos(ArrayList<Modulo> modulos) {
-        this.modulos = modulos;
+    public void setCategoriaCurso(String categoriaCurso) {
+        this.categoriaCurso = categoriaCurso;
     }
 
-    public String getHorario() {
-        return horario;
+    public ArrayList<Seccion> getSecciones() {
+        return secciones;
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public void setSecciones(ArrayList<Seccion> secciones) {
+        this.secciones = secciones;
     }
-    
-    
-}
-
-
-
-
   
-
+}

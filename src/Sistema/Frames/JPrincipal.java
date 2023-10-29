@@ -372,7 +372,7 @@ public class JPrincipal extends javax.swing.JFrame {
         InformacionPanel.revalidate();
         InformacionPanel.repaint();
     }//GEN-LAST:event_IncioPanelMouseClicked
-
+    
     private void MateriasPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MateriasPanelMouseClicked
         MenuPrincipal mp = new MenuPrincipal();
         mp.setSize(670, 580);

@@ -3,8 +3,7 @@
  */
 
 package Sistema.Clases;
-import Sistema.Clases.Matematica;
-import Sistema.Clases.Fisica;
+
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
@@ -52,7 +51,7 @@ public class Modulo {
                 matematica.agregarModulo(titulo, autor, nivel);
                 break;
             case "fisica":
-                Fisica fisica = new Fisica();
+                Ciencia fisica = new Ciencia();
                 titulo = JOptionPane.showInputDialog("Nombre del módulo: ");
                 autor = JOptionPane.showInputDialog("Autor del módulo: ");
                 nivel = JOptionPane.showInputDialog("Nivel del modulo (facil, intermedio, dificil): ");

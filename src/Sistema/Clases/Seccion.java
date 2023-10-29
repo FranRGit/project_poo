@@ -1,85 +1,84 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Sistema.Clases;
-
-import javax.swing.JOptionPane;
 import java.util.ArrayList;
-
+/**
+ *
+ * @author USUARIO
+ */
 public class Seccion {
-
-    String codigoCurso;
-    String nombreCurso;
-    String descripcion;
-    String tipoMateria;
+    private String codigoCurso;
+    private String nombreCurso;
+    private String descripcion;
+    private ArrayList<Modulo> modulos;
+    private String horario;
     
-    //EDITAR A Curso nombreCurso;
-    ArrayList<Curso> materias;
+    //CRUD DE MODULOS - Modulos
+    public Seccion() {
+    }
 
-    public Seccion(String codigoCurso, String nombreCurso, String descripcion, String tipoMateria) {
+    public Seccion(String codigoCurso, String nombreCurso, String descripcion, ArrayList<Modulo> modulos, String horario) {
         this.codigoCurso = codigoCurso;
         this.nombreCurso = nombreCurso;
         this.descripcion = descripcion;
-        this.tipoMateria = tipoMateria;
-        this.materias = new ArrayList<>();
+        this.modulos = modulos;
+        this.horario = horario;
+    }
+    public void agregarModulo(Modulo modulo) {
+        modulos.add(modulo);
     }
 
-    public void agregarMateria() {
-        String tipo;
-        String nombreMateria;
-        nombreMateria = JOptionPane.showInputDialog("Ingrese el nombre de la materia que desea agregar: ");
-        tipo = JOptionPane.showInputDialog("Ingrese el tipo de materia que desea agregar (Matematica o física): ");
-        Curso nuevaMateria = null;
-        switch (tipo.toLowerCase()) {
-            case "matematica":
-                nuevaMateria = new Matematica();
-//                Matematica mate = new Matematica();
-                break;
-            case "fisica":
-                nuevaMateria = new Fisica();
-//                Fisica fisica = new Fisica();
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "Tipo de materia no válido.");
-        }
-
-        if (nuevaMateria != null) {
-            materias.add(nuevaMateria);
-            JOptionPane.showMessageDialog(null, "Materia agregada: " + nuevaMateria.getNombreCurso());
-        }
+    public ArrayList<Modulo> obtenerModulos() {
+        return modulos;
     }
 
-    public void eliminarMateria() {
-
-        if (materias.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No hay materias para eliminar.");
-        } else {
-            String nombreMateria = JOptionPane.showInputDialog("Ingrese el nombre de la materia que desea eliminar: ");
-            boolean eliminada = false;
-
-            for (Curso materia : materias) {
-                if (materia.getNombreCurso().equalsIgnoreCase(nombreMateria)) {
-                    materias.remove(materia);
-                    eliminada = true;
-                    JOptionPane.showMessageDialog(null, "Materia eliminada: " + materia.getNombreCurso());
-                    break; // Salir del bucle una vez que se elimine la materia
-                }
-            }
-
-            if (!eliminada) {
-                JOptionPane.showMessageDialog(null, "La materia no se encontró en la lista.");
-            }
-        }
-        //        String tipo;
-        //        tipo = JOptionPane.showInputDialog("Ingrese el tipo de materia que desea agregar (Matematica o física): ");
-        //        //Recorrer ArrayList para hacer un .push del curso
-        //        switch(tipo){
-        //            case "matematica":
-        ////                Matematica mate = new Matematica();
-        //                break;
-        //            case "fisica":
-        ////                Fisica fisica = new Fisica();
-        //                break;
-        //        }
+    public String getCodigoCurso() {
+        return codigoCurso;
     }
+
+    public void setCodigoCurso(String codigoCurso) {
+        this.codigoCurso = codigoCurso;
+    }
+
+    public String getNombreCurso() {
+        return nombreCurso;
+    }
+
+    public void setNombreCurso(String nombreCurso) {
+        this.nombreCurso = nombreCurso;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public ArrayList<Modulo> getModulos() {
+        return modulos;
+    }
+
+    public void setModulos(ArrayList<Modulo> modulos) {
+        this.modulos = modulos;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+    
+    
 }
+
+
+
+
+  
+
