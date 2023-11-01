@@ -12,7 +12,7 @@ public class Curso {
     private String descripcion;
     private String categoriaCurso;
     
-    //Metodos de CRUD para secciones
+  
     ArrayList<Seccion> secciones;
 
     public Curso(String codigoCurso, String nombreCurso, String descripcion, String categoriaCurso, ArrayList<Seccion> secciones) {
@@ -22,6 +22,26 @@ public class Curso {
         this.categoriaCurso = categoriaCurso;
         this.secciones = new ArrayList<>();
     }
+    
+    
+    //Metodos de CRUD para secciones
+    
+    public void agregarSeccion(){
+        
+    }
+    
+    public void eliminarSeccion(){
+        
+    }
+    
+    public void mostrarSeccion(){
+        
+    }
+
+    public void buscarSeccion() {
+        
+    }
+    
 
     public String getCodigoCurso() {
         return codigoCurso;
@@ -63,21 +83,7 @@ public class Curso {
         this.secciones = secciones;
     }
   
-    public void agregarSeccion(){
-        
-    }
     
-    public void eliminarSeccion(){
-        
-    }
-    
-    public void mostrarSeccion(){
-        
-    }
-    
-    public void buscarSeccion() {
-        
-    }
-    
+   
     
 }

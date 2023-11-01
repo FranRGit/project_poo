@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Leccion {
     private String título;
     private String asignatura;
-
+    
 
 
     public Leccion() {

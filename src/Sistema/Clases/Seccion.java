@@ -9,8 +9,8 @@ import java.util.ArrayList;
  * @author USUARIO
  */
 public class Seccion {
-    private String codigoCurso;
-    private String nombreCurso;
+    private String codigoSeccion;
+    private String nombreSeccion;
     private String descripcion;
     private ArrayList<Modulo> modulos;
     private String horario;
@@ -19,13 +19,15 @@ public class Seccion {
     public Seccion() {
     }
 
-    public Seccion(String codigoCurso, String nombreCurso, String descripcion, ArrayList<Modulo> modulos, String horario) {
-        this.codigoCurso = codigoCurso;
-        this.nombreCurso = nombreCurso;
+    public Seccion(String codigoSeccion, String nombreSeccion, String descripcion, ArrayList<Modulo> modulos, String horario) {
+        this.codigoSeccion = codigoSeccion;
+        this.nombreSeccion = nombreSeccion;
         this.descripcion = descripcion;
         this.modulos = modulos;
         this.horario = horario;
     }
+
+    
     
     //CRUD DE MODULOS 
     
@@ -46,25 +48,7 @@ public class Seccion {
     }
     //SETTERS Y GETTERS
     
-    public String getCodigoCurso() {
-        return codigoCurso;
-    }
-
-    public void setCodigoCurso(String codigoCurso) {
-        this.codigoCurso = codigoCurso;
-    }
-
-    public String getNombreCurso() {
-        return nombreCurso;
-    }
-
-    public void setNombreCurso(String nombreCurso) {
-        this.nombreCurso = nombreCurso;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
+   
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
