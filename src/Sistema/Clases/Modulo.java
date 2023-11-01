@@ -8,20 +8,10 @@ import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
 public class Modulo {
-    String titulo;
-    String autor;
-    String nivel;
     
-
-    //Arreglo de lecciones - Modificar
-    ArrayList<Leccion> lecciones;
-    
-    public Modulo(String titulo, String autor, String nivel) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.nivel = nivel;
-        this.lecciones = new ArrayList<>();
-    }
+    protected int id_curso;
+    protected int id_modulo;
+    protected String titulo;
     
     
     //CRUD De lecciones

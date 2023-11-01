@@ -11,13 +11,17 @@ package Sistema.Clases;
 public abstract class Usuario {
     protected String codeUser;
     protected String nombre;
+    protected int edad;
+    protected String sexo;
     protected String email;
     protected String nacionalidad;
     protected String contrasenia;
 
-    public Usuario(String codeUser, String nombre, String email, String nacionalidad, String contrasenia) {
+    public Usuario(String codeUser, String nombre, int edad, String sexo, String email, String nacionalidad, String contrasenia) {
         this.codeUser = codeUser;
         this.nombre = nombre;
+        this.edad = edad;
+        this.sexo = sexo;
         this.email = email;
         this.nacionalidad = nacionalidad;
         this.contrasenia = contrasenia;
@@ -37,6 +41,22 @@ public abstract class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public String getEmail() {
@@ -62,6 +82,8 @@ public abstract class Usuario {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
+  
+    
     
     
 }

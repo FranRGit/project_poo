@@ -7,21 +7,14 @@ import java.util.ArrayList;
 
 public class Curso {
 
-    private String codigoCurso;
+    private int id_curso;
     private String nombreCurso;
-    private String descripcion;
+    private String periodo;
     private String categoriaCurso;
+     
     
-  
-    ArrayList<Seccion> secciones;
+   
 
-    public Curso(String codigoCurso, String nombreCurso, String descripcion, String categoriaCurso, ArrayList<Seccion> secciones) {
-        this.codigoCurso = codigoCurso;
-        this.nombreCurso = nombreCurso;
-        this.descripcion = descripcion;
-        this.categoriaCurso = categoriaCurso;
-        this.secciones = new ArrayList<>();
-    }
     
     
     //Metodos de CRUD para secciones
@@ -41,14 +34,13 @@ public class Curso {
     public void buscarSeccion() {
         
     }
-    
 
-    public String getCodigoCurso() {
-        return codigoCurso;
+    public int getId_curso() {
+        return id_curso;
     }
 
-    public void setCodigoCurso(String codigoCurso) {
-        this.codigoCurso = codigoCurso;
+    public void setId_curso(int id_curso) {
+        this.id_curso = id_curso;
     }
 
     public String getNombreCurso() {
@@ -59,12 +51,12 @@ public class Curso {
         this.nombreCurso = nombreCurso;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getPeriodo() {
+        return periodo;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
     }
 
     public String getCategoriaCurso() {
@@ -75,15 +67,8 @@ public class Curso {
         this.categoriaCurso = categoriaCurso;
     }
 
-    public ArrayList<Seccion> getSecciones() {
-        return secciones;
-    }
-
-    public void setSecciones(ArrayList<Seccion> secciones) {
-        this.secciones = secciones;
-    }
-  
     
+   
    
     
 }

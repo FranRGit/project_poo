@@ -9,25 +9,22 @@ import java.util.ArrayList;
  * @author USUARIO
  */
 public class Seccion {
-    private String codigoSeccion;
+    private int id_seccion;
     private String nombreSeccion;
-    private String descripcion;
-    private ArrayList<Modulo> modulos;
+    private int id_curso;
+    private int id_profesor;
     private String horario;
     
     
     public Seccion() {
     }
 
-    public Seccion(String codigoSeccion, String nombreSeccion, String descripcion, ArrayList<Modulo> modulos, String horario) {
-        this.codigoSeccion = codigoSeccion;
+    public Seccion(int id_seccion, String nombreSeccion, ArrayList<Modulo> modulos, String horario) {
+        this.id_seccion = id_seccion;
         this.nombreSeccion = nombreSeccion;
-        this.descripcion = descripcion;
-        this.modulos = modulos;
         this.horario = horario;
     }
 
-    
     
     //CRUD DE MODULOS 
     
@@ -47,19 +44,37 @@ public class Seccion {
         
     }
     //SETTERS Y GETTERS
-    
-   
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public int getId_seccion() {
+        return id_seccion;
     }
 
-    public ArrayList<Modulo> getModulos() {
-        return modulos;
+    public void setId_seccion(int id_seccion) {
+        this.id_seccion = id_seccion;
     }
 
-    public void setModulos(ArrayList<Modulo> modulos) {
-        this.modulos = modulos;
+    public String getNombreSeccion() {
+        return nombreSeccion;
+    }
+
+    public void setNombreSeccion(String nombreSeccion) {
+        this.nombreSeccion = nombreSeccion;
+    }
+
+    public int getId_curso() {
+        return id_curso;
+    }
+
+    public void setId_curso(int id_curso) {
+        this.id_curso = id_curso;
+    }
+
+    public int getId_profesor() {
+        return id_profesor;
+    }
+
+    public void setId_profesor(int id_profesor) {
+        this.id_profesor = id_profesor;
     }
 
     public String getHorario() {
@@ -69,6 +84,10 @@ public class Seccion {
     public void setHorario(String horario) {
         this.horario = horario;
     }
+
+    
+
+    
     
     
 }

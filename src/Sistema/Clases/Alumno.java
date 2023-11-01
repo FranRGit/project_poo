@@ -6,33 +6,15 @@
 package Sistema.Clases;
 
 
-import java.util.List;
-
 
 /**
  *
  * @author AULA F.DE ING.DE SIS
  */
 public class Alumno extends Usuario{
-    protected String nivelAcademico;
-    private List<String> materiasInscritas;
-
-    public Alumno(String nivelAcademico, List<String> materiasInscritas, String codeUser, String nombre, String email, String nacionalidad, String contrasenia) {
-        super(codeUser, nombre, email, nacionalidad, contrasenia);
-        this.nivelAcademico = nivelAcademico;
-        this.materiasInscritas = materiasInscritas;
-    }
-
-
-    public String getNivelAcademico() {
-        return nivelAcademico;
-    }
-
-    public void setNivelAcademico(String nivelAcademico) {
-        this.nivelAcademico = nivelAcademico;
-    }
+    protected String nivel_Academico;
     
-    
+     
     //METODO AÚN NO DISPONIBLE
     /*public void inscribirseAMateria() {
         try {
@@ -51,4 +33,18 @@ public class Alumno extends Usuario{
         }
     }      
     */
+
+    public Alumno(String codeUser, String nombre, int edad, String sexo, String email, String nacionalidad, String contrasenia) {
+        super(codeUser, nombre, edad, sexo, email, nacionalidad, contrasenia);
+    }
+
+    public String getNivel_Academico() {
+        return nivel_Academico;
+    }
+
+    public void setNivel_Academico(String nivel_Academico) {
+        this.nivel_Academico = nivel_Academico;
+    }
+    
+    
 }
