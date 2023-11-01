@@ -10,9 +10,11 @@ package Sistema.Clases;
  */
 public class Administrador extends Usuario{
 
-    public Administrador(String codeUser, String nombre, int edad, String sexo, String email, String nacionalidad, String contrasenia) {
-        super(codeUser, nombre, edad, sexo, email, nacionalidad, contrasenia);
+    public Administrador(int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
+        super(id_usuario, nombre, edad, sexo, telefono, email, nacionalidad, contrasenia);
     }
+
+   
 
     
 }

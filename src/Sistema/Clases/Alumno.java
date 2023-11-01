@@ -34,9 +34,14 @@ public class Alumno extends Usuario{
     }      
     */
 
-    public Alumno(String codeUser, String nombre, int edad, String sexo, String email, String nacionalidad, String contrasenia) {
-        super(codeUser, nombre, edad, sexo, email, nacionalidad, contrasenia);
+    public Alumno(String nivel_Academico, int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
+        super(id_usuario, nombre, edad, sexo, telefono, email, nacionalidad, contrasenia);
+        this.nivel_Academico = nivel_Academico;
     }
+
+    
+
+   
 
     public String getNivel_Academico() {
         return nivel_Academico;

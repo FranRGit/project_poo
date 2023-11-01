@@ -9,32 +9,47 @@ package Sistema.Clases;
  * @author USUARIO
  */
 public abstract class Usuario {
-    protected String codeUser;
+    protected int id_usuario;
     protected String nombre;
     protected int edad;
     protected String sexo;
+    protected String telefono;
     protected String email;
     protected String nacionalidad;
     protected String contrasenia;
 
-    public Usuario(String codeUser, String nombre, int edad, String sexo, String email, String nacionalidad, String contrasenia) {
-        this.codeUser = codeUser;
+    public Usuario(int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
+        this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.edad = edad;
         this.sexo = sexo;
+        this.telefono = telefono;
         this.email = email;
         this.nacionalidad = nacionalidad;
         this.contrasenia = contrasenia;
     }
 
-    public String getCodeUser() {
-        return codeUser;
+    
+
+
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setCodeUser(String codeUser) {
-        this.codeUser = codeUser;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+    
+   
     public String getNombre() {
         return nombre;
     }
