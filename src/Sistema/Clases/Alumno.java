@@ -5,9 +5,9 @@
 
 package Sistema.Clases;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -32,7 +32,9 @@ public class Alumno extends Usuario{
         this.nivelAcademico = nivelAcademico;
     }
     
-    public void inscribirseAMateria() {
+    
+    //METODO AÚN NO DISPONIBLE
+    /*public void inscribirseAMateria() {
         try {
             String materia = JOptionPane.showInputDialog("Ingrese el nombre de la materia a la que desea inscribirse:");
 
@@ -48,5 +50,5 @@ public class Alumno extends Usuario{
             JOptionPane.showMessageDialog(null, "Error al inscribirse en la materia: " + e.getMessage());
         }
     }      
-
+    */
 }

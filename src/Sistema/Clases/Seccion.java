@@ -29,8 +29,8 @@ public class Seccion {
     
     //CRUD DE MODULOS 
     
-    public void agregarModulo(Modulo modulo) {
-        modulos.add(modulo);
+    public void agregarModulo() {
+        
     }
 
     public void modificarModulo(){

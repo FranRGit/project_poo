@@ -37,27 +37,4 @@ public class Leccion {
         this.asignatura = asignatura;
     }
 
-    
-    public void agregarLeccion(){ 
-        Scanner dato = new Scanner(System.in);
-        System.out.println("Ingrese el titulo");
-        título = dato.nextLine();
-        System.out.println("Ingrese la asignatura");
-        asignatura = dato.nextLine();
-    }
-    
-    public void mostrarLeccion(){
-        System.out.println("-----[LECCION]------");
-        System.out.println(título);
-        System.out.println(asignatura);
-        System.out.println("----------------------");
-    }
-    
-    public void eliminarLeccion(){
-        
-    }
-    
-    public void modificarLeccion(){
-        
-    }
 }

@@ -12,9 +12,10 @@ public class Modulo {
     String autor;
     String nivel;
     
-    //CRUD De lecciones
+
     //Arreglo de lecciones - Modificar
     ArrayList<Leccion> lecciones;
+    
     public Modulo(String titulo, String autor, String nivel) {
         this.titulo = titulo;
         this.autor = autor;
@@ -22,16 +23,14 @@ public class Modulo {
         this.lecciones = new ArrayList<>();
     }
     
+    
+    //CRUD De lecciones
     public void agregarLeccion(){
-        Leccion nuevaLeccion = new Leccion();
-        nuevaLeccion.agregarLeccion();
-        lecciones.add(nuevaLeccion);
+
     }
     
     public void mostrarLeccion(){
-        for(Leccion nuevaLeccion : lecciones){
-            nuevaLeccion.mostrarLeccion();
-        }
+
     }
     
     public void eliminarLeccion(){
