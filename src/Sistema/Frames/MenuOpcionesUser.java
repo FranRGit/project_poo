@@ -4,6 +4,8 @@
  */
 package Sistema.Frames;
 
+import java.awt.Container;
+
 /**
  *
  * @author PC HP
@@ -27,9 +29,9 @@ public class MenuOpcionesUser extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        AlumnoPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        ProfesorPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -38,50 +40,60 @@ public class MenuOpcionesUser extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(96, 131, 165));
         jLabel1.setText("OPCIONES USUARIO");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.setPreferredSize(new java.awt.Dimension(197, 200));
+        AlumnoPanel.setBackground(new java.awt.Color(255, 255, 255));
+        AlumnoPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        AlumnoPanel.setPreferredSize(new java.awt.Dimension(197, 200));
+        AlumnoPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AlumnoPanelMouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel2.setText("ALUMNO");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout AlumnoPanelLayout = new javax.swing.GroupLayout(AlumnoPanel);
+        AlumnoPanel.setLayout(AlumnoPanelLayout);
+        AlumnoPanelLayout.setHorizontalGroup(
+            AlumnoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AlumnoPanelLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(62, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        AlumnoPanelLayout.setVerticalGroup(
+            AlumnoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AlumnoPanelLayout.createSequentialGroup()
                 .addContainerGap(159, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.setPreferredSize(new java.awt.Dimension(197, 200));
+        ProfesorPanel.setBackground(new java.awt.Color(255, 255, 255));
+        ProfesorPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ProfesorPanel.setPreferredSize(new java.awt.Dimension(197, 200));
+        ProfesorPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProfesorPanelMouseClicked(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel3.setText("PROFESOR");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout ProfesorPanelLayout = new javax.swing.GroupLayout(ProfesorPanel);
+        ProfesorPanel.setLayout(ProfesorPanelLayout);
+        ProfesorPanelLayout.setHorizontalGroup(
+            ProfesorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProfesorPanelLayout.createSequentialGroup()
                 .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(63, 63, 63))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        ProfesorPanelLayout.setVerticalGroup(
+            ProfesorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProfesorPanelLayout.createSequentialGroup()
                 .addContainerGap(169, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addContainerGap())
@@ -92,36 +104,59 @@ public class MenuOpcionesUser extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(114, Short.MAX_VALUE)
+                .addComponent(AlumnoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addComponent(ProfesorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(110, 110, 110)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AlumnoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ProfesorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(183, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void AlumnoPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlumnoPanelMouseClicked
+        RegistrarUsuarioPanel rup = new RegistrarUsuarioPanel();
+        rup.setSize(670, 580);
+        rup.setLocation(0, 0);
+        
+        Container container = this.getParent();
+        container.remove(this);
+        container.add(rup);
+        container.validate();
+        container.repaint();
+    }//GEN-LAST:event_AlumnoPanelMouseClicked
+
+    private void ProfesorPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfesorPanelMouseClicked
+        RegistrarProfesorPanel rup = new RegistrarProfesorPanel();
+        rup.setSize(670, 580);
+        rup.setLocation(0, 0);
+        
+        Container container = this.getParent();
+        container.remove(this);
+        container.add(rup);
+        container.validate();
+        container.repaint();
+    }//GEN-LAST:event_ProfesorPanelMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AlumnoPanel;
+    private javax.swing.JPanel ProfesorPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

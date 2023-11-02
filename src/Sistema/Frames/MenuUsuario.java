@@ -164,13 +164,13 @@ public class MenuUsuario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UsuarioPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioPanelMouseClicked
-        RegistrarUsuarioPanel rup = new RegistrarUsuarioPanel();
-        rup.setSize(670, 500);
-        rup.setLocation(0, 0);
+        MenuOpcionesUser mou = new MenuOpcionesUser();
+        mou.setSize(670, 580);
+        mou.setLocation(0, 0);
         
         Container container = this.getParent();
         container.remove(this);
-        container.add(rup);
+        container.add(mou);
         container.validate();
         container.repaint();
     }//GEN-LAST:event_UsuarioPanelMouseClicked
