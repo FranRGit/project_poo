@@ -16,7 +16,7 @@ public class Curso {
     private String periodo;
     private String categoriaCurso;
     Conexion cs;
-    
+
     public Curso(){
         cs= new Conexion();
     }

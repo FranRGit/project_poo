@@ -51,7 +51,6 @@ public class MenuPrincipal extends javax.swing.JPanel {
         });
 
         UsuarioTxt.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        UsuarioTxt.setForeground(new java.awt.Color(0, 0, 0));
         UsuarioTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         UsuarioTxt.setText("USUARIO");
 
@@ -77,9 +76,13 @@ public class MenuPrincipal extends javax.swing.JPanel {
         MateriaPanel.setBackground(new java.awt.Color(255, 255, 255));
         MateriaPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         MateriaPanel.setPreferredSize(new java.awt.Dimension(197, 200));
+        MateriaPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MateriaPanelMouseClicked(evt);
+            }
+        });
 
         UsuarioTxt1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        UsuarioTxt1.setForeground(new java.awt.Color(0, 0, 0));
         UsuarioTxt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         UsuarioTxt1.setText("MATERIA");
 
@@ -121,6 +124,20 @@ public class MenuPrincipal extends javax.swing.JPanel {
         contenedorPrincipal.validate();
         contenedorPrincipal.repaint();
     }//GEN-LAST:event_UsuarioPanelMouseClicked
+
+    private void MateriaPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MateriaPanelMouseClicked
+        // TODO add your handling code here:
+        MenuMateria mou = new MenuMateria();
+        mou.setSize(670, 580);
+        mou.setLocation(0, 0);
+
+        Container container = this.getParent();
+        container.remove(this);
+        container.add(mou);
+        container.validate();
+        container.repaint();
+        
+    }//GEN-LAST:event_MateriaPanelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

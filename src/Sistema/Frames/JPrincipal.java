@@ -67,7 +67,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
         UsuarioTexto.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         UsuarioTexto.setForeground(new java.awt.Color(255, 255, 255));
-        UsuarioTexto.setText("BIENVENIDO XD");
+        UsuarioTexto.setText("BIENVENIDO ");
         UsuarioTexto.setPreferredSize(new java.awt.Dimension(193, 20));
 
         javax.swing.GroupLayout UsuarioPanelLayout = new javax.swing.GroupLayout(UsuarioPanel);

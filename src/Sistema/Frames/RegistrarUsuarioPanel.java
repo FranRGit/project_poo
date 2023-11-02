@@ -63,6 +63,11 @@ public class RegistrarUsuarioPanel extends javax.swing.JPanel {
 
         txtNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtNombre.setText("jTextField2");
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombreMouseClicked(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel6.setText("Edad:");
@@ -200,6 +205,11 @@ public class RegistrarUsuarioPanel extends javax.swing.JPanel {
     private void btnSubirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirAlumnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSubirAlumnoActionPerformed
+
+    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtNombreMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
