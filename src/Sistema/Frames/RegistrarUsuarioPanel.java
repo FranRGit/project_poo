@@ -86,6 +86,11 @@ public class RegistrarUsuarioPanel extends javax.swing.JPanel {
                 btnSubirAlumnoMouseClicked(evt);
             }
         });
+        btnSubirAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubirAlumnoActionPerformed(evt);
+            }
+        });
 
         txtNivel.setText("jTextField4");
 
@@ -191,6 +196,10 @@ public class RegistrarUsuarioPanel extends javax.swing.JPanel {
     private void txtSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSexoActionPerformed
+
+    private void btnSubirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSubirAlumnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

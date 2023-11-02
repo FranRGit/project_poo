@@ -12,9 +12,12 @@ package Sistema.Clases;
 public class Profesor extends Usuario{
     protected String especialidad;
 
-    public Profesor(int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
+    public Profesor(String especialidad, int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
         super(id_usuario, nombre, edad, sexo, telefono, email, nacionalidad, contrasenia);
+        this.especialidad = especialidad;
     }
+
+    
 
    
     

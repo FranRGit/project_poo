@@ -4,6 +4,11 @@
  */
 package Sistema.Frames;
 
+import Sistema.Clases.Alumno;
+import Sistema.Clases.Profesor;
+import Sistema.Clases.Usuario;
+import Sistema.Clases.daoUsuario;
+
 /**
  *
  * @author USUARIO
@@ -39,11 +44,10 @@ public class RegistrarProfesorPanel extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         txtNacionalidadP = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        spHorario1P = new javax.swing.JSpinner();
-        spHorario2P = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
+        txtfHorarioP = new javax.swing.JTextField();
+        txtfSeccion = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtfsexo = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(780, 580));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,6 +63,16 @@ public class RegistrarProfesorPanel extends javax.swing.JPanel {
 
         jButton8.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jButton8.setText("SUBIR ");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         lbCodigo.setBackground(new java.awt.Color(255, 255, 255));
         lbCodigo.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
@@ -115,13 +129,13 @@ public class RegistrarProfesorPanel extends javax.swing.JPanel {
         jLabel18.setForeground(new java.awt.Color(51, 51, 0));
         jLabel18.setText("Horario:");
 
-        jLabel19.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(51, 51, 0));
-        jLabel19.setText("De");
+        txtfHorarioP.setText("jTextField1");
 
-        jLabel20.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(51, 51, 0));
-        jLabel20.setText("a");
+        txtfSeccion.setText("jTextField2");
+
+        jLabel1.setText("Sexo:");
+
+        txtfsexo.setText("jTextField1");
 
         javax.swing.GroupLayout pnlUpProfeLayout = new javax.swing.GroupLayout(pnlUpProfe);
         pnlUpProfe.setLayout(pnlUpProfeLayout);
@@ -132,32 +146,25 @@ public class RegistrarProfesorPanel extends javax.swing.JPanel {
                     .addGroup(pnlUpProfeLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(pnlUpProfeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlUpProfeLayout.createSequentialGroup()
-                                .addGroup(pnlUpProfeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pnlUpProfeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtfNombreP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                                        .addComponent(txtfCodigoP, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(txtfCursoP, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlUpProfeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtfEmailP, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pnlUpProfeLayout.createSequentialGroup()
-                                        .addComponent(jLabel19)
-                                        .addGap(39, 39, 39)
-                                        .addComponent(spHorario1P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(53, 53, 53)
-                                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(31, 31, 31)
-                                        .addComponent(spHorario2P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtNacionalidadP, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlUpProfeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtfNombreP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                                .addComponent(txtfCodigoP, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(txtfCursoP, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtfSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlUpProfeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtfsexo, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtfEmailP, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNacionalidadP, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtfHorarioP, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlUpProfeLayout.createSequentialGroup()
                         .addGap(226, 226, 226)
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -194,15 +201,16 @@ public class RegistrarProfesorPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlUpProfeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtfCursoP, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20)
-                    .addComponent(spHorario1P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spHorario2P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtfHorarioP, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
                 .addGap(18, 18, 18)
-                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(pnlUpProfeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtfSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtfsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
@@ -210,9 +218,32 @@ public class RegistrarProfesorPanel extends javax.swing.JPanel {
         add(pnlUpProfe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        try {
+            
+            Usuario usuario = new Profesor("zzz",0,txtfNombreP.getText(),9, txtfsexo.getText(),"", txtfEmailP.getText(), txtNacionalidadP.getText(), "");
+            //int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia
+            daoUsuario dUsuario = new daoUsuario();
+
+            if(dUsuario.agregarUsuario(usuario)){
+                System.out.println("Se agregó al usuario");
+            } else {
+                System.out.println("Error al agregar usuario");
+            }
+        } catch (Exception e) {
+            System.out.println("ERROR");
+        }
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton8;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -220,17 +251,15 @@ public class RegistrarProfesorPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JLabel lbCodigo;
     private javax.swing.JPanel pnlUpProfe;
-    private javax.swing.JSpinner spHorario1P;
-    private javax.swing.JSpinner spHorario2P;
     private javax.swing.JTextField txtNacionalidadP;
     private javax.swing.JTextField txtfCodigoP;
     private javax.swing.JTextField txtfCursoP;
     private javax.swing.JTextField txtfEmailP;
+    private javax.swing.JTextField txtfHorarioP;
     private javax.swing.JTextField txtfNombreP;
+    private javax.swing.JTextField txtfSeccion;
+    private javax.swing.JTextField txtfsexo;
     // End of variables declaration//GEN-END:variables
 }

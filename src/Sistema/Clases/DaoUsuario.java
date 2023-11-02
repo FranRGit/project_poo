@@ -58,6 +58,9 @@ public class daoUsuario {
             if(agregarAlumno(usuario)){
                 System.out.println("Se agregó alumno");
             }
+            if(agregarProfesor(usuario)){
+                System.out.println("Se agregó profesor");
+            }
             
             //INSERTAR PROFESOR EN LA TABLA
   
@@ -78,6 +81,7 @@ public class daoUsuario {
                 ps3.setInt(1, usuario.getId_usuario());
                 ps3.setString(2, ((Alumno) usuario).nivel_Academico);
                 ps3.executeUpdate();
+                
                 cx.desconectar();
             }
         } catch (SQLException ex) {
@@ -88,7 +92,20 @@ public class daoUsuario {
         return true;
     }
     
-    public boolean agregarProfesor(){
+    public boolean agregarProfesor(Usuario usuario){
+       PreparedStatement ps3 = null;
+        
+        try {
+            if( usuario instanceof Profesor){
+                ps3 = cx.conectar().prepareStatement("INSERT INTO Profesor VALUES (?,null,?)");
+                ps3.setString(1, ((Profesor) usuario).especialidad);
+                ps3.setInt(2, usuario.getId_usuario());
+                ps3.executeUpdate();
+                cx.desconectar();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         return true;
     }
     
