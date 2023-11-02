@@ -299,7 +299,17 @@ public class JPrincipal extends javax.swing.JFrame {
 
         InformacionPanel.setBackground(new java.awt.Color(255, 255, 255));
         InformacionPanel.setPreferredSize(new java.awt.Dimension(670, 580));
-        InformacionPanel.setLayout(new java.awt.CardLayout());
+
+        javax.swing.GroupLayout InformacionPanelLayout = new javax.swing.GroupLayout(InformacionPanel);
+        InformacionPanel.setLayout(InformacionPanelLayout);
+        InformacionPanelLayout.setHorizontalGroup(
+            InformacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 664, Short.MAX_VALUE)
+        );
+        InformacionPanelLayout.setVerticalGroup(
+            InformacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
         FondoPanel.setLayout(FondoPanelLayout);

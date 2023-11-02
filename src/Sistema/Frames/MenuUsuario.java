@@ -4,6 +4,8 @@
  */
 package Sistema.Frames;
 
+import java.awt.Container;
+
 /**
  *
  * @author USUARIO
@@ -46,6 +48,11 @@ public class MenuUsuario extends javax.swing.JPanel {
         UsuarioPanel.setBackground(new java.awt.Color(255, 255, 255));
         UsuarioPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         UsuarioPanel.setPreferredSize(new java.awt.Dimension(160, 160));
+        UsuarioPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UsuarioPanelMouseClicked(evt);
+            }
+        });
 
         UsuarioTxt.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         UsuarioTxt.setForeground(new java.awt.Color(0, 0, 0));
@@ -155,6 +162,18 @@ public class MenuUsuario extends javax.swing.JPanel {
 
         add(UsuarioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void UsuarioPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioPanelMouseClicked
+        RegistrarUsuarioPanel rup = new RegistrarUsuarioPanel();
+        rup.setSize(670, 500);
+        rup.setLocation(0, 0);
+        
+        Container container = this.getParent();
+        container.remove(this);
+        container.add(rup);
+        container.validate();
+        container.repaint();
+    }//GEN-LAST:event_UsuarioPanelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,6 +4,8 @@
  */
 package Sistema.Frames;
 
+import Sistema.Frames.JPrincipal;
+import java.awt.Container;
 
 /**
  *
@@ -105,7 +107,19 @@ public class MenuPrincipal extends javax.swing.JPanel {
         MenuUsuario mu = new MenuUsuario();
         mu.setSize(670, 580);
         mu.setLocation(0, 0);
+        
+        // Obtén el contenedor principal
+        Container contenedorPrincipal = this.getParent();
 
+        // Elimina el panel actual
+        contenedorPrincipal.remove(this);
+
+        // Agrega el nuevo panel (MenuUsuario)
+        contenedorPrincipal.add(mu);
+
+        // Valida y repinta el contenedor principal
+        contenedorPrincipal.validate();
+        contenedorPrincipal.repaint();
     }//GEN-LAST:event_UsuarioPanelMouseClicked
 
 
