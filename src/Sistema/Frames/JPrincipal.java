@@ -67,7 +67,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
         UsuarioTexto.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         UsuarioTexto.setForeground(new java.awt.Color(255, 255, 255));
-        UsuarioTexto.setText("[NOMBRE DE USUARIO]");
+        UsuarioTexto.setText("BIENVENIDO XD");
         UsuarioTexto.setPreferredSize(new java.awt.Dimension(193, 20));
 
         javax.swing.GroupLayout UsuarioPanelLayout = new javax.swing.GroupLayout(UsuarioPanel);
@@ -192,6 +192,9 @@ public class JPrincipal extends javax.swing.JFrame {
         ProfesoresPanel.setBackground(new java.awt.Color(96, 131, 165));
         ProfesoresPanel.setPreferredSize(new java.awt.Dimension(320, 60));
         ProfesoresPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProfesoresPanelMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ProfesoresPanelMouseEntered(evt);
             }
@@ -296,17 +299,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
         InformacionPanel.setBackground(new java.awt.Color(255, 255, 255));
         InformacionPanel.setPreferredSize(new java.awt.Dimension(670, 580));
-
-        javax.swing.GroupLayout InformacionPanelLayout = new javax.swing.GroupLayout(InformacionPanel);
-        InformacionPanel.setLayout(InformacionPanelLayout);
-        InformacionPanelLayout.setHorizontalGroup(
-            InformacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 664, Short.MAX_VALUE)
-        );
-        InformacionPanelLayout.setVerticalGroup(
-            InformacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
-        );
+        InformacionPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
         FondoPanel.setLayout(FondoPanelLayout);
@@ -382,6 +375,16 @@ public class JPrincipal extends javax.swing.JFrame {
         InformacionPanel.revalidate();
         InformacionPanel.repaint();
     }//GEN-LAST:event_MateriasPanelMouseClicked
+
+    private void ProfesoresPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfesoresPanelMouseClicked
+        ReportePanel rp = new ReportePanel();
+        rp.setSize(670, 500);
+        rp.setLocation(0, 0);
+        InformacionPanel.removeAll();
+        InformacionPanel.add(rp,BorderLayout.CENTER);
+        InformacionPanel.revalidate();
+        InformacionPanel.repaint();
+    }//GEN-LAST:event_ProfesoresPanelMouseClicked
 
     /**
      * @param args the command line arguments

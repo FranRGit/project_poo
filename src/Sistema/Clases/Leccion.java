@@ -18,6 +18,9 @@ public class Leccion {
     protected String descripcion;
     protected String material;
 
+    public Leccion() {
+        
+    }
     public Leccion(int id_modulo, int id_leccion, String título, String descripcion, String material) {
         this.id_modulo = id_modulo;
         this.id_leccion = id_leccion;
