@@ -58,12 +58,13 @@ public class daoUsuario {
             if(agregarAlumno(usuario)){
                 System.out.println("Se agregó alumno");
             }
+            
+             //INSERTAR PROFESOR EN LA TABLA
+             
             if(agregarProfesor(usuario)){
                 System.out.println("Se agregó profesor");
             }
-            
-            //INSERTAR PROFESOR EN LA TABLA
-  
+           
         } catch (SQLException ex) {
             ex.printStackTrace();
             return false;

@@ -8,6 +8,7 @@ import Sistema.Conexion.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -93,5 +94,31 @@ public class daoCurso {
         return false;
     }
     return true;
-}
+    }
+    
+    //RETORNAR LISTA DE CURSOS :
+    public ArrayList<Curso> obtenercrusos(){
+        ArrayList<Curso> cursos = new ArrayList<>();
+        String consulta = "SELECT FROM * cursos";
+        
+         try {
+            PreparedStatement ps = cx.conectar().prepareStatement("SELECT * FROM Curso");
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                int id_curso = rs.getInt("id_curso");
+                String nombre = rs.getString("nombre");
+                String periodo = rs.getString("periodo");
+                String categoria = rs.getString("Categoria");
+                
+                Curso aux = new Curso(id_curso, nombre, periodo, categoria);
+                cursos.add(aux);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+         return cursos;
+    }
 }

@@ -39,10 +39,6 @@ public class Alumno extends Usuario{
         this.nivel_Academico = nivel_Academico;
     }
 
-    
-
-   
-
     public String getNivel_Academico() {
         return nivel_Academico;
     }
