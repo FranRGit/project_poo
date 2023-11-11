@@ -1,26 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+// Definición de la clase Leccion
 package Sistema.Clases;
 
 import java.util.Scanner;
 
 /**
- *
- * @author Jorge
+ * Clase que representa una lección dentro de un módulo en un sistema educativo.
+ * Puede contener información como el título, descripción y material asociado a la lección.
  */
 public class Leccion {
     
+    // Atributos de la clase Leccion
     protected int id_modulo;
     protected int id_leccion;
     protected String título;
     protected String descripcion;
     protected String material;
 
+    // Constructor vacío
     public Leccion() {
         
     }
+
+    // Constructor con parámetros
     public Leccion(int id_modulo, int id_leccion, String título, String descripcion, String material) {
         this.id_modulo = id_modulo;
         this.id_leccion = id_leccion;
@@ -29,6 +30,7 @@ public class Leccion {
         this.material = material;
     }
 
+    // Métodos getter y setter para acceder y modificar los atributos de la clase Leccion
     public int getId_modulo() {
         return id_modulo;
     }
@@ -68,9 +70,4 @@ public class Leccion {
     public void setMaterial(String material) {
         this.material = material;
     }
-    
-    
-
-   
-
 }

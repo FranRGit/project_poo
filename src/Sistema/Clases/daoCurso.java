@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Definición de la clase daoCurso.
+ * Se encarga de realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en la tabla Curso de la base de datos.
+ * Utiliza la clase Conexion para establecer la conexión con la base de datos.
  */
 package Sistema.Clases;
 
@@ -14,15 +15,19 @@ import java.util.logging.Logger;
 
 /**
  *
+ * Clase encargada de realizar operaciones relacionadas con los cursos en la base de datos.
+ *
  * @author PC HP
  */
 public class daoCurso {
     Conexion cx;
 
+    // Constructor que inicializa la conexión a la base de datos
     public daoCurso() {
-        cx= new Conexion();
+        cx = new Conexion();
     }
-    
+
+    // Método para agregar un nuevo curso a la base de datos
     public boolean agregarCurso(Curso curso){
         PreparedStatement ps = null;
         
@@ -38,6 +43,8 @@ public class daoCurso {
         }
         return true;
     }
+
+    // Método para eliminar un curso de la base de datos
     public boolean eliminarCurso(Curso curso){
          try {
             PreparedStatement ps = null;
@@ -51,6 +58,8 @@ public class daoCurso {
         }
         return true;
     }
+
+    // Método para mostrar un curso específico de la base de datos
     public Curso mostrarCurso(int id){
         Curso curso = new Curso();
         
@@ -76,28 +85,29 @@ public class daoCurso {
         }
         
         return null;
-    
     }
-    public boolean editarCurso(Curso curso) {
-    PreparedStatement ps = null;
 
-    try {
-        ps = cx.conectar().prepareStatement("UPDATE Curso SET nombre = ?, periodo = ?, categoria = ? WHERE id_curso = ?");
-        ps.setString(1, curso.getNombreCurso());
-        ps.setString(2, curso.getPeriodo());
-        ps.setString(3, curso.getCategoriaCurso());
-        ps.setInt(4, curso.getId_curso());
-        ps.executeUpdate();
-        cx.desconectar();
-    } catch (SQLException ex) {
-        ex.printStackTrace();
-        return false;
+    // Método para editar un curso existente en la base de datos
+    public boolean editarCurso(Curso curso) {
+        PreparedStatement ps = null;
+
+        try {
+            ps = cx.conectar().prepareStatement("UPDATE Curso SET nombre = ?, periodo = ?, categoria = ? WHERE id_curso = ?");
+            ps.setString(1, curso.getNombreCurso());
+            ps.setString(2, curso.getPeriodo());
+            ps.setString(3, curso.getCategoriaCurso());
+            ps.setInt(4, curso.getId_curso());
+            ps.executeUpdate();
+            cx.desconectar();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+        return true;
     }
-    return true;
-    }
-    
-    //RETORNAR LISTA DE CURSOS :
-    public ArrayList<Curso> obtenercrusos(){
+
+    // Método para obtener una lista de todos los cursos de la base de datos
+    public ArrayList<Curso> obtenerCursos(){
         ArrayList<Curso> cursos = new ArrayList<>();
         String consulta = "SELECT FROM * cursos";
         

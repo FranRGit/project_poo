@@ -1,7 +1,9 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Definición de la clase Modulo.
+ * Representa un módulo asociado a un curso en un sistema educativo.
+ * Contiene atributos como el ID de curso, ID de módulo y título del módulo.
+ * Se proporciona un constructor que recibe una instancia de la clase Conexion.
  */
-
 package Sistema.Clases;
 
 import Sistema.Conexion.Conexion;
@@ -11,17 +13,18 @@ import java.sql.SQLException;
 
 public class Modulo {
 
+    // Atributos de la clase Modulo
     protected int id_curso;
     protected int id_modulo;
     protected String titulo;
 
+    // Constructor que recibe una instancia de la clase Conexion
     public Modulo(Conexion cx) {
         cx = new Conexion();
     }
     
+    // SETTERS Y GETTERS 
 
-    //SETTERS Y GETTERS 
-    
     public int getId_curso() {
         return id_curso;
     }
@@ -45,5 +48,4 @@ public class Modulo {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    
 }

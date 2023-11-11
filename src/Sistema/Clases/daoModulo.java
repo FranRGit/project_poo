@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Clase daoModulo encargada de realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en la tabla Modulo de la base de datos.
+ * Utiliza la clase Conexion para establecer la conexión con la base de datos.
  */
 package Sistema.Clases;
 
@@ -10,32 +10,31 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- *
- * @author User
+ * Clase encargada de realizar operaciones relacionadas con los módulos en la base de datos.
+ * Author: User
  */
 public class daoModulo {
     Conexion cm;
 
+    // Constructor que inicializa la conexión a la base de datos
     public daoModulo() {
         cm = new Conexion();
     }
-    
-       
-    //CRUD DE MODULOS 
-   public boolean agregarModulo(Modulo modulo) {
+
+    // Método para agregar un nuevo módulo a la base de datos
+    public boolean agregarModulo(Modulo modulo) {
         try{
             PreparedStatement ps = null;
             PreparedStatement ps2 = null;
-
             ResultSet rs = null;
 
-            //INSERTAR MODULO EN LA TABLA
+            // INSERTAR MÓDULO EN LA TABLA
             ps = cm.conectar().prepareStatement("INSERT INTO Modulo VALUES (null,?,?)");
             ps.setString(1, modulo.getTitulo());
             ps.setInt(2, modulo.getId_curso());
             ps.executeUpdate();
 
-            //OBTENER ULTIMO ID
+            // OBTENER ÚLTIMO ID
             rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 modulo.setId_modulo(rs.getInt(1));
@@ -51,6 +50,7 @@ public class daoModulo {
         return true;
     }
 
+    // Método para eliminar un módulo de la base de datos
     public void eliminarModulo(Modulo modulo) {
         try{
             PreparedStatement ps = null;
@@ -68,6 +68,7 @@ public class daoModulo {
         }
     }
 
+    // Método para mostrar todos los módulos en la base de datos
     public void mostrarModulo() {
         try{
             PreparedStatement ps = null;
@@ -99,6 +100,7 @@ public class daoModulo {
         }
     }
 
+    // Método para editar un módulo existente en la base de datos
     public boolean editarModulo(Modulo modulo) {
         try {
             PreparedStatement ps = null;
@@ -124,5 +126,4 @@ public class daoModulo {
             return false;
         }
     }
-    
 }

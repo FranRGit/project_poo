@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Clase daoLeccion encargada de realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en la tabla Leccion de la base de datos.
+ * Utiliza la clase Conexion para establecer la conexión con la base de datos.
  */
 package Sistema.Clases;
 
@@ -10,22 +10,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- *
- * @author User
+ * Clase encargada de realizar operaciones relacionadas con las lecciones en la base de datos.
+ * Author: User
  */
 public class daoLeccion {
     Conexion cx;
 
+    // Constructor que inicializa la conexión a la base de datos
     public daoLeccion() {
         
     }
-    
-     //CRUD De lecciones
+
+    // Método para agregar una nueva lección a la base de datos
     public boolean agregarLeccion(Leccion leccion){
         try {
             PreparedStatement ps = null;
             ps = cx.conectar().prepareStatement("INSERT INTO Leccion VALUES (null,?,?,?,?)");
-            ps.setInt(1, leccion.getId_modulo()); //SE ASIGNA A QUÉ MODULO PERTENECE LA LECCION
+            ps.setInt(1, leccion.getId_modulo()); // SE ASIGNA A QUÉ MÓDULO PERTENECE LA LECCIÓN
             ps.setString(2, leccion.getTítulo());
             ps.setString(3, leccion.getDescripcion());
             ps.setString(4, leccion.getMaterial());
@@ -37,7 +38,8 @@ public class daoLeccion {
         }
         return true;
     }
-    
+
+    // Método para mostrar una lección específica de la base de datos
     public Leccion mostrarLeccion(int id_leccion){
         Leccion leccion = new Leccion();
         
@@ -65,7 +67,8 @@ public class daoLeccion {
   
         return null;
     }
-    
+
+    // Método para eliminar una lección de la base de datos
     public boolean eliminarLeccion(Leccion leccion){
         try {
             PreparedStatement ps = null;
@@ -79,12 +82,13 @@ public class daoLeccion {
         }
         return true;
     }
-    
+
+    // Método para modificar una lección existente en la base de datos
     public boolean modificarLeccion(Leccion leccion){
          try {
             PreparedStatement ps = null;
 
-            // Actualizar el módulo en la tabla
+            // Actualizar la lección en la tabla
             ps = cx.conectar().prepareStatement("UPDATE Leccion SET id_modulo = ? ,titulo = ?, descripcion = ?,material = ? WHERE id_leccion = ?");
             ps.setInt(1, leccion.getId_modulo());
             ps.setString(2, leccion.getTítulo());
@@ -100,13 +104,11 @@ public class daoLeccion {
             if(filasActualizadas > 0) {
                 return true; // La actualización fue exitosa
             } else {
-                return false; // No se encontró ningún módulo con el ID proporcionado
+                return false; // No se encontró ninguna lección con el ID proporcionado
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
             return false;
         }
-    }
-    
-    
+    } 
 }

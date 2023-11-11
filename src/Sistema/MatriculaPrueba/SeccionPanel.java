@@ -145,7 +145,7 @@ public class SeccionPanel extends javax.swing.JPanel {
     public void llenarComboBoxCursos(){
         daoCurso cursos = new daoCurso();
         cbCurso.removeAllItems();
-        ArrayList<Curso> listaCursos = cursos.obtenercrusos();
+        ArrayList<Curso> listaCursos = cursos.obtenerCursos();
         for(Curso curso : listaCursos){
             cbCurso.addItem(curso.getNombreCurso());
         }
@@ -155,7 +155,7 @@ public class SeccionPanel extends javax.swing.JPanel {
     public int obtenerIDCurso(){
 
         daoCurso cursos = new daoCurso();
-        ArrayList<Curso> listaCursos = cursos.obtenercrusos();
+        ArrayList<Curso> listaCursos = cursos.obtenerCursos();
         for(Curso curso : listaCursos){
             if(cbCurso.getSelectedItem().equals(curso.getNombreCurso())) {
                 return curso.getId_curso();

@@ -1,14 +1,14 @@
-    /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/*
+ * Definición de la clase abstracta Usuario.
+ * Representa un usuario genérico en un sistema, con atributos como ID de usuario, nombre, edad, sexo, teléfono, correo electrónico, nacionalidad y contraseña.
+ * Se proporciona un constructor con parámetros para inicializar los atributos.
+ * También se incluyen métodos getter y setter para acceder y modificar los atributos.
+ * Esta clase es abstracta, lo que significa que no se puede instanciar directamente y debe ser extendida por clases concretas.
  */
 package Sistema.Clases;
 
-/**
- *
- * @author USUARIO
- */
 public abstract class Usuario {
+    // Atributos de la clase Usuario
     protected int id_usuario;
     protected String nombre;
     protected int edad;
@@ -18,6 +18,7 @@ public abstract class Usuario {
     protected String nacionalidad;
     protected String contrasenia;
 
+    // Constructor con parámetros para inicializar los atributos
     public Usuario(int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
         this.id_usuario = id_usuario;
         this.nombre = nombre;
@@ -29,9 +30,7 @@ public abstract class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    
-
-
+    // Métodos getter y setter para acceder y modificar los atributos
     public String getTelefono() {
         return telefono;
     }
@@ -48,8 +47,6 @@ public abstract class Usuario {
         this.id_usuario = id_usuario;
     }
 
-    
-   
     public String getNombre() {
         return nombre;
     }
@@ -97,8 +94,4 @@ public abstract class Usuario {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
-  
-    
-    
-    
 }

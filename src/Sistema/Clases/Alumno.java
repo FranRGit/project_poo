@@ -5,19 +5,34 @@
 
 package Sistema.Clases;
 
+// Definición de la clase Alumno que hereda de la clase Usuario
+public class Alumno extends Usuario {
 
-
-/**
- *
- * @author AULA F.DE ING.DE SIS
- */
-public class Alumno extends Usuario{
+    // Atributo adicional específico para la clase Alumno
     protected String nivel_Academico;
-    
-     
-    //METODO AÚN NO DISPONIBLE
-    /*public void inscribirseAMateria() {
+
+    // Constructor de la clase Alumno que utiliza el constructor de la clase base (Usuario)
+    public Alumno(String nivel_Academico, int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
+        // Llamada al constructor de la clase base (Usuario) mediante 'super'
+        super(id_usuario, nombre, edad, sexo, telefono, email, nacionalidad, contrasenia);
+        // Inicialización del atributo específico para Alumno
+        this.nivel_Academico = nivel_Academico;
+    }
+
+    // Métodos getter y setter para el atributo nivel_Academico
+    public String getNivel_Academico() {
+        return nivel_Academico;
+    }
+
+    public void setNivel_Academico(String nivel_Academico) {
+        this.nivel_Academico = nivel_Academico;
+    }
+
+    // Método aún no disponible para inscribirse a una materia
+    /*
+    public void inscribirseAMateria() {
         try {
+            // Solicita al usuario el nombre de la materia a la que desea inscribirse
             String materia = JOptionPane.showInputDialog("Ingrese el nombre de la materia a la que desea inscribirse:");
 
             // Verifica si el alumno ya está inscrito en la materia
@@ -29,23 +44,10 @@ public class Alumno extends Usuario{
                 JOptionPane.showMessageDialog(null, "Inscripción exitosa a la materia: " + materia);
             }
         } catch (Exception e) {
+            // Manejo de excepciones en caso de error al inscribirse en la materia
             JOptionPane.showMessageDialog(null, "Error al inscribirse en la materia: " + e.getMessage());
         }
-    }      
+    }
     */
 
-    public Alumno(String nivel_Academico, int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
-        super(id_usuario, nombre, edad, sexo, telefono, email, nacionalidad, contrasenia);
-        this.nivel_Academico = nivel_Academico;
-    }
-
-    public String getNivel_Academico() {
-        return nivel_Academico;
-    }
-
-    public void setNivel_Academico(String nivel_Academico) {
-        this.nivel_Academico = nivel_Academico;
-    }
-    
-    
 }

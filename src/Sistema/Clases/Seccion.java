@@ -1,39 +1,41 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Definición de la clase Seccion.
+ * Representa una sección de un curso en un sistema educativo.
+ * Contiene atributos como el ID de sección, nombre de la sección, ID de curso, ID de profesor y horario.
+ * Se proporcionan constructores vacío y con parámetros para inicializar los atributos.
+ * También se incluyen los métodos getter y setter para acceder y modificar los atributos.
  */
 package Sistema.Clases;
+
 import Sistema.Conexion.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-/**
- *
- * @author USUARIO
- */
+
 public class Seccion {
+    // Atributos de la clase Seccion
     private int id_seccion;
     private String nombreSeccion;
     private int id_curso;
     private int id_profesor;
     private String horario;
 
-    
+    // Constructor vacío
     public Seccion() {
         
     }
     
+    // Constructor con parámetros
     public Seccion(int id_seccion, String nombreSeccion, int id_curso, int id_profesor, String horario) {
         this.id_seccion = id_seccion;
         this.nombreSeccion = nombreSeccion;
         this.id_curso = id_curso;
         this.id_profesor = id_profesor;
         this.horario = horario;
-
     }
     
-    //SETTERS Y GETTERS
+    // SETTERS Y GETTERS
 
     public int getId_seccion() {
         return id_seccion;
@@ -74,12 +76,4 @@ public class Seccion {
     public void setHorario(String horario) {
         this.horario = horario;
     }
-    
-    
 }
-
-
-
-
-  
-
