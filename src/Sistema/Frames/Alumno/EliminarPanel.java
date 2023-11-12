@@ -31,6 +31,7 @@ public class EliminarPanel extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         pnlUpAlumno5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -53,7 +54,7 @@ public class EliminarPanel extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
         setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         pnlUpAlumno5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -235,7 +236,13 @@ public class EliminarPanel extends javax.swing.JDialog {
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlUpAlumno5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = 106;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(90, 240, 77, 230);
+        getContentPane().add(pnlUpAlumno5, gridBagConstraints);
 
         pack();
         setLocationRelativeTo(null);

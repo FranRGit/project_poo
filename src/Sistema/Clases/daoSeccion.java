@@ -153,6 +153,6 @@ public class daoSeccion implements CRUD{
             e.printStackTrace();
         }
         
-         return secciones;
+        return secciones;
     }
 }

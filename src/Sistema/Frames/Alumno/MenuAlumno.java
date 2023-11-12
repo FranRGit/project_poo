@@ -297,7 +297,7 @@ public class MenuAlumno extends javax.swing.JPanel {
 
     public void actualizar(){
         actualizarTablaGenérica<Alumno> tablaActualizada = new actualizarTablaGenérica<>(); //TABLA GENERICA
-        String[] columnas = {"ID", "Nombre", "Edad", "Telefono","Nivel"}; //COLUMNAS
+        String[] columnas = {"ID_USUARIO", "Nombre", "Edad", "Telefono","Nivel"}; //COLUMNAS
         tablaActualizada.actualizarTabla(dao.obtenerListaAlumno(), columnas, tblAlumno);
     }
     
