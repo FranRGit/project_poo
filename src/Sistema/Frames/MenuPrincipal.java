@@ -4,7 +4,7 @@
  */
 package Sistema.Frames;
 
-import Sistema.Frames.JPrincipal;
+import Sistema.Frames.Principal.JPrincipal;
 import java.awt.Container;
 
 /**
@@ -39,7 +39,7 @@ public class MenuPrincipal extends javax.swing.JPanel {
         OpcionesTxt.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         OpcionesTxt.setForeground(new java.awt.Color(96, 131, 165));
         OpcionesTxt.setText("MENU DE OPCIONES");
-        add(OpcionesTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 148, -1, -1));
+        add(OpcionesTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, 20));
 
         UsuarioPanel.setBackground(new java.awt.Color(255, 255, 255));
         UsuarioPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -71,7 +71,7 @@ public class MenuPrincipal extends javax.swing.JPanel {
                 .addGap(25, 25, 25))
         );
 
-        add(UsuarioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 208, -1, -1));
+        add(UsuarioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, -1, -1));
 
         MateriaPanel.setBackground(new java.awt.Color(255, 255, 255));
         MateriaPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -103,12 +103,12 @@ public class MenuPrincipal extends javax.swing.JPanel {
                 .addGap(24, 24, 24))
         );
 
-        add(MateriaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 208, -1, -1));
+        add(MateriaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void UsuarioPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioPanelMouseClicked
-        MenuUsuario mu = new MenuUsuario();
-        mu.setSize(670, 580);
+        MenuOpcionesUser mu = new MenuOpcionesUser();
+        mu.setSize(890, 750); 
         mu.setLocation(0, 0);
         
         // Obtén el contenedor principal
@@ -128,7 +128,7 @@ public class MenuPrincipal extends javax.swing.JPanel {
     private void MateriaPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MateriaPanelMouseClicked
         // TODO add your handling code here:
         MenuMateria mou = new MenuMateria();
-        mou.setSize(670, 580);
+        mou.setSize(890, 750);
         mou.setLocation(0, 0);
 
         Container container = this.getParent();

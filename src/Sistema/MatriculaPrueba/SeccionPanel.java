@@ -129,8 +129,8 @@ public class SeccionPanel extends javax.swing.JPanel {
             int id_curso = obtenerIDCurso();
             Seccion seccion = new Seccion(0, tfName.getText(), id_curso, 0, tfHorario.getText());
             
-            daoSeccion seccionDAO = new daoSeccion();
-            if(seccionDAO.agregarSeccion(seccion)){
+            daoSeccion seccionDAO = new daoSeccion(seccion);
+            if(seccionDAO.agregar()){
                 System.out.println("Se agregó seccion");
             } else {
                 throw new Exception("No se pudo abrir seccion");
@@ -145,7 +145,7 @@ public class SeccionPanel extends javax.swing.JPanel {
     public void llenarComboBoxCursos(){
         daoCurso cursos = new daoCurso();
         cbCurso.removeAllItems();
-        ArrayList<Curso> listaCursos = cursos.obtenerCursos();
+        ArrayList<Curso> listaCursos = cursos.obtenerLista();
         for(Curso curso : listaCursos){
             cbCurso.addItem(curso.getNombreCurso());
         }
@@ -153,9 +153,9 @@ public class SeccionPanel extends javax.swing.JPanel {
     
     //OBTNER ID DEL CURSO
     public int obtenerIDCurso(){
-
-        daoCurso cursos = new daoCurso();
-        ArrayList<Curso> listaCursos = cursos.obtenerCursos();
+        Curso aux = new Curso();
+        daoCurso cursos = new daoCurso(aux);
+        ArrayList<Curso> listaCursos = cursos.obtenerLista();
         for(Curso curso : listaCursos){
             if(cbCurso.getSelectedItem().equals(curso.getNombreCurso())) {
                 return curso.getId_curso();

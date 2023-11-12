@@ -4,25 +4,37 @@
  */
 package Sistema.Clases;
 
+import Sistema.Clases.Interfaces.CRUD;
 import Sistema.Conexion.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Clase encargada de realizar operaciones relacionadas con los módulos en la base de datos.
  * Author: User
  */
-public class daoModulo {
+public class daoModulo implements CRUD {
+    
     Conexion cm;
+    Modulo modulo = new Modulo();
 
-    // Constructor que inicializa la conexión a la base de datos
     public daoModulo() {
+        cm = new Conexion();
+    }
+    
+    
+    // Constructor que inicializa la conexión a la base de datos
+    public daoModulo(Modulo modulo) {
+        this.modulo = modulo;
         cm = new Conexion();
     }
 
     // Método para agregar un nuevo módulo a la base de datos
-    public boolean agregarModulo(Modulo modulo) {
+   
+    @Override
+    public boolean agregar() {
         try{
             PreparedStatement ps = null;
             PreparedStatement ps2 = null;
@@ -51,8 +63,10 @@ public class daoModulo {
     }
 
     // Método para eliminar un módulo de la base de datos
-    public void eliminarModulo(Modulo modulo) {
-        try{
+ 
+    @Override
+    public boolean eliminar() {
+        try {
             PreparedStatement ps = null;
 
             // ELIMINAR EL MÓDULO DE LA TABLA
@@ -64,13 +78,16 @@ public class daoModulo {
             cm.desconectar();
         } catch (SQLException ex) {
             ex.printStackTrace();
-            // Puedes manejar la excepción de otra manera, como lanzar una excepción personalizada.
+            return false;
         }
+        return true;
     }
 
     // Método para mostrar todos los módulos en la base de datos
-    public void mostrarModulo() {
-        try{
+
+    @Override
+    public Object mostrar(int id) {
+        try {
             PreparedStatement ps = null;
             ResultSet rs = null;
 
@@ -80,28 +97,27 @@ public class daoModulo {
 
             // Iterar a través de los resultados y mostrar la información de cada módulo
             while (rs.next()) {
-                int id_modulo = rs.getInt("id_modulo");
-                String titulo = rs.getString("titulo");
-                int id_curso = rs.getInt("id_curso");
-
-                // Puedes imprimir o mostrar la información de cada módulo como desees
-                System.out.println("ID de Módulo: " + id_modulo);
-                System.out.println("Título: " + titulo);
-                System.out.println("ID de Curso: " + id_curso);
-                System.out.println("-------------");
+                modulo.setId_modulo(rs.getInt("id_modulo"));
+                modulo.setId_curso(rs.getInt("id_curso"));
+                modulo.setTitulo(rs.getString("titulo"));
+                if(id == modulo.getId_curso()){
+                    rs.close();
+                    ps.close();
+                    cm.desconectar();
+                    return modulo;
+                }
             }
-
-            rs.close();
-            ps.close();
-            cm.desconectar();
         } catch (SQLException ex) {
             ex.printStackTrace();
-            // Puedes manejar la excepción de otra manera, como lanzar una excepción personalizada.
+
         }
+        return null;
     }
 
     // Método para editar un módulo existente en la base de datos
-    public boolean editarModulo(Modulo modulo) {
+    
+    @Override
+    public boolean modificar() {
         try {
             PreparedStatement ps = null;
 
@@ -126,4 +142,32 @@ public class daoModulo {
             return false;
         }
     }
+
+    @Override
+    public ArrayList obtenerLista() {
+        ArrayList<Modulo> modulos = new ArrayList<>();
+
+        
+         try {
+            PreparedStatement ps = cm.conectar().prepareStatement("SELECT * FROM Modulo");
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                Modulo temp = new Modulo();
+                temp.setId_modulo(rs.getInt("id_modulo"));
+                temp.setId_curso(rs.getInt("id_curso"));
+                temp.setTitulo(rs.getString("titulo"));
+                
+                modulos.add(temp);
+            }
+            rs.close();
+            ps.close();
+            cm.desconectar();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+         return modulos;
+    }
+    
 }

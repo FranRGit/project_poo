@@ -11,6 +11,10 @@ public class Profesor extends Usuario {
     // Atributo adicional específico para la clase Profesor
     protected String especialidad;
 
+    public Profesor() {
+    }
+
+    
     // Constructor que utiliza el constructor de la clase base (Usuario) y asigna la especialidad
     public Profesor(String especialidad, int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
         super(id_usuario, nombre, edad, sexo, telefono, email, nacionalidad, contrasenia);

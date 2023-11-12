@@ -19,9 +19,15 @@ public class Modulo {
     protected String titulo;
 
     // Constructor que recibe una instancia de la clase Conexion
-    public Modulo(Conexion cx) {
-        cx = new Conexion();
+    public Modulo() {
     }
+
+    public Modulo(int id_curso, int id_modulo, String titulo) {
+        this.id_curso = id_curso;
+        this.id_modulo = id_modulo;
+        this.titulo = titulo;
+    }
+    
     
     // SETTERS Y GETTERS 
 

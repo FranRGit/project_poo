@@ -822,9 +822,9 @@ public class PrincipalAdmi extends javax.swing.JFrame {
         try {
            int edad = Integer.parseInt(txtEdad.getText());
             Usuario usuario = new Alumno(txtNivel.getText(), 0, txtNombre.getText(),edad,txtSexo.getText(),"", txtEmail.getText(), "", "");
-            daoUsuario dUsuario = new daoUsuario();
+            daoUsuario dUsuario = new daoUsuario(usuario);
         
-            if(dUsuario.agregarUsuario(usuario)){
+            if(dUsuario.agregar()){
                 System.out.println("Se agregó al usuario");
             } else {
                 System.out.println("Error al agregar usuario");

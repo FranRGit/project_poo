@@ -11,6 +11,9 @@ public class Alumno extends Usuario {
     // Atributo adicional específico para la clase Alumno
     protected String nivel_Academico;
 
+    public Alumno(){
+        
+    }
     // Constructor de la clase Alumno que utiliza el constructor de la clase base (Usuario)
     public Alumno(String nivel_Academico, int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
         // Llamada al constructor de la clase base (Usuario) mediante 'super'

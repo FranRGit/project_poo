@@ -4,25 +4,35 @@
  */
 package Sistema.Clases;
 
+import Sistema.Clases.Interfaces.CRUD;
 import Sistema.Conexion.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Clase encargada de realizar operaciones relacionadas con las lecciones en la base de datos.
  * Author: User
  */
-public class daoLeccion {
+public class daoLeccion implements CRUD {
     Conexion cx;
-
+    Leccion leccion = new Leccion();
+    
+    public daoLeccion(){
+        cx = new Conexion();
+    }
+    
     // Constructor que inicializa la conexión a la base de datos
-    public daoLeccion() {
-        
+    public daoLeccion(Leccion leccion) {
+        cx = new Conexion();
+        this.leccion = leccion;
     }
 
     // Método para agregar una nueva lección a la base de datos
-    public boolean agregarLeccion(Leccion leccion){
+    
+    @Override
+    public boolean agregar() {
         try {
             PreparedStatement ps = null;
             ps = cx.conectar().prepareStatement("INSERT INTO Leccion VALUES (null,?,?,?,?)");
@@ -39,37 +49,9 @@ public class daoLeccion {
         return true;
     }
 
-    // Método para mostrar una lección específica de la base de datos
-    public Leccion mostrarLeccion(int id_leccion){
-        Leccion leccion = new Leccion();
-        
-        try {
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-            ps = cx.conectar().prepareStatement("SELECT * FROM Alumno");
-            rs = ps.executeQuery();
-            while(rs.next()){
-                leccion.setId_leccion(rs.getInt("id_leccion"));
-                leccion.setId_modulo(rs.getInt("id_modulo"));
-                leccion.setTítulo(rs.getString("titulo"));
-                leccion.setDescripcion(rs.getString("descripcion"));
-                leccion.setMaterial(rs.getString("material"));
-                if(id_leccion == leccion.getId_leccion()){    
-                    rs.close();
-                    ps.close();
-                    cx.desconectar();
-                    return leccion;
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-  
-        return null;
-    }
-
     // Método para eliminar una lección de la base de datos
-    public boolean eliminarLeccion(Leccion leccion){
+    @Override
+    public boolean eliminar() {
         try {
             PreparedStatement ps = null;
             ps = cx.conectar().prepareStatement("DELETE FROM Leccion WHERE id = ?");
@@ -83,9 +65,39 @@ public class daoLeccion {
         return true;
     }
 
-    // Método para modificar una lección existente en la base de datos
-    public boolean modificarLeccion(Leccion leccion){
-         try {
+    // Método para mostrar una lección específica de la base de datos
+    @Override
+    public Object mostrar(int id) {
+                Leccion leccion = new Leccion();
+        
+        try {
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            ps = cx.conectar().prepareStatement("SELECT * FROM Alumno");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                leccion.setId_leccion(rs.getInt("id_leccion"));
+                leccion.setId_modulo(rs.getInt("id_modulo"));
+                leccion.setTítulo(rs.getString("titulo"));
+                leccion.setDescripcion(rs.getString("descripcion"));
+                leccion.setMaterial(rs.getString("material"));
+                if(id == leccion.getId_leccion()){    
+                    rs.close();
+                    ps.close();
+                    cx.desconectar();
+                    return leccion;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+  
+        return null;
+    }
+
+    @Override
+    public boolean modificar() {
+        try {
             PreparedStatement ps = null;
 
             // Actualizar la lección en la tabla
@@ -110,5 +122,34 @@ public class daoLeccion {
             ex.printStackTrace();
             return false;
         }
-    } 
+    }
+
+    @Override
+    public ArrayList obtenerLista() {
+        ArrayList<Leccion> lecciones = new ArrayList<>();
+
+        
+         try {
+            PreparedStatement ps = cx.conectar().prepareStatement("SELECT * FROM Curso");
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                Leccion temp = new Leccion();
+                temp.setId_leccion(rs.getInt("id_leccion"));
+                temp.setId_modulo(rs.getInt("id_modulo"));
+                temp.setTítulo(rs.getString("titulo"));
+                temp.setDescripcion(rs.getString("descripcion"));
+                temp.setMaterial(rs.getString("material"));
+                
+                lecciones.add(temp);
+            }
+            rs.close();
+            ps.close();
+            cx.desconectar();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+         return lecciones;
+    }
 }

@@ -124,12 +124,12 @@ public class RegistrarMateriaPanel extends javax.swing.JPanel {
         try {
             
             Curso curso = new Curso();
-            daoCurso dCurso = new daoCurso();
+            daoCurso dCurso = new daoCurso(curso);
             curso.setNombreCurso(txtfnombre.getText());
             curso.setCategoriaCurso(txtfCategoria.getText());
             curso.setPeriodo(txtfPeriodo.getText());
 
-            if(dCurso.agregarCurso(curso)){
+            if(dCurso.agregar()){
                 System.out.println("Se agregó la materia exitosamente");
             } else {
                 System.out.println("Error al agregar materia");

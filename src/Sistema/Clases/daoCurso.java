@@ -5,13 +5,13 @@
  */
 package Sistema.Clases;
 
+import Sistema.Clases.Interfaces.CRUD;
 import Sistema.Conexion.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -19,16 +19,26 @@ import java.util.logging.Logger;
  *
  * @author PC HP
  */
-public class daoCurso {
+public class daoCurso implements CRUD{
     Conexion cx;
+    Curso curso = new Curso();
 
-    // Constructor que inicializa la conexión a la base de datos
+    // Constructor que solo inicializa la conexión a la base de datos
     public daoCurso() {
         cx = new Conexion();
     }
 
+    
+    // Constructor que pasa como parametro el objeto
+    public daoCurso(Curso curso) {
+        this.curso = curso;
+        cx = new Conexion();
+    }
+
     // Método para agregar un nuevo curso a la base de datos
-    public boolean agregarCurso(Curso curso){
+    
+    @Override
+    public boolean agregar() {
         PreparedStatement ps = null;
         
         try {
@@ -43,10 +53,11 @@ public class daoCurso {
         }
         return true;
     }
-
+    
     // Método para eliminar un curso de la base de datos
-    public boolean eliminarCurso(Curso curso){
-         try {
+    @Override
+    public boolean eliminar() {
+        try {
             PreparedStatement ps = null;
             ps = cx.conectar().prepareStatement("DELETE FROM Curso WHERE id_curso = ?");
             ps.setInt(1, curso.getId_curso());
@@ -60,9 +71,8 @@ public class daoCurso {
     }
 
     // Método para mostrar un curso específico de la base de datos
-    public Curso mostrarCurso(int id){
-        Curso curso = new Curso();
-        
+    @Override
+    public Object mostrar(int id) {
         try {
             PreparedStatement ps = null;
             ResultSet rs = null;
@@ -85,10 +95,12 @@ public class daoCurso {
         }
         
         return null;
+
     }
 
     // Método para editar un curso existente en la base de datos
-    public boolean editarCurso(Curso curso) {
+    @Override
+    public boolean modificar() {
         PreparedStatement ps = null;
 
         try {
@@ -107,24 +119,28 @@ public class daoCurso {
     }
 
     // Método para obtener una lista de todos los cursos de la base de datos
-    public ArrayList<Curso> obtenerCursos(){
+    @Override
+    public ArrayList obtenerLista() {
         ArrayList<Curso> cursos = new ArrayList<>();
-        String consulta = "SELECT FROM * cursos";
         
          try {
             PreparedStatement ps = cx.conectar().prepareStatement("SELECT * FROM Curso");
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
-                int id_curso = rs.getInt("id_curso");
-                String nombre = rs.getString("nombre");
-                String periodo = rs.getString("periodo");
-                String categoria = rs.getString("Categoria");
+                Curso aux = new Curso();
                 
-                Curso aux = new Curso(id_curso, nombre, periodo, categoria);
+                aux.setId_curso(rs.getInt("id_curso"));
+                aux.setNombreCurso(rs.getString("nombre"));
+                aux.setPeriodo(rs.getString("periodo"));
+                aux.setCategoriaCurso(rs.getString("categoria"));
+                
+                
                 cursos.add(aux);
             }
-            
+            rs.close();
+            ps.close();
+            cx.desconectar();
         } catch (SQLException e) {
             e.printStackTrace();
         }

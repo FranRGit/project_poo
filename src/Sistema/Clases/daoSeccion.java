@@ -4,28 +4,37 @@
  */
 package Sistema.Clases;
 
+import Sistema.Clases.Interfaces.CRUD;
 import Sistema.Conexion.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Clase encargada de realizar operaciones relacionadas con las secciones en la base de datos.
  * Author: User
  */
-public class daoSeccion {
+public class daoSeccion implements CRUD{
     Conexion cs;
+    Seccion seccion = new Seccion();
 
-    // Constructor que inicializa la conexión a la base de datos
     public daoSeccion() {
         cs = new Conexion();
     }
-
+    
+    // Constructor que inicializa la conexión a la base de datos
+    public daoSeccion(Seccion seccion) {
+        cs = new Conexion();
+        this.seccion = seccion;
+    }
+    
     // Método para agregar una nueva sección a la base de datos
-    public boolean agregarSeccion(Seccion seccion){
+    @Override
+    public boolean agregar() {
         try {
             PreparedStatement ps = null;
-            
+
             // INSERTAR SECCIÓN EN LA TABLA
             ps = cs.conectar().prepareStatement("INSERT INTO Seccion VALUES (null,?,?,?,?)");
             ps.setString(1, seccion.getNombreSeccion());
@@ -40,8 +49,8 @@ public class daoSeccion {
         return true;
     }
 
-    // Método para eliminar una sección de la base de datos
-    public void eliminarSeccion(Seccion seccion) {
+    @Override
+    public boolean eliminar() {
         try {
             PreparedStatement ps = null;
 
@@ -54,11 +63,14 @@ public class daoSeccion {
             cs.desconectar();
         } catch (SQLException ex) {
             ex.printStackTrace();
+            return false;
         }
+        
+        return true;
     }
 
-    // Método para mostrar todas las secciones en la base de datos
-    public void mostrarSeccion() {
+    @Override
+    public Object mostrar(int id) {
         try {
             PreparedStatement ps = null;
             ResultSet rs = null;
@@ -69,31 +81,29 @@ public class daoSeccion {
 
             // Iterar a través de los resultados y mostrar la información de cada sección
             while (rs.next()) {
-                int id_seccion = rs.getInt("id_seccion");
-                String nombreSeccion = rs.getString("nombreSeccion");
-                int id_curso = rs.getInt("id_curso");
-                int id_profesor = rs.getInt("id_profesor");
-                String horario = rs.getString("horario");
+                
+                seccion.setId_seccion(rs.getInt("id_seccion"));
+                seccion.setNombreSeccion(rs.getString("nombreSeccion"));
+                seccion.setId_curso(rs.getInt("id_curso"));
+                seccion.setId_profesor(rs.getInt("id_profesor"));
+                seccion.setHorario(rs.getString("horario"));
 
-                // Imprimir información de cada sección
-                System.out.println("ID de Sección: " + id_seccion);
-                System.out.println("Nombre de la Sección: " + nombreSeccion);
-                System.out.println("ID de Curso: " + id_curso);
-                System.out.println("ID de Profesor: " + id_profesor);
-                System.out.println("Horario: " + horario);
-                System.out.println("-------------");
+                if(id == seccion.getId_seccion()){    
+                    rs.close();
+                    ps.close();
+                    cs.desconectar();
+                    return seccion;
+                }
             }
-
-            rs.close();
-            ps.close();
-            cs.desconectar();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        return null;
     }
-
+    
     // Método para editar la información de una sección existente en la base de datos
-    public boolean editarSeccion(Seccion seccion) {
+    @Override
+    public boolean modificar() {
         try {
             PreparedStatement ps = null;
 
@@ -116,5 +126,33 @@ public class daoSeccion {
             ex.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public ArrayList obtenerLista() {
+        ArrayList<Seccion> secciones = new ArrayList<>();
+        
+         try {
+            PreparedStatement ps = cs.conectar().prepareStatement("SELECT * FROM Seccion");
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                Seccion temp = new Seccion();
+                temp.setId_seccion(rs.getInt("id_seccion"));
+                temp.setNombreSeccion(rs.getString("nombreSeccion"));
+                temp.setId_curso(rs.getInt("id_curso"));
+                temp.setId_profesor(rs.getInt("id_profesor"));
+                temp.setHorario(rs.getString("horario"));
+                
+                secciones.add(temp);
+            }
+            rs.close();
+            ps.close();
+            cs.desconectar();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+         return secciones;
     }
 }

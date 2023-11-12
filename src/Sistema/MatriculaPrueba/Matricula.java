@@ -29,6 +29,7 @@ public class Matricula extends javax.swing.JFrame {
     private void initComponents() {
 
         InformacionMatricula = new javax.swing.JPanel();
+        jProgressBar1 = new javax.swing.JProgressBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -41,11 +42,17 @@ public class Matricula extends javax.swing.JFrame {
         InformacionMatricula.setLayout(InformacionMatriculaLayout);
         InformacionMatriculaLayout.setHorizontalGroup(
             InformacionMatriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(InformacionMatriculaLayout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         InformacionMatriculaLayout.setVerticalGroup(
             InformacionMatriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(InformacionMatriculaLayout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         getContentPane().add(InformacionMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 380, 400));
@@ -138,5 +145,6 @@ public class Matricula extends javax.swing.JFrame {
     private javax.swing.JPanel InformacionMatricula;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
 }

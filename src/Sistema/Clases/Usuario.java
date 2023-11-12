@@ -18,6 +18,10 @@ public abstract class Usuario {
     protected String nacionalidad;
     protected String contrasenia;
 
+    public Usuario() {
+    }
+
+    
     // Constructor con parámetros para inicializar los atributos
     public Usuario(int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
         this.id_usuario = id_usuario;

@@ -1,28 +1,40 @@
 // Definición de la clase daoUsuario, encargada de realizar operaciones CRUD en la base de datos para la entidad Usuario
 package Sistema.Clases;
 
+import Sistema.Clases.Interfaces.CRUD;
 import Sistema.Conexion.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-public class daoUsuario {
+
+public class daoUsuario implements CRUD{
     // Objeto para gestionar la conexión a la base de datos
     Conexion cx;
-
+    Usuario usuario = new Usuario() {};
+    
+    public daoUsuario(){
+        cx = new Conexion();
+    }
+    
     // Constructor que inicializa la conexión
-    public daoUsuario() {
+    public daoUsuario(Usuario usuario) {
+       this.usuario = usuario;
        cx = new Conexion();
     }
     
+    // Métodos para realizar las operaciones CRUD restantes (eliminar, mostrar, editar) pueden ser implementados en el futuro
+    
     // Método para agregar un nuevo usuario a la base de datos, incluyendo la inserción en las tablas Alumno o Profesor si es aplicable
-    public boolean agregarUsuario(Usuario usuario) {
-        try {
+    @Override
+    public boolean agregar() {
+         try {
             PreparedStatement ps = null;
             ResultSet rs = null;
 
             // INSERTAR USUARIO EN LA TABLA
-            ps = cx.conectar().prepareStatement("INSERT INTO Usuario VALUES (null,?,?,?,?,?,?,?)");
+            ps = cx.conectar().prepareStatement("INSERT INTO Usuario VALUES (null,?,?,?,?,?,?,?,?)");
             ps.setString(1, usuario.getNombre());
             ps.setString(2, usuario.getEmail());
             ps.setString(3, usuario.getNacionalidad());
@@ -30,6 +42,12 @@ public class daoUsuario {
             ps.setInt(5, usuario.getEdad());
             ps.setString(6, usuario.getTelefono());
             ps.setString(7, usuario.getSexo());
+            if(usuario instanceof Alumno){
+                ps.setString(8, "Alumno");
+            } else {
+                ps.setString(8, "Profesor");
+            }
+            
             ps.executeUpdate();
 
             // OBTENER ULTIMO ID
@@ -56,8 +74,10 @@ public class daoUsuario {
             return false;
         }
         return true;
+        
     }
-
+    
+    
     // Método para agregar un nuevo alumno a la base de datos
     public boolean agregarAlumno(Usuario usuario){
         PreparedStatement ps3 = null;
@@ -70,13 +90,14 @@ public class daoUsuario {
                 ps3.executeUpdate();
                 
                 cx.desconectar();
+                return true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-            return false;
+            
         }
 
-        return true;
+        return false;
     }
     
     // Método para agregar un nuevo profesor a la base de datos
@@ -90,23 +111,124 @@ public class daoUsuario {
                 ps3.setInt(2, usuario.getId_usuario());
                 ps3.executeUpdate();
                 cx.desconectar();
+                return true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            
         }
+        return false;
+    }
+    
+
+    @Override
+    public boolean eliminar() {
         return true;
     }
-    
-    // Métodos para realizar las operaciones CRUD restantes (eliminar, mostrar, editar) pueden ser implementados en el futuro
-    public void eliminarUsuario(Usuario usuario) {
-       // Lógica para eliminar un usuario de la base de datos
+
+    @Override
+    public Object mostrar(int id) {
+       return true; 
     }
 
-    public void mostrarUsuarios() {
-        // Lógica para mostrar todos los usuarios almacenados en la base de datos
+    @Override
+    public boolean modificar() {
+        return true;
+    }
+
+     // Método para obtener una lista de todos los usuarios de la base de datos
+    @Override
+    public ArrayList obtenerLista() {
+         ArrayList<Usuario> usuarios = new ArrayList<>();
+         
+         
+         try {
+            PreparedStatement ps = cx.conectar().prepareStatement("SELECT * FROM Usuario");
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                
+                Usuario temp;
+                
+                if (rs.getString("tipo_usuario").equals("Alumno")) {
+                    temp = new Alumno();
+                } else if (rs.getString("tipo_usuario").equals("Profesor")) {
+                    temp = new Profesor();
+                } else {
+                    return null;
+                }
+                
+                temp.setId_usuario(rs.getInt("id_usuario"));
+                temp.setNombre(rs.getString("nombre"));
+                temp.setEmail(rs.getString("email"));
+                temp.setNacionalidad(rs.getString("nacionalidad"));
+                temp.setEdad(rs.getInt("edad"));
+                temp.setTelefono(rs.getString("telefono"));
+                temp.setSexo(rs.getString("sexo"));
+
+                usuarios.add(temp);
+            }
+            
+            rs.close();
+            ps.close();
+            cx.desconectar();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+         return usuarios;
     }
     
-    public void editarUsuario(){
-        // Lógica para editar la información de un usuario en la base de datos
+    public ArrayList obtenerListaAlumno(){
+        ArrayList<Alumno> listaAlumnos = new ArrayList<>();
+        
+        try {
+            ArrayList<Usuario> listaUsuario = obtenerLista();
+            
+            PreparedStatement ps = cx.conectar().prepareStatement("SELECT * FROM Alumno");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                for(Usuario temp : listaUsuario ){
+                    if(temp instanceof Alumno && temp.getId_usuario() == rs.getInt("id_usuario")){
+                        ((Alumno) temp).setNivel_Academico(rs.getString("nivel_academico"));
+                        listaAlumnos.add((Alumno) temp);
+                    }
+                }
+            }
+
+            rs.close();
+            ps.close();
+            cx.desconectar();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            //Panel error
+        }
+        return listaAlumnos;
+    }
+
+     
+     
+    public ArrayList obtenerListaProfesor(){
+        ArrayList<Profesor> listaProfesor = new ArrayList<>();
+        
+        try {
+            ArrayList<Usuario> listaUsuario = obtenerLista();
+            PreparedStatement ps = cx.conectar().prepareStatement("SELECT * FROM Profesor");
+            ResultSet rs = ps.executeQuery();
+             while(rs.next()){
+                for(Usuario temp : listaUsuario ){
+                    if(temp instanceof Profesor && temp.getId_usuario() == rs.getInt("id_profesor")){
+                        ((Profesor) temp).setEspecialidad(rs.getString("especialidad"));
+                        listaProfesor.add((Profesor) temp);
+                    }
+                }
+            }     
+        } catch (SQLException e) {
+            e.printStackTrace();
+            //Panel error
+        }
+        return listaProfesor;
     }
 }

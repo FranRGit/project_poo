@@ -12,7 +12,7 @@ import java.sql.*;
  */
 public class Conexion {
     // Objeto que representa la conexión a la base de datos
-    Connection cx = null;
+    private Connection cx = null;
     
     // Método para establecer la conexión a la base de datos
     public Connection conectar() {
@@ -28,6 +28,7 @@ public class Conexion {
         } catch (ClassNotFoundException | SQLException e) {
             // Captura excepciones y muestra la traza de la pila en caso de error
             e.printStackTrace();
+            return null;
         } 
         
         // Retorna el objeto Connection para su uso en otras partes del código
@@ -35,14 +36,19 @@ public class Conexion {
     }
     
     // Método para cerrar la conexión a la base de datos
-    public void desconectar(){
+    public void desconectar() {
         try {
-            // Cierra la conexión
-            cx.close();
+            // Verifica si la conexión no es nula antes de intentar cerrarla
+            if (cx != null && !cx.isClosed()) {
+                cx.close();
+                // Mensaje indicando que la conexión se cerró correctamente
+                System.out.println("Conexión cerrada correctamente");
+            }
         } catch (SQLException ex) {
             // Captura excepciones y muestra la traza de la pila en caso de error al cerrar la conexión
             ex.printStackTrace();
         }
     }
+
 }
 

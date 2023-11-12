@@ -224,9 +224,9 @@ public class RegistrarProfesorPanel extends javax.swing.JPanel {
             
             Usuario usuario = new Profesor("zzz",0,txtfNombreP.getText(),9, txtfsexo.getText(),"", txtfEmailP.getText(), txtNacionalidadP.getText(), "");
             //int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia
-            daoUsuario dUsuario = new daoUsuario();
+            daoUsuario dUsuario = new daoUsuario(usuario);
 
-            if(dUsuario.agregarUsuario(usuario)){
+            if(dUsuario.agregar()){
                 System.out.println("Se agregó al usuario");
             } else {
                 System.out.println("Error al agregar usuario");
