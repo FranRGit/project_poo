@@ -36,9 +36,11 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
 
         pnlMatriculaxsecc = new javax.swing.JPanel();
         txtOpciones5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txtOpciones1 = new javax.swing.JLabel();
         txtOpciones3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         txtOpciones2 = new javax.swing.JLabel();
         txtOpciones = new javax.swing.JLabel();
@@ -61,6 +63,9 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
         txtOpciones5.setText("MATRICULA DE SECCION");
         pnlMatriculaxsecc.add(txtOpciones5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/matriculaSeccion.png"))); // NOI18N
+        pnlMatriculaxsecc.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 130, 130));
+
         add(pnlMatriculaxsecc, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 220, 210));
 
         jPanel3.setBackground(new java.awt.Color(253, 253, 253));
@@ -81,6 +86,10 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
         txtOpciones3.setForeground(new java.awt.Color(96, 131, 165));
         txtOpciones3.setText("USUARIO");
         jPanel3.add(txtOpciones3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/reporteUsuario.png"))); // NOI18N
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 140, 130));
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 220, 210));
 
@@ -146,6 +155,8 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
     }//GEN-LAST:event_pnlMatriculaxseccMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel pnlMatriculaxsecc;
