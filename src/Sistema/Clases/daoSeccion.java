@@ -50,7 +50,7 @@ public class daoSeccion implements CRUD{
     }
 
     @Override
-    public boolean eliminar() {
+    public boolean eliminar(int id) {
         try {
             PreparedStatement ps = null;
 

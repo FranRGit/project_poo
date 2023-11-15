@@ -6,8 +6,8 @@ package Sistema.Reportes;
 
 import Sistema.Clases.Matricula;
 import Sistema.Clases.daoMatrícula;
-import Sistema.Frames.Tablas.TableDesigner;
-import Sistema.Frames.Tablas.actualizarTablaGenérica;
+import Sistema.Frames.Tablas.tableDesigner;
+import Sistema.Frames.Tablas.tablaGenérica;
 
 /**
  *
@@ -21,7 +21,7 @@ public class ReporteMatriculaxSeccion extends javax.swing.JPanel {
      */
     public ReporteMatriculaxSeccion() {
         initComponents();
-        TableDesigner td = new TableDesigner();
+        tableDesigner td = new tableDesigner();
         td.designTable(tblMatriculas);
         
         //Actualizar tabla
@@ -29,7 +29,7 @@ public class ReporteMatriculaxSeccion extends javax.swing.JPanel {
     }
     public void actualizar(){
         Matricula matricula = new Matricula();
-        actualizarTablaGenérica<Matricula> tablaActualizada = new actualizarTablaGenérica<>(); //TABLA GENERICA
+        tablaGenérica<Matricula> tablaActualizada = new tablaGenérica<>(); //TABLA GENERICA
         String[] columnas = {"ID_MATRICULA", "ID_ALUMNO", "ID_SECCION", "Fecha de Matricula","Estado"}; //COLUMNAS
         tablaActualizada.actualizarTabla(dao.obtenerLista(), columnas, tblMatriculas);
     }

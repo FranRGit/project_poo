@@ -17,6 +17,7 @@ public abstract class Usuario {
     protected String email;
     protected String nacionalidad;
     protected String contrasenia;
+    private String tipo_usuario;
 
     public Usuario() {
     }
@@ -98,4 +99,14 @@ public abstract class Usuario {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
+
+    public String getTipo_usuario() {
+        return tipo_usuario;
+    }
+
+    public void setTipo_usuario(String tipo_usuario) {
+        this.tipo_usuario = tipo_usuario;
+    }
+    
+    
 }

@@ -19,7 +19,7 @@ public class RegistroExitosoDialog extends JDialog {
         JLabel label = new JLabel("Registro exitoso");
         add(label);
 
-        setTitle("Éxito");
+        setTitle("ERROR");
         setSize(200, 100);
         setLocationRelativeTo(null);
         setModal(true);

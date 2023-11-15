@@ -16,7 +16,7 @@ import javax.swing.JTable;
  */
 
 //CLASE GENÉRICA
-public class actualizarTablaGenérica<T> {
+public class tablaGenérica<T> {
     
     public void actualizarTabla(ArrayList<T> lista, String[] columnas, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
@@ -43,9 +43,19 @@ public class actualizarTablaGenérica<T> {
         
         if (elemento instanceof Alumno) {
             Usuario usuario = (Alumno) elemento;
-            return new Object[]{usuario.getId_usuario(), usuario.getNombre(), usuario.getEdad(), usuario.getTelefono()};
+            return new Object[]{usuario.getId_usuario(), usuario.getNombre(), usuario.getEdad(), usuario.getTelefono(),((Alumno)usuario).getNivel_Academico()};
         }
-
+        
+        if(elemento instanceof Profesor) {
+            Usuario usuario = (Profesor) elemento;
+            System.out.println("Hola");
+            return new Object[]{usuario.getId_usuario(), usuario.getNombre(), usuario.getEdad(), usuario.getTelefono(),((Profesor)usuario).getEspecialidad()};
+        }
+        
+        if(elemento instanceof Curso) {
+            Curso curso = (Curso) elemento;
+            return new Object[]{curso.getId_curso(), curso.getNombreCurso(), curso.getPeriodo(), curso.getCategoriaCurso()};
+        }
         return new Object[0];
     }
 

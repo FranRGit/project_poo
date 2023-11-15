@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-public class TableDesigner {
+public class tableDesigner {
     public static void designTable(JTable table) {
         //TABLA
         table.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -21,7 +21,7 @@ public class TableDesigner {
         table.getTableHeader().setReorderingAllowed(false);
         table.getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bin, boolean b1n1, int i, int i1) {
-                TableHeader header = new TableHeader(o + "");
+                tablaHeader header = new tablaHeader(o + "");
                 if (i1 == 4) {
                     header.setHorizontalAlignment(JLabel.CENTER);
                 }

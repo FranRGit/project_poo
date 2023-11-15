@@ -7,8 +7,8 @@ package Sistema.Frames.Alumno;
 
 import Sistema.Clases.Alumno;
 import Sistema.Clases.daoUsuario;
-import Sistema.Frames.Tablas.TableDesigner;
-import Sistema.Frames.Tablas.actualizarTablaGenérica;
+import Sistema.Frames.Tablas.tableDesigner;
+import Sistema.Frames.Tablas.tablaGenérica;
 import Sistema.Frames.Principal.JPrincipal;
 import java.awt.Color;
 import java.awt.Point;
@@ -30,7 +30,7 @@ public class MenuAlumno extends javax.swing.JPanel {
         initComponents();
         
         //Diseño de tabla
-        TableDesigner td = new TableDesigner();
+        tableDesigner td = new tableDesigner();
         td.designTable(tblAlumno);
         
         //Actualizar tabla
@@ -296,7 +296,7 @@ public class MenuAlumno extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void actualizar(){
-        actualizarTablaGenérica<Alumno> tablaActualizada = new actualizarTablaGenérica<>(); //TABLA GENERICA
+        tablaGenérica<Alumno> tablaActualizada = new tablaGenérica<>(); //TABLA GENERICA
         String[] columnas = {"ID_USUARIO", "Nombre", "Edad", "Telefono","Nivel"}; //COLUMNAS
         tablaActualizada.actualizarTabla(daoUsuario.obtenerListaAlumno(), columnas, tblAlumno);
     }
@@ -338,9 +338,10 @@ public class MenuAlumno extends javax.swing.JPanel {
     private void EliminarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarPanelMouseClicked
         JPrincipal jp = new JPrincipal();
         Point aux = this.getLocationOnScreen();
-        EliminarPanel ep = new EliminarPanel(jp, true);
-        ep.setLocation(aux.x, aux.y);
+        EliminarAlumno ep = new EliminarAlumno(jp, true);
+        ep.setLocation(aux.x-304, aux.y);
         ep.setVisible(true);
+        actualizar();
     }//GEN-LAST:event_EliminarPanelMouseClicked
 
     private void EliminarPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarPanelMouseEntered
@@ -352,7 +353,7 @@ public class MenuAlumno extends javax.swing.JPanel {
     }//GEN-LAST:event_EliminarPanelMouseExited
 
     private void FiltrarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FiltrarPanelMouseClicked
-        actualizarTablaGenérica<Alumno> tablaActualizada = new actualizarTablaGenérica<>(); //TABLA GENERICA
+        tablaGenérica<Alumno> tablaActualizada = new tablaGenérica<>(); //TABLA GENERICA
         String[] columnas = {"ID", "Nombre", "Edad", "Telefono","Nivel"}; //COLUMNAS
         tablaActualizada.buscar(daoUsuario.obtenerListaAlumno(), txtBuscar.getText(), columnas, tblAlumno);
     }//GEN-LAST:event_FiltrarPanelMouseClicked

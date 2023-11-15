@@ -24,7 +24,13 @@ public class JPrincipal extends javax.swing.JFrame {
     public JPrincipal() {
         initComponents();
         
-        
+        InicioPanel ip1 = new InicioPanel();
+        ip1.setSize(890, 750);
+        ip1.setLocation(0, 0);
+        InformacionPanel.removeAll();
+        InformacionPanel.add(ip1, BorderLayout.CENTER);
+        InformacionPanel.revalidate();
+        InformacionPanel.repaint();
         
     }
 

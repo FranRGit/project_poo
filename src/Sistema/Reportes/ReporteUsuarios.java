@@ -6,33 +6,30 @@ package Sistemas.Reportes;
 
 import Sistema.Clases.Usuario;
 import Sistema.Clases.daoUsuario;
-import Sistema.Frames.Tablas.TableDesigner;
-import Sistema.Frames.Tablas.actualizarTablaGenérica;
+import Sistema.Frames.Tablas.tableDesigner;
+import Sistema.Frames.Tablas.tablaGenérica;
+import Sistema.Frames.Tablas.tablaReporteUsuarios;
 
 /**
  *
  * @author Jorge
  */
-public class ReporteUsuarios extends javax.swing.JPanel implements java.beans.Customizer {
+public class ReporteUsuarios extends javax.swing.JPanel{
     
-    private Object bean;
     daoUsuario daousuario = new daoUsuario();
     /**
      * Creates new customizer ReporteUsuarios
      */
     public ReporteUsuarios() {
         initComponents();
-        TableDesigner tabla = new TableDesigner();
-        tabla.designTable(Usuarios);
-        Actualizar();
+        tableDesigner tabla = new tableDesigner();
+        tabla.designTable(tblUsuarios);
+        actualizar();
     }
-    public void Actualizar(){
-        actualizarTablaGenérica<Usuario> actualizar = new actualizarTablaGenérica<>();
-        String[] columna = {"Id_Usuario","nombre","Edad","teléfono","Nivel"};
-        actualizar.actualizarTabla(daousuario.obtenerLista(), columna, Usuarios);
-    }
-    public void setObject(Object bean) {
-        this.bean = bean;
+    public void actualizar(){
+        tablaReporteUsuarios tru = new tablaReporteUsuarios();
+        String[] columna = {"Id_Usuario","Nombre","Edad","Teléfono","Tipo_Usuario"};
+        tru.actualizarTabla(daousuario.obtenerLista(), columna, tblUsuarios);
     }
 
     /**
@@ -44,12 +41,13 @@ public class ReporteUsuarios extends javax.swing.JPanel implements java.beans.Cu
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        Usuarios = new javax.swing.JTable();
+        tblUsuarios = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(253, 253, 253));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Usuarios.setModel(new javax.swing.table.DefaultTableModel(
+        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -65,24 +63,24 @@ public class ReporteUsuarios extends javax.swing.JPanel implements java.beans.Cu
                 return canEdit [columnIndex];
             }
         });
-        Usuarios.setRowHeight(40);
-        Usuarios.setSelectionBackground(new java.awt.Color(204, 204, 204));
-        Usuarios.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        Usuarios.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jScrollPane1.setViewportView(Usuarios);
+        tblUsuarios.setRowHeight(40);
+        tblUsuarios.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        tblUsuarios.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tblUsuarios.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        jScrollPane1.setViewportView(tblUsuarios);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 530, 430));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 760, 580));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(96, 131, 165));
-        jLabel1.setText("MENU USUARIOS");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 269, 39));
+        jLabel1.setText("REPORTE  USUARIOS");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 269, 39));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTable Usuarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable tblUsuarios;
     // End of variables declaration//GEN-END:variables
 }

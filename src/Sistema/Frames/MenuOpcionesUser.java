@@ -6,8 +6,7 @@ package Sistema.Frames;
 
 
 import Sistema.Frames.Alumno.MenuAlumno;
-import Sistema.Frames.Principal.JPrincipal;
-import javax.swing.JDialog;
+import Sistema.Frames.Profesor.MenuProfesor;
 import java.awt.Container;
 
 /**
@@ -98,7 +97,7 @@ public class MenuOpcionesUser extends javax.swing.JPanel {
 
         Materialbl.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         Materialbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Materialbl.setText("MATERIA");
+        Materialbl.setText("PROFESOR");
 
         InicioIcono2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/profesor.png")));
 

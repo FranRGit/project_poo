@@ -122,7 +122,21 @@ public class daoUsuario implements CRUD{
     
 
     @Override
-    public boolean eliminar() {
+    public boolean eliminar(int id) {
+        try {
+            PreparedStatement ps = null;
+
+            // ELIMINAR LA SECCIÓN DE LA TABLA
+            ps = cx.conectar().prepareStatement("DELETE FROM Usuario WHERE id_usuario = ?");
+            ps.setInt(1, id);
+            ps.executeUpdate();
+
+            ps.close();
+            cx.desconectar();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
         return true;
     }
 
@@ -165,6 +179,7 @@ public class daoUsuario implements CRUD{
                 temp.setEdad(rs.getInt("edad"));
                 temp.setTelefono(rs.getString("telefono"));
                 temp.setSexo(rs.getString("sexo"));
+                temp.setTipo_usuario(rs.getString("tipo_usuario"));
 
                 usuarios.add(temp);
             }
@@ -219,7 +234,7 @@ public class daoUsuario implements CRUD{
             ResultSet rs = ps.executeQuery();
              while(rs.next()){
                 for(Usuario temp : listaUsuario ){
-                    if(temp instanceof Profesor && temp.getId_usuario() == rs.getInt("id_profesor")){
+                    if(temp instanceof Profesor && temp.getId_usuario() == rs.getInt("id_usuario")){
                         ((Profesor) temp).setEspecialidad(rs.getString("especialidad"));
                         listaProfesor.add((Profesor) temp);
                     }

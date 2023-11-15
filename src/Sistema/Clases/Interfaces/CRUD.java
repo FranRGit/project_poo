@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public interface CRUD {
     
     public boolean agregar();
-    public boolean eliminar();
+    public boolean eliminar(int id);
     public Object mostrar(int id);
     public boolean modificar();
     public ArrayList obtenerLista();

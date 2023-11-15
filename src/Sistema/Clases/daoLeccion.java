@@ -51,7 +51,7 @@ public class daoLeccion implements CRUD {
 
     // Método para eliminar una lección de la base de datos
     @Override
-    public boolean eliminar() {
+    public boolean eliminar(int id) {
         try {
             PreparedStatement ps = null;
             ps = cx.conectar().prepareStatement("DELETE FROM Leccion WHERE id = ?");

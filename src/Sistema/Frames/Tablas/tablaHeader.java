@@ -13,9 +13,9 @@ import javax.swing.border.EmptyBorder;
  *
  * @author USUARIO
  */
-public class TableHeader extends JLabel{
+public class tablaHeader extends JLabel{
 
-    public TableHeader(String text) {
+    public tablaHeader(String text) {
         super(text);
         setOpaque(true);
         setBackground(new Color(75,99,132));

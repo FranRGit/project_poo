@@ -4,6 +4,9 @@
  */
 package Sistema.Frames.Seccion;
 
+import Sistema.Clases.Seccion;
+import Sistema.Clases.daoSeccion;
+import Sistema.Frames.RegistroExitosoDialog;
 import java.awt.Color;
 
 /**
@@ -15,6 +18,9 @@ public class RegistrarSeccion extends javax.swing.JDialog {
     /**
      * Creates new form RegistrarSeccion
      */
+    public RegistrarSeccion(){
+        
+    }
     public RegistrarSeccion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -36,12 +42,14 @@ public class RegistrarSeccion extends javax.swing.JDialog {
         jLabel48 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
-        txtIdAlumno = new javax.swing.JTextField();
+        txtIdNombre = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtCursoId = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
+        txtProfesorId = new javax.swing.JTextField();
         btnSubirCurso = new javax.swing.JButton();
+        txtHorario = new javax.swing.JTextField();
+        jLabel47 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -82,51 +90,51 @@ public class RegistrarSeccion extends javax.swing.JDialog {
 
         jLabel41.setFont(new java.awt.Font("Consolas", 0, 30)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(72, 99, 124));
-        jLabel41.setText("SUBIR NUEVO CURSO");
+        jLabel41.setText("SUBIR NUEVA SECCIÓN");
         jLabel41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        pnlUpAlumno5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 76, 320, 51));
+        pnlUpAlumno5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 76, 340, 51));
 
         jLabel42.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel42.setText("Nombre:");
         pnlUpAlumno5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 140, 105, 30));
 
-        txtIdAlumno.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtIdAlumno.setText("Series Y Ecuaciones Diferenciales");
-        txtIdAlumno.addActionListener(new java.awt.event.ActionListener() {
+        txtIdNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtIdNombre.setText("Series Y Ecuaciones Diferenciales");
+        txtIdNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdAlumnoActionPerformed(evt);
+                txtIdNombreActionPerformed(evt);
             }
         });
-        pnlUpAlumno5.add(txtIdAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 188, 356, 30));
+        pnlUpAlumno5.add(txtIdNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 188, 356, 30));
 
         jLabel43.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel43.setText("Periodo:");
+        jLabel43.setText("Curso:");
         pnlUpAlumno5.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 236, 173, 25));
 
-        txtNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtNombre.setText("2023 - I");
-        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtCursoId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtCursoId.setText("2023 - I");
+        txtCursoId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtNombreMouseClicked(evt);
+                txtCursoIdMouseClicked(evt);
             }
         });
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtCursoId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                txtCursoIdActionPerformed(evt);
             }
         });
-        pnlUpAlumno5.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 279, 356, 33));
+        pnlUpAlumno5.add(txtCursoId, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 279, 356, 33));
 
         jLabel46.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel46.setText("Categoría:");
+        jLabel46.setText("Profesor:");
         pnlUpAlumno5.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 330, 135, 27));
 
-        txtEmail.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEmail.setText("jTextField3");
-        pnlUpAlumno5.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 375, 206, 30));
+        txtProfesorId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtProfesorId.setText("jTextField3");
+        pnlUpAlumno5.add(txtProfesorId, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 375, 206, 30));
 
         btnSubirCurso.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        btnSubirCurso.setText("SUBIR CURSO");
+        btnSubirCurso.setText("SUBIR SECCIÓN");
         btnSubirCurso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSubirCursoMouseClicked(evt);
@@ -137,7 +145,15 @@ public class RegistrarSeccion extends javax.swing.JDialog {
                 btnSubirCursoActionPerformed(evt);
             }
         });
-        pnlUpAlumno5.add(btnSubirCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 236, 196, 44));
+        pnlUpAlumno5.add(btnSubirCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 196, 44));
+
+        txtHorario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtHorario.setText("jTextField3");
+        pnlUpAlumno5.add(txtHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 206, 30));
+
+        jLabel47.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jLabel47.setText("Horario:");
+        pnlUpAlumno5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 135, 27));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -154,20 +170,33 @@ public class RegistrarSeccion extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_jPanel6MouseClicked
 
-    private void txtIdAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdAlumnoActionPerformed
+    private void txtIdNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdAlumnoActionPerformed
+    }//GEN-LAST:event_txtIdNombreActionPerformed
 
-    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+    private void txtCursoIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCursoIdMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreMouseClicked
+    }//GEN-LAST:event_txtCursoIdMouseClicked
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtCursoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCursoIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
+    }//GEN-LAST:event_txtCursoIdActionPerformed
 
     private void btnSubirCursoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubirCursoMouseClicked
+        try {
+            Seccion seccion = new Seccion(0, txtIdNombre.getText(), 0, 0,txtHorario.getText());
+            daoSeccion dSeccion = new daoSeccion(seccion);
 
+            if(dSeccion.agregar()){
+                System.out.println("Se agregó el nuevo curso");
+                RegistroExitosoDialog re = new RegistroExitosoDialog();
+                re.setVisible(true);
+            } else {
+                throw new Exception("ERROR");
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
     }//GEN-LAST:event_btnSubirCursoMouseClicked
 
     private void btnSubirCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirCursoActionPerformed
@@ -222,11 +251,13 @@ public class RegistrarSeccion extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel pnlUpAlumno5;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtIdAlumno;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtCursoId;
+    private javax.swing.JTextField txtHorario;
+    private javax.swing.JTextField txtIdNombre;
+    private javax.swing.JTextField txtProfesorId;
     // End of variables declaration//GEN-END:variables
 }

@@ -65,7 +65,7 @@ public class daoModulo implements CRUD {
     // Método para eliminar un módulo de la base de datos
  
     @Override
-    public boolean eliminar() {
+    public boolean eliminar(int id) {
         try {
             PreparedStatement ps = null;
 

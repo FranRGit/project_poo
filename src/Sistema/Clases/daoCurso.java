@@ -56,7 +56,7 @@ public class daoCurso implements CRUD{
     
     // Método para eliminar un curso de la base de datos
     @Override
-    public boolean eliminar() {
+    public boolean eliminar(int id) {
         try {
             PreparedStatement ps = null;
             ps = cx.conectar().prepareStatement("DELETE FROM Curso WHERE id_curso = ?");
