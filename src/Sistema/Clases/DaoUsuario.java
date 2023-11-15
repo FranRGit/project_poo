@@ -79,47 +79,63 @@ public class daoUsuario implements CRUD{
     
     
     // Método para agregar un nuevo alumno a la base de datos
-    public boolean agregarAlumno(Usuario usuario){
+    public boolean agregarAlumno(Usuario usuario) {
         PreparedStatement ps3 = null;
-        
+
         try {
-            if(usuario instanceof Alumno){
+            if (usuario instanceof Alumno) {
+                ResultSet rs = null;
+
                 ps3 = cx.conectar().prepareStatement("INSERT INTO Alumno VALUES (null,?,?)");
                 ps3.setInt(1, usuario.getId_usuario());
                 ps3.setString(2, ((Alumno) usuario).nivel_Academico);
                 ps3.executeUpdate();
-                
+                rs = ps3.getGeneratedKeys();
+                //obtener ID alumno
+                if (rs.next()) {
+                    ((Alumno) usuario).setId_alumno(rs.getInt(1));
+                }
+                rs.close();
+                ps3.close();
+
                 cx.desconectar();
                 return true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-            
+
         }
 
         return false;
     }
-    
+
+
     // Método para agregar un nuevo profesor a la base de datos
-    public boolean agregarProfesor(Usuario usuario){
-       PreparedStatement ps3 = null;
-        
+    public boolean agregarProfesor(Usuario usuario) {
+        PreparedStatement ps3 = null;
+
         try {
-            if( usuario instanceof Profesor){
+            if (usuario instanceof Profesor) {
+                ResultSet rs = null;
                 ps3 = cx.conectar().prepareStatement("INSERT INTO Profesor VALUES (?,null,?)");
                 ps3.setString(1, ((Profesor) usuario).especialidad);
                 ps3.setInt(2, usuario.getId_usuario());
                 ps3.executeUpdate();
+                //obtener ID alumno
+                if (rs.next()) {
+                    ((Profesor) usuario).setId_profesor(rs.getInt(1));
+                }
+                rs.close();
+                ps3.close();
                 cx.desconectar();
                 return true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-            
+
         }
         return false;
     }
-    
 
     @Override
     public boolean eliminar(int id) {

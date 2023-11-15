@@ -56,6 +56,11 @@ public class tablaGenérica<T> {
             Curso curso = (Curso) elemento;
             return new Object[]{curso.getId_curso(), curso.getNombreCurso(), curso.getPeriodo(), curso.getCategoriaCurso()};
         }
+        
+        if(elemento instanceof ReporteMatricula){
+            ReporteMatricula rm = (ReporteMatricula) elemento;
+            return new Object[]{rm.getIdMatricula(),rm.getNombreA(),rm.getNombreP(),rm.getNombreS(),rm.getHorario(),rm.getFecha()};
+        }
         return new Object[0];
     }
 

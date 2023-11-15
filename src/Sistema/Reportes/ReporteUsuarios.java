@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Beans/Customizer.java to edit this template
  */
-package Sistemas.Reportes;
+package Sistema.Reportes;
 
 import Sistema.Clases.Usuario;
 import Sistema.Clases.daoUsuario;

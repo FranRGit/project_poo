@@ -77,7 +77,7 @@ public class MatriculaPanel extends javax.swing.JPanel {
         jLabel3.setText("Curso a matricular:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 220, 30));
 
-        CboxCursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CboxCursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALGEBRA", "CALCULO II", "FISICA", " " }));
         CboxCursos.setMinimumSize(new java.awt.Dimension(142, 22));
         CboxCursos.setPreferredSize(new java.awt.Dimension(142, 22));
         add(CboxCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 260, 50));
@@ -85,7 +85,7 @@ public class MatriculaPanel extends javax.swing.JPanel {
         jLabel4.setText("Sección:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 220, 30));
 
-        CboxSecciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CboxSecciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
         CboxSecciones.setPreferredSize(new java.awt.Dimension(142, 22));
         add(CboxSecciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 260, 50));
 

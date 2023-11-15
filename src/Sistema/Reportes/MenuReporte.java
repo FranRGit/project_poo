@@ -5,7 +5,7 @@
 package Sistema.Reportes;
 
 import Sistema.Reportes.ReporteMatriculaxSeccion;
-import Sistemas.Reportes.ReporteUsuarios;
+import Sistema.Reportes.ReporteUsuarios;
 import java.awt.Container;
 /**
  *

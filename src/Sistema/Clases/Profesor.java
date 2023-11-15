@@ -10,15 +10,16 @@ package Sistema.Clases;
 public class Profesor extends Usuario {
     // Atributo adicional específico para la clase Profesor
     protected String especialidad;
-
+    protected int id_profesor;
     public Profesor() {
     }
 
     
     // Constructor que utiliza el constructor de la clase base (Usuario) y asigna la especialidad
-    public Profesor(String especialidad, int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {
+    public Profesor(String especialidad, int id_profesor, int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia) {    
         super(id_usuario, nombre, edad, sexo, telefono, email, nacionalidad, contrasenia);
         this.especialidad = especialidad;
+        this.id_profesor = id_profesor;
     }
 
     // Métodos getter y setter para acceder y modificar la especialidad
@@ -29,4 +30,14 @@ public class Profesor extends Usuario {
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
+
+    public int getId_profesor() {
+        return id_profesor;
+    }
+
+    public void setId_profesor(int id_profesor) {
+        this.id_profesor = id_profesor;
+    }
+    
+    
 }

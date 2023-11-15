@@ -220,7 +220,7 @@ public class RegistrarProfesor extends javax.swing.JDialog {
         // TODO add your handling code here:
         try {
 
-            Usuario usuario = new Profesor("zzz",0,txtfNombreP.getText(),9, txtfsexo.getText(),"", txtfEmailP.getText(), txtNacionalidadP.getText(), "");
+            Usuario usuario = new Profesor("zzz",0,1,txtfNombreP.getText(),9, txtfsexo.getText(),"", txtfEmailP.getText(), txtNacionalidadP.getText(), "");
             //int id_usuario, String nombre, int edad, String sexo, String telefono, String email, String nacionalidad, String contrasenia
             daoUsuario dUsuario = new daoUsuario(usuario);
 

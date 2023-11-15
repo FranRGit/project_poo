@@ -13,13 +13,12 @@ import javax.swing.JFrame;
  *
  * @author User
  */
-public class Matricula extends javax.swing.JDialog {
+public class Matricula extends javax.swing.JFrame {
 
     /**
      * Creates new form Matricula
      */
     public Matricula(java.awt.Frame parent, boolean modal) {
-        super(parent,modal);
         initComponents();
         setBackground(new Color(0, 0, 0, 80)); // Configura el fondo transparente
     }
@@ -38,7 +37,7 @@ public class Matricula extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         InformacionMatricula.setBackground(new java.awt.Color(255, 255, 255));

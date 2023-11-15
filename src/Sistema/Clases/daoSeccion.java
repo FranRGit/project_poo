@@ -83,7 +83,7 @@ public class daoSeccion implements CRUD{
             while (rs.next()) {
                 
                 seccion.setId_seccion(rs.getInt("id_seccion"));
-                seccion.setNombreSeccion(rs.getString("nombreSeccion"));
+                seccion.setNombreSeccion(rs.getString("nombre"));
                 seccion.setId_curso(rs.getInt("id_curso"));
                 seccion.setId_profesor(rs.getInt("id_profesor"));
                 seccion.setHorario(rs.getString("horario"));
@@ -108,7 +108,7 @@ public class daoSeccion implements CRUD{
             PreparedStatement ps = null;
 
             // ACTUALIZAR LA INFORMACIÓN DE LA SECCIÓN EN LA TABLA
-            ps = cs.conectar().prepareStatement("UPDATE Seccion SET nombreSeccion=?, id_curso=?, id_profesor=?, horario=? WHERE id_seccion=?");
+            ps = cs.conectar().prepareStatement("UPDATE Seccion SET nombre=?, id_curso=?, id_profesor=?, horario=? WHERE id_seccion=?");
             ps.setString(1, seccion.getNombreSeccion());
             ps.setInt(2, seccion.getId_curso());
             ps.setInt(3, seccion.getId_profesor());
@@ -139,7 +139,7 @@ public class daoSeccion implements CRUD{
             while(rs.next()){
                 Seccion temp = new Seccion();
                 temp.setId_seccion(rs.getInt("id_seccion"));
-                temp.setNombreSeccion(rs.getString("nombreSeccion"));
+                temp.setNombreSeccion(rs.getString("nombre"));
                 temp.setId_curso(rs.getInt("id_curso"));
                 temp.setId_profesor(rs.getInt("id_profesor"));
                 temp.setHorario(rs.getString("horario"));

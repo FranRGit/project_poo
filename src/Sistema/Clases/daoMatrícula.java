@@ -32,12 +32,12 @@ public class daoMatrícula {
                 // OBTENER ULTIMO ID
                 rs = ps.getGeneratedKeys();
                 if (rs.next()) {
-                    matricula.setId_seccion(rs.getInt(1));
+                    matricula.setId_matricula(rs.getInt(1));
                 }
                 rs.close();
                 ps.close();
-                cx.desconectar();
-
+                cx.desconectar(); //esto en daomatricula
+                
             } catch (SQLException ex) {
                 ex.printStackTrace();
                 return false;

@@ -297,7 +297,7 @@ public class MenuAlumno extends javax.swing.JPanel {
 
     public void actualizar(){
         tablaGenérica<Alumno> tablaActualizada = new tablaGenérica<>(); //TABLA GENERICA
-        String[] columnas = {"ID_USUARIO", "Nombre", "Edad", "Telefono","Nivel"}; //COLUMNAS
+        String[] columnas = {"ID", "Nombre", "Edad", "Telefono","Nivel"}; //COLUMNAS
         tablaActualizada.actualizarTabla(daoUsuario.obtenerListaAlumno(), columnas, tblAlumno);
     }
     
@@ -324,7 +324,12 @@ public class MenuAlumno extends javax.swing.JPanel {
     }//GEN-LAST:event_RegistrarPanelMouseClicked
 
     private void ModificarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarPanelMouseClicked
-        // TODO add your handling code here:
+        JPrincipal jp = new JPrincipal();
+        Point aux = this.getLocationOnScreen();
+        BuscarAlumno ep = new BuscarAlumno(jp, true);
+        ep.setLocation(aux.x-304, aux.y);
+        ep.setVisible(true);
+        actualizar();   
     }//GEN-LAST:event_ModificarPanelMouseClicked
 
     private void ModificarPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarPanelMouseEntered
