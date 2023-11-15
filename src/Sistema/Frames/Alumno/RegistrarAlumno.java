@@ -6,6 +6,7 @@ package Sistema.Frames.Alumno;
 
 
 import Sistema.Clases.*;
+import Sistema.Frames.ErrorDialog;
 import Sistema.Frames.RegistroExitosoDialog;
 import java.awt.Color;
 
@@ -36,22 +37,22 @@ public class RegistrarAlumno extends javax.swing.JDialog {
     private void initComponents() {
 
         pnlUpAlumno5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel48 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        txtIdAlumno = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
         jLabel47 = new javax.swing.JLabel();
         btnSubirAlumno = new javax.swing.JButton();
         txtNivel = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
         txtSexo = new javax.swing.JTextField();
+        txtNombre1 = new javax.swing.JTextField();
+        jLabel49 = new javax.swing.JLabel();
+        txtNivel1 = new javax.swing.JTextField();
+        exitPanel = new javax.swing.JPanel();
+        exittxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -60,71 +61,47 @@ public class RegistrarAlumno extends javax.swing.JDialog {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlUpAlumno5.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel6MouseClicked(evt);
-            }
-        });
-
-        jLabel48.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel48.setText("X");
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        pnlUpAlumno5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel41.setFont(new java.awt.Font("Consolas", 0, 30)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(72, 99, 124));
         jLabel41.setText("SUBIR NUEVO ALUMNO");
         jLabel41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jLabel42.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel42.setText("Código:");
-
-        txtIdAlumno.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtIdAlumno.setText("jTextField1");
+        pnlUpAlumno5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 320, 51));
 
         jLabel43.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel43.setText("Nombre Completo:");
+        pnlUpAlumno5.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 173, 25));
 
-        txtNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtNombre.setText("jTextField2");
-        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtEmail.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEmail.setText("jTextField2");
+        txtEmail.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtNombreMouseClicked(evt);
+                txtEmailMouseClicked(evt);
             }
         });
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
+        pnlUpAlumno5.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 260, 33));
 
         jLabel44.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel44.setText("Edad:");
+        pnlUpAlumno5.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 114, 25));
 
         jLabel45.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel45.setText("Sexo:");
+        pnlUpAlumno5.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 356, 24));
 
         jLabel46.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel46.setText("E-mail:");
-
-        txtEmail.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEmail.setText("jTextField3");
+        pnlUpAlumno5.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 135, 27));
 
         jLabel47.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel47.setText("Nivel Académico");
+        jLabel47.setText("Teléfono");
+        pnlUpAlumno5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 172, -1));
 
         btnSubirAlumno.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         btnSubirAlumno.setText("SUBIR ALUMNO");
@@ -138,10 +115,13 @@ public class RegistrarAlumno extends javax.swing.JDialog {
                 btnSubirAlumnoActionPerformed(evt);
             }
         });
+        pnlUpAlumno5.add(btnSubirAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 196, 44));
 
         txtNivel.setText("jTextField4");
+        pnlUpAlumno5.add(txtNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 206, 33));
 
         txtEdad.setText("jTextField1");
+        pnlUpAlumno5.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 170, 32));
 
         txtSexo.setText("jTextField1");
         txtSexo.addActionListener(new java.awt.event.ActionListener() {
@@ -149,97 +129,59 @@ public class RegistrarAlumno extends javax.swing.JDialog {
                 txtSexoActionPerformed(evt);
             }
         });
+        pnlUpAlumno5.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 240, 40));
 
-        javax.swing.GroupLayout pnlUpAlumno5Layout = new javax.swing.GroupLayout(pnlUpAlumno5);
-        pnlUpAlumno5.setLayout(pnlUpAlumno5Layout);
-        pnlUpAlumno5Layout.setHorizontalGroup(
-            pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(670, 670, 670)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(303, 303, 303)
-                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(txtIdAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(235, 235, 235)
-                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(txtNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
-                .addComponent(btnSubirAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+        txtNombre1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtNombre1.setText("jTextField2");
+        txtNombre1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombre1MouseClicked(evt);
+            }
+        });
+        pnlUpAlumno5.add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 356, 33));
+
+        jLabel49.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jLabel49.setText("Nacionalidad");
+        pnlUpAlumno5.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 172, -1));
+
+        txtNivel1.setText("jTextField4");
+        pnlUpAlumno5.add(txtNivel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 206, 33));
+
+        exitPanel.setBackground(new java.awt.Color(255, 255, 255));
+        exitPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitPanelMouseClicked(evt);
+            }
+        });
+
+        exittxt.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        exittxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exittxt.setText("X");
+
+        javax.swing.GroupLayout exitPanelLayout = new javax.swing.GroupLayout(exitPanel);
+        exitPanel.setLayout(exitPanelLayout);
+        exitPanelLayout.setHorizontalGroup(
+            exitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(exitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(exitPanelLayout.createSequentialGroup()
+                    .addGap(0, 6, Short.MAX_VALUE)
+                    .addComponent(exittxt, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 6, Short.MAX_VALUE)))
         );
-        pnlUpAlumno5Layout.setVerticalGroup(
-            pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addGroup(pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(13, 13, 13)
-                .addGroup(pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(txtIdAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel47)))
-                .addGroup(pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(txtNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(9, 9, 9)
-                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addGroup(pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnSubirAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+        exitPanelLayout.setVerticalGroup(
+            exitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(exitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(exitPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(exittxt, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(pnlUpAlumno5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
+        pnlUpAlumno5.add(exitPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, -1, -1));
+
+        getContentPane().add(pnlUpAlumno5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,15 +190,15 @@ public class RegistrarAlumno extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_jPanel6MouseClicked
 
-    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+    private void txtEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreMouseClicked
+    }//GEN-LAST:event_txtEmailMouseClicked
 
     private void btnSubirAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubirAlumnoMouseClicked
 
         try {
             int edad = Integer.parseInt(txtEdad.getText());
-            Usuario usuario = new Alumno(txtNivel.getText(), 0, txtNombre.getText(),edad,txtSexo.getText(),"", txtEmail.getText(), "", "");
+            Usuario usuario = new Alumno(txtNivel.getText(), 0, txtEmail.getText(),edad,txtSexo.getText(),"", txtEmail.getText(), "", "");
             daoUsuario dUsuario = new daoUsuario(usuario);
 
             if(dUsuario.agregar()){
@@ -264,13 +206,18 @@ public class RegistrarAlumno extends javax.swing.JDialog {
                 RegistroExitosoDialog re = new RegistroExitosoDialog();
                 re.setVisible(true);
             } else {
-                throw new Exception("ERROR");
+                throw new Exception("ERROR : ");
             }
         } catch (Exception e) {
-            e.getMessage();
+             mostrarErrorDialog("No se puede agregar al usuario:");
         }
     }//GEN-LAST:event_btnSubirAlumnoMouseClicked
-
+    
+    private void mostrarErrorDialog(String errorMessage) {
+        ErrorDialog errorDialog = new ErrorDialog(errorMessage);
+        errorDialog.setVisible(true);
+    }
+    
     private void btnSubirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirAlumnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSubirAlumnoActionPerformed
@@ -278,6 +225,18 @@ public class RegistrarAlumno extends javax.swing.JDialog {
     private void txtSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSexoActionPerformed
+
+    private void txtNombre1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombre1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombre1MouseClicked
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void exitPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitPanelMouseClicked
+        dispose();
+    }//GEN-LAST:event_exitPanelMouseClicked
 
     
     /**
@@ -325,21 +284,21 @@ public class RegistrarAlumno extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubirAlumno;
+    private javax.swing.JPanel exitPanel;
+    private javax.swing.JLabel exittxt;
     private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JPanel pnlUpAlumno5;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtIdAlumno;
     private javax.swing.JTextField txtNivel;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNivel1;
+    private javax.swing.JTextField txtNombre1;
     private javax.swing.JTextField txtSexo;
     // End of variables declaration//GEN-END:variables
 }

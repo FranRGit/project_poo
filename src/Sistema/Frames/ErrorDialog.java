@@ -18,7 +18,7 @@ public class ErrorDialog extends JDialog {
     }
 
     private void initComponents(String errorMessage) {
-        JLabel label = new JLabel(errorMessage);
+        JLabel label = new JLabel("ERROR : "+errorMessage);
         add(label);
 
         setTitle("Error");
