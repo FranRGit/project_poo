@@ -4,8 +4,10 @@
  */
 package Sistema.Frames;
 
+
 import Sistema.Frames.Alumno.MenuAlumno;
 import Sistema.Frames.Principal.JPrincipal;
+import javax.swing.JDialog;
 import java.awt.Container;
 
 /**
@@ -31,8 +33,10 @@ public class MenuOpcionesUser extends javax.swing.JPanel {
         OpcionesTxt = new javax.swing.JLabel();
         UsuarioPanel = new javax.swing.JPanel();
         Usuariolbl = new javax.swing.JLabel();
+        InicioIcono1 = new javax.swing.JLabel();
         MateriaPanel = new javax.swing.JPanel();
         Materialbl = new javax.swing.JLabel();
+        InicioIcono2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -55,19 +59,28 @@ public class MenuOpcionesUser extends javax.swing.JPanel {
         Usuariolbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Usuariolbl.setText("ALUMNO");
 
+        InicioIcono1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/alumno.png")));
+
         javax.swing.GroupLayout UsuarioPanelLayout = new javax.swing.GroupLayout(UsuarioPanel);
         UsuarioPanel.setLayout(UsuarioPanelLayout);
         UsuarioPanelLayout.setHorizontalGroup(
             UsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UsuarioPanelLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(Usuariolbl, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGroup(UsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(UsuarioPanelLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(Usuariolbl, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(UsuarioPanelLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(InicioIcono1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         UsuarioPanelLayout.setVerticalGroup(
             UsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UsuarioPanelLayout.createSequentialGroup()
-                .addContainerGap(150, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(InicioIcono1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Usuariolbl)
                 .addGap(25, 25, 25))
         );
@@ -87,19 +100,28 @@ public class MenuOpcionesUser extends javax.swing.JPanel {
         Materialbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Materialbl.setText("MATERIA");
 
+        InicioIcono2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/profesor.png")));
+
         javax.swing.GroupLayout MateriaPanelLayout = new javax.swing.GroupLayout(MateriaPanel);
         MateriaPanel.setLayout(MateriaPanelLayout);
         MateriaPanelLayout.setHorizontalGroup(
             MateriaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MateriaPanelLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addComponent(Materialbl, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+            .addGroup(MateriaPanelLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addGroup(MateriaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MateriaPanelLayout.createSequentialGroup()
+                        .addComponent(Materialbl, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MateriaPanelLayout.createSequentialGroup()
+                        .addComponent(InicioIcono2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
         );
         MateriaPanelLayout.setVerticalGroup(
             MateriaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MateriaPanelLayout.createSequentialGroup()
-                .addContainerGap(151, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(InicioIcono2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Materialbl)
                 .addGap(24, 24, 24))
         );
@@ -142,6 +164,8 @@ public class MenuOpcionesUser extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel InicioIcono1;
+    private javax.swing.JLabel InicioIcono2;
     private javax.swing.JPanel MateriaPanel;
     private javax.swing.JLabel Materialbl;
     private javax.swing.JLabel OpcionesTxt;

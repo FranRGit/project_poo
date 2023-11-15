@@ -4,13 +4,11 @@
  */
 package Sistema.Frames.Principal;
 
-import Sistema.Frames.*;
 import Sistema.Frames.InicioPanel;
 import Sistema.Frames.MenuPrincipal;
 import Sistema.Frames.ReportePanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Point;
 
 /**
  *
@@ -251,6 +249,11 @@ public class JPrincipal extends javax.swing.JFrame {
         InicioTexto3.setForeground(new java.awt.Color(255, 255, 255));
         InicioTexto3.setText("CERRAR SESION");
         InicioTexto3.setPreferredSize(new java.awt.Dimension(90, 20));
+        InicioTexto3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                InicioTexto3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout CerrarSesionPanelLayout = new javax.swing.GroupLayout(CerrarSesionPanel);
         CerrarSesionPanel.setLayout(CerrarSesionPanelLayout);
@@ -485,6 +488,11 @@ public class JPrincipal extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x-xMouse,y-yMouse);
     }//GEN-LAST:event_headerMouseDragged
+
+    private void InicioTexto3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InicioTexto3MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_InicioTexto3MouseClicked
 
 
     /**

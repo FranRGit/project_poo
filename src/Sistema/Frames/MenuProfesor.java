@@ -34,7 +34,7 @@ public class MenuProfesor extends javax.swing.JPanel {
 
         OpcionesTxt.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         OpcionesTxt.setForeground(new java.awt.Color(96, 131, 165));
-        OpcionesTxt.setText("MENU  DE PROFESOR");
+        OpcionesTxt.setText("MENU  DE PROFESOR:D");
         add(OpcionesTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
