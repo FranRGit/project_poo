@@ -4,19 +4,24 @@
  */
 package Sistema.MatriculaPrueba;
 
+import Sistema.MatriculaPrueba.SeccionPanel;
 import java.awt.BorderLayout;
-
+import Sistema.Frames.RegistroExitosoDialog;
+import java.awt.Color;
+import javax.swing.JFrame;
 /**
  *
  * @author User
  */
-public class Matricula extends javax.swing.JFrame {
+public class Matricula extends javax.swing.JDialog {
 
     /**
      * Creates new form Matricula
      */
-    public Matricula() {
+    public Matricula(java.awt.Frame parent, boolean modal) {
+        super(parent,modal);
         initComponents();
+        setBackground(new Color(0, 0, 0, 80)); // Configura el fondo transparente
     }
 
     /**
@@ -97,7 +102,7 @@ public class Matricula extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        MatriculaPanel mp = new MatriculaPanel();
+        MatriculaPanel2 mp = new MatriculaPanel2();
         mp.setSize(880, 440);
         mp.setLocation(0, 0);
         InformacionMatricula.removeAll();
@@ -136,7 +141,14 @@ public class Matricula extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Matricula().setVisible(true);
+                Matricula dialog = new Matricula(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

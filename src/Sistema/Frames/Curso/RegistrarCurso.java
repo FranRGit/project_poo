@@ -9,10 +9,6 @@ import Sistema.Frames.RegistroExitosoDialog;
 import java.awt.Color;
 import javax.swing.JFrame;
 
-/**
- *
- * @author farid
- */
 public class RegistrarCurso extends javax.swing.JDialog {
 
     /**
@@ -21,8 +17,8 @@ public class RegistrarCurso extends javax.swing.JDialog {
     public RegistrarCurso(java.awt.Frame parent, boolean modal) {
         super(parent,modal);
         initComponents();
-         setBackground(new Color(0, 0, 0, 80)); // Configura el fondo transparente
-         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new Color(0, 0, 0, 80)); // Configura el fondo transparente
+//         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -226,7 +222,21 @@ public class RegistrarCurso extends javax.swing.JDialog {
     }//GEN-LAST:event_jPanel6MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        
+        try {
+            
+            Curso curso = new Curso(0, txtIdNombreCurso.getText(), txtPeriodo.getText(), txtCategoria.getText());
+            daoCurso dCurso = new daoCurso(curso);
+
+            if(dCurso.agregar()){
+                System.out.println("Se agregó el nuevo curso");
+                RegistroExitosoDialog re = new RegistroExitosoDialog();
+                re.setVisible(true);
+            } else {
+                throw new Exception("ERROR");
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**

@@ -7,8 +7,8 @@ package Sistema.Frames.Alumno;
 
 import Sistema.Clases.Alumno;
 import Sistema.Clases.daoUsuario;
-import Sistema.Frame.Tablas.TableDesigner;
-import Sistema.Frame.Tablas.actualizarTablaGenérica;
+import Sistema.Frames.Tablas.TableDesigner;
+import Sistema.Frames.Tablas.actualizarTablaGenérica;
 import Sistema.Frames.Principal.JPrincipal;
 import java.awt.Color;
 import java.awt.Point;
@@ -21,7 +21,7 @@ import java.awt.Point;
  */
 public class MenuAlumno extends javax.swing.JPanel {
     
-    private final daoUsuario dao = new daoUsuario();
+    private final daoUsuario daoUsuario = new daoUsuario();
     
     /**
      * Creates new form MenuOpcionesUser
@@ -298,7 +298,7 @@ public class MenuAlumno extends javax.swing.JPanel {
     public void actualizar(){
         actualizarTablaGenérica<Alumno> tablaActualizada = new actualizarTablaGenérica<>(); //TABLA GENERICA
         String[] columnas = {"ID_USUARIO", "Nombre", "Edad", "Telefono","Nivel"}; //COLUMNAS
-        tablaActualizada.actualizarTabla(dao.obtenerListaAlumno(), columnas, tblAlumno);
+        tablaActualizada.actualizarTabla(daoUsuario.obtenerListaAlumno(), columnas, tblAlumno);
     }
     
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
@@ -354,7 +354,7 @@ public class MenuAlumno extends javax.swing.JPanel {
     private void FiltrarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FiltrarPanelMouseClicked
         actualizarTablaGenérica<Alumno> tablaActualizada = new actualizarTablaGenérica<>(); //TABLA GENERICA
         String[] columnas = {"ID", "Nombre", "Edad", "Telefono","Nivel"}; //COLUMNAS
-        tablaActualizada.buscar(dao.obtenerListaAlumno(), txtBuscar.getText(), columnas, tblAlumno);
+        tablaActualizada.buscar(daoUsuario.obtenerListaAlumno(), txtBuscar.getText(), columnas, tblAlumno);
     }//GEN-LAST:event_FiltrarPanelMouseClicked
 
     private void FiltrarPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FiltrarPanelMouseEntered

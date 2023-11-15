@@ -5,8 +5,9 @@
 package Sistema.Frames.Principal;
 
 import Sistema.Frames.InicioPanel;
+import Sistema.Frames.Matricula.MatriculaPanel;
 import Sistema.Frames.MenuPrincipal;
-import Sistema.Frames.ReportePanel;
+import Sistema.Reportes.MenuReporte;
 import java.awt.BorderLayout;
 import java.awt.Color;
 
@@ -438,7 +439,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void IncioPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IncioPanelMouseClicked
         InicioPanel ip1 = new InicioPanel();
-        ip1.setSize(670, 580);
+        ip1.setSize(890, 750);
         ip1.setLocation(0, 0);
         InformacionPanel.removeAll();
         InformacionPanel.add(ip1, BorderLayout.CENTER);
@@ -448,7 +449,7 @@ public class JPrincipal extends javax.swing.JFrame {
     
     private void MenuPrincipalPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuPrincipalPanelMouseClicked
         MenuPrincipal mp = new MenuPrincipal();
-        mp.setSize(670, 580);
+        mp.setSize(890, 750); 
         mp.setLocation(0, 0);
         InformacionPanel.removeAll();
         InformacionPanel.add(mp, BorderLayout.CENTER);
@@ -457,25 +458,31 @@ public class JPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuPrincipalPanelMouseClicked
 
     private void MatriculaPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MatriculaPanelMouseClicked
-        ReportePanel rp = new ReportePanel();
-        rp.setSize(670, 500);
-        rp.setLocation(0, 0);
+        MatriculaPanel mp = new MatriculaPanel();
+        mp.setSize(890, 750);
+        mp.setLocation(0, 0);
         InformacionPanel.removeAll();
-        InformacionPanel.add(rp,BorderLayout.CENTER);
+        InformacionPanel.add(mp,BorderLayout.CENTER);
         InformacionPanel.revalidate();
         InformacionPanel.repaint();
     }//GEN-LAST:event_MatriculaPanelMouseClicked
 
     private void ReportesPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportesPanelMouseClicked
-        // TODO add your handling code here:
+        MenuReporte rp = new MenuReporte();
+        rp.setSize(890, 750);
+        rp.setLocation(0, 0);
+        InformacionPanel.removeAll();
+        InformacionPanel.add(rp,BorderLayout.CENTER);
+        InformacionPanel.revalidate();
+        InformacionPanel.repaint();
     }//GEN-LAST:event_ReportesPanelMouseClicked
 
     private void ReportesPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportesPanelMouseEntered
-        // TODO add your handling code here:
+        ReportesPanel.setBackground(new Color(75,99,132));
     }//GEN-LAST:event_ReportesPanelMouseEntered
 
     private void ReportesPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportesPanelMouseExited
-        // TODO add your handling code here:
+        ReportesPanel.setBackground(new Color(96,131,165));
     }//GEN-LAST:event_ReportesPanelMouseExited
 
     private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed

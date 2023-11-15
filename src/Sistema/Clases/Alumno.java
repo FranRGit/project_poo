@@ -31,26 +31,5 @@ public class Alumno extends Usuario {
         this.nivel_Academico = nivel_Academico;
     }
 
-    // Método aún no disponible para inscribirse a una materia
-    /*
-    public void inscribirseAMateria() {
-        try {
-            // Solicita al usuario el nombre de la materia a la que desea inscribirse
-            String materia = JOptionPane.showInputDialog("Ingrese el nombre de la materia a la que desea inscribirse:");
-
-            // Verifica si el alumno ya está inscrito en la materia
-            if (materiasInscritas.contains(materia)) {
-                JOptionPane.showMessageDialog(null, "Ya está inscrito en la materia: " + materia);
-            } else {
-                // Agrega la materia a la lista de materias inscritas
-                materiasInscritas.add(materia);
-                JOptionPane.showMessageDialog(null, "Inscripción exitosa a la materia: " + materia);
-            }
-        } catch (Exception e) {
-            // Manejo de excepciones en caso de error al inscribirse en la materia
-            JOptionPane.showMessageDialog(null, "Error al inscribirse en la materia: " + e.getMessage());
-        }
-    }
-    */
 
 }

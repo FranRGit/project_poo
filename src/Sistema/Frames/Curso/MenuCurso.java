@@ -1,26 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Sistema.Frames.Curso;
 
 import Sistema.Clases.Curso;
-import Sistema.Frame.Tablas.actualizarTablaGenérica;
+import Sistema.Clases.daoCurso;
+import Sistema.Frames.Seccion.RegistrarSeccion;
+import Sistema.Frames.Tablas.TableDesigner;
+import Sistema.Frames.Tablas.actualizarTablaGenérica;
 import Sistema.Frames.Principal.JPrincipal;
 import java.awt.Color;
 import java.awt.Point;
-
+import Sistema.MatriculaPrueba.Matricula;
+//import Sistema.Matricula.*;
+//import Sistema.MatriculaPrueba.Matricula;
 /**
  *
  * @author USUARIO
  */
 public class MenuCurso extends javax.swing.JPanel {
-
+    daoCurso dao = new daoCurso();
     /**
      * Creates new form MenuCurso2
      */
     public MenuCurso() {
         initComponents();
+        
+        //Diseño de tabla
+        TableDesigner td = new TableDesigner();
+        td.designTable(tblCurso);
+        
+        //Actualizar tabla
+        actualizar();
     }
 
     /**
@@ -30,8 +38,12 @@ public class MenuCurso extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAlumno = new javax.swing.JTable();
         MostrarDatos = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        SeccionPanel = new javax.swing.JPanel();
+        AgregarSeccion = new javax.swing.JLabel();
         DatosPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         RegistrarPanel = new javax.swing.JPanel();
@@ -44,7 +56,30 @@ public class MenuCurso extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         BuscarPanel = new javax.swing.JPanel();
         txtBuscar = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        TablaAlumno = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblCurso = new javax.swing.JTable();
+
+        tblAlumno.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblAlumno.setRowHeight(40);
+        tblAlumno.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        tblAlumno.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(tblAlumno);
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -54,24 +89,77 @@ public class MenuCurso extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(96, 131, 165));
         jLabel2.setText("Datos del curso :");
 
+        SeccionPanel.setBackground(new java.awt.Color(96, 131, 165));
+        SeccionPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SeccionPanelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SeccionPanelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                SeccionPanelMouseExited(evt);
+            }
+        });
+
+        AgregarSeccion.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        AgregarSeccion.setForeground(new java.awt.Color(242, 242, 242));
+        AgregarSeccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AgregarSeccion.setLabelFor(SeccionPanel);
+        AgregarSeccion.setText("Agregar Sección");
+        AgregarSeccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AgregarSeccionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AgregarSeccionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AgregarSeccionMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SeccionPanelLayout = new javax.swing.GroupLayout(SeccionPanel);
+        SeccionPanel.setLayout(SeccionPanelLayout);
+        SeccionPanelLayout.setHorizontalGroup(
+            SeccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SeccionPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(AgregarSeccion)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        SeccionPanelLayout.setVerticalGroup(
+            SeccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SeccionPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(AgregarSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout MostrarDatosLayout = new javax.swing.GroupLayout(MostrarDatos);
         MostrarDatos.setLayout(MostrarDatosLayout);
         MostrarDatosLayout.setHorizontalGroup(
             MostrarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MostrarDatosLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(MostrarDatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SeccionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MostrarDatosLayout.setVerticalGroup(
             MostrarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MostrarDatosLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel2)
-                .addContainerGap(624, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(SeccionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(533, Short.MAX_VALUE))
         );
 
-        add(MostrarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(622, 1, -1, -1));
+        add(MostrarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 210, 650));
 
         DatosPanel.setBackground(new java.awt.Color(255, 255, 255));
         DatosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,7 +167,7 @@ public class MenuCurso extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(96, 131, 165));
         jLabel1.setText("MENU MATERIA");
-        DatosPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 19, 269, 39));
+        DatosPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 18, 269, 40));
 
         RegistrarPanel.setBackground(new java.awt.Color(96, 131, 165));
         RegistrarPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -248,31 +336,65 @@ public class MenuCurso extends javax.swing.JPanel {
 
         DatosPanel.add(BuscarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 380, 40));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        TablaAlumno.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 860, Short.MAX_VALUE)
+        tblCurso.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblCurso.setRowHeight(40);
+        tblCurso.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        tblCurso.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(tblCurso);
+
+        javax.swing.GroupLayout TablaAlumnoLayout = new javax.swing.GroupLayout(TablaAlumno);
+        TablaAlumno.setLayout(TablaAlumnoLayout);
+        TablaAlumnoLayout.setHorizontalGroup(
+            TablaAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TablaAlumnoLayout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+        TablaAlumnoLayout.setVerticalGroup(
+            TablaAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TablaAlumnoLayout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
         );
 
-        DatosPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 720));
+        DatosPanel.add(TablaAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 710, 560));
 
         add(DatosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void actualizar() {
+        actualizarTablaGenérica<Curso> tablaActualizada = new actualizarTablaGenérica<>(); //TABLA GENERICA
+        String[] columnas = {"ID_Curso", "Nombre", "Periodo", "Categoria"}; //COLUMNAS
+        tablaActualizada.actualizarTabla(dao.obtenerLista(), columnas, tblCurso);
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     private void RegistrarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarPanelMouseClicked
         JPrincipal jp = new JPrincipal();
         Point aux = this.getLocationOnScreen();
         RegistrarCurso ra = new RegistrarCurso(jp, true);
         ra.setLocation(aux.x-304, aux.y);
         ra.setVisible(true);
-
+        actualizar();
     }//GEN-LAST:event_RegistrarPanelMouseClicked
 
     private void RegistrarPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarPanelMouseEntered
@@ -313,8 +435,8 @@ public class MenuCurso extends javax.swing.JPanel {
 
     private void FiltrarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FiltrarPanelMouseClicked
         actualizarTablaGenérica<Curso> tablaActualizada = new actualizarTablaGenérica<>(); //TABLA GENERICA
-        String[] columnas = {"ID", "Nombre", "Periodo", "Categoria Curso"}; //COLUMNAS
-        //        tablaActualizada.buscar(dao.obtenerLista(), txtBuscar.getText(), columnas, tblCurso);
+        String[] columnas = {"ID_Curso", "Nombre", "Periodo", "Categoria"}; //COLUMNAS
+        tablaActualizada.buscar(dao.obtenerLista(), txtBuscar.getText(), columnas, tblCurso);
     }//GEN-LAST:event_FiltrarPanelMouseClicked
 
     private void FiltrarPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FiltrarPanelMouseEntered
@@ -334,8 +456,41 @@ public class MenuCurso extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
 
+    private void AgregarSeccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarSeccionMouseClicked
+        // TODO add your handling code here:
+
+//        actualizar();
+    }//GEN-LAST:event_AgregarSeccionMouseClicked
+
+    private void AgregarSeccionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarSeccionMouseEntered
+        // TODO add your handling code here:
+        AgregarSeccion.setBackground(new Color(75,99,132));
+    }//GEN-LAST:event_AgregarSeccionMouseEntered
+
+    private void AgregarSeccionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarSeccionMouseExited
+        // TODO add your handling code here:
+        AgregarSeccion.setBackground(new Color(96,131,165));
+    }//GEN-LAST:event_AgregarSeccionMouseExited
+
+    private void SeccionPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeccionPanelMouseClicked
+        JPrincipal jp = new JPrincipal();
+        Point aux = this.getLocationOnScreen();
+        RegistrarSeccion rs = new RegistrarSeccion(jp, true);
+        rs.setLocation(aux.x-304, aux.y);
+        rs.setVisible(true);
+    }//GEN-LAST:event_SeccionPanelMouseClicked
+
+    private void SeccionPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeccionPanelMouseEntered
+        SeccionPanel.setBackground(new Color(75,99,132));
+    }//GEN-LAST:event_SeccionPanelMouseEntered
+
+    private void SeccionPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeccionPanelMouseExited
+        SeccionPanel.setBackground(new Color(96,131,165));
+    }//GEN-LAST:event_SeccionPanelMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AgregarSeccion;
     private javax.swing.JPanel BuscarPanel;
     private javax.swing.JPanel DatosPanel;
     private javax.swing.JPanel EliminarPanel;
@@ -343,17 +498,20 @@ public class MenuCurso extends javax.swing.JPanel {
     private javax.swing.JPanel ModificarPanel;
     private javax.swing.JPanel MostrarDatos;
     private javax.swing.JPanel RegistrarPanel;
+    private javax.swing.JPanel SeccionPanel;
+    private javax.swing.JPanel TablaAlumno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JTable tblAlumno;
+    public javax.swing.JTable tblCurso;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
+    
 
-    private void actualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

@@ -8,12 +8,12 @@ package Sistema.MatriculaPrueba;
  *
  * @author User
  */
-public class MatriculaPanel extends javax.swing.JPanel {
+public class MatriculaPanel2 extends javax.swing.JPanel {
 
     /**
      * Creates new form SeccionPanel
      */
-    public MatriculaPanel() {
+    public MatriculaPanel2() {
         initComponents();
     }
 
@@ -53,6 +53,11 @@ public class MatriculaPanel extends javax.swing.JPanel {
         lblEstado.setText("Estado");
 
         cbCurso1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbCurso1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCurso1ActionPerformed(evt);
+            }
+        });
 
         tfEstado.setText("jTextField1");
 
@@ -95,6 +100,10 @@ public class MatriculaPanel extends javax.swing.JPanel {
                 .addContainerGap(90, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbCurso1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCurso1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCurso1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
