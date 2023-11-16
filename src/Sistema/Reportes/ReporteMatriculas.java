@@ -32,8 +32,7 @@ public class ReporteMatriculas {
     ArrayList<Seccion> listaSeccion = new ArrayList<>();
     ArrayList<Matricula> listaMatri = new ArrayList<>();
     ArrayList<ReporteMatricula> listareporteMatri = new ArrayList<>();
-    Matricula matricula = new Matricula();
-    
+
     
      public ArrayList filtrarDatos(){
          
@@ -48,12 +47,12 @@ public class ReporteMatriculas {
              reporteM.setIdMatricula(matricula.getId_matricula());
              reporteM.setFecha(matricula.getFechaMatricula());
 
-             Alumno alumno = obtenerNombreAlumno();
+             Alumno alumno = obtenerNombreAlumno(matricula);
              if (alumno != null) {
                  reporteM.setNombreA(alumno.getNombre());
              }
 
-             Seccion seccion = obtenerNombreSeccion();
+             Seccion seccion = obtenerNombreSeccion(matricula);
              if (seccion != null) {
                  reporteM.setNombreS(seccion.getNombreSeccion());
                  reporteM.setHorario(seccion.getHorario());
@@ -73,7 +72,7 @@ public class ReporteMatriculas {
         
      }       
             
-     public Alumno obtenerNombreAlumno(){
+     public Alumno obtenerNombreAlumno(Matricula matricula){
          for(Alumno alumno : listaAlumno){
              if(alumno.getId_alumno()==matricula.getId_estudiante()){
                 return alumno;
@@ -82,7 +81,7 @@ public class ReporteMatriculas {
         return null;
     }
      
-     public Seccion obtenerNombreSeccion() {
+     public Seccion obtenerNombreSeccion(Matricula matricula) {
         for(Seccion seccion : listaSeccion){
             if(seccion.getId_seccion()==matricula.getId_seccion()) {
                 return seccion;
