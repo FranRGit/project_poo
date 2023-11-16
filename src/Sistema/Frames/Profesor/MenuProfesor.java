@@ -49,8 +49,6 @@ public class MenuProfesor extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MostrarDatos = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         DatosPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         RegistrarPanel = new javax.swing.JPanel();
@@ -68,31 +66,6 @@ public class MenuProfesor extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        MostrarDatos.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(96, 131, 165));
-        jLabel2.setText("Datos del profesor :");
-
-        javax.swing.GroupLayout MostrarDatosLayout = new javax.swing.GroupLayout(MostrarDatos);
-        MostrarDatos.setLayout(MostrarDatosLayout);
-        MostrarDatosLayout.setHorizontalGroup(
-            MostrarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MostrarDatosLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        MostrarDatosLayout.setVerticalGroup(
-            MostrarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MostrarDatosLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel2)
-                .addContainerGap(624, Short.MAX_VALUE))
-        );
-
-        add(MostrarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 230, 670));
 
         DatosPanel.setBackground(new java.awt.Color(255, 255, 255));
         DatosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -253,7 +226,7 @@ public class MenuProfesor extends javax.swing.JPanel {
         tblProfesor.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblProfesor);
 
-        DatosPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 530, 430));
+        DatosPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 780, 430));
 
         BuscarPanel.setBackground(new java.awt.Color(255, 255, 255));
         BuscarPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(96, 131, 165), 2));
@@ -292,7 +265,7 @@ public class MenuProfesor extends javax.swing.JPanel {
 
         DatosPanel.add(BuscarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 380, 40));
 
-        add(DatosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 580, 690));
+        add(DatosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 830, 690));
     }// </editor-fold>//GEN-END:initComponents
 
     public void actualizar(){
@@ -385,10 +358,8 @@ public class MenuProfesor extends javax.swing.JPanel {
     private javax.swing.JPanel EliminarPanel;
     private javax.swing.JPanel FiltrarPanel;
     private javax.swing.JPanel ModificarPanel;
-    private javax.swing.JPanel MostrarDatos;
     private javax.swing.JPanel RegistrarPanel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

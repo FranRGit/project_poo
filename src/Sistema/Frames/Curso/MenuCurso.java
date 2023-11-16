@@ -40,8 +40,6 @@ public class MenuCurso extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAlumno = new javax.swing.JTable();
-        MostrarDatos = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         DatosPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         RegistrarPanel = new javax.swing.JPanel();
@@ -83,31 +81,6 @@ public class MenuCurso extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        MostrarDatos.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(96, 131, 165));
-        jLabel2.setText("Datos del curso :");
-
-        javax.swing.GroupLayout MostrarDatosLayout = new javax.swing.GroupLayout(MostrarDatos);
-        MostrarDatos.setLayout(MostrarDatosLayout);
-        MostrarDatosLayout.setHorizontalGroup(
-            MostrarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MostrarDatosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        MostrarDatosLayout.setVerticalGroup(
-            MostrarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MostrarDatosLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel2)
-                .addContainerGap(514, Short.MAX_VALUE))
-        );
-
-        add(MostrarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 210, 560));
 
         DatosPanel.setBackground(new java.awt.Color(255, 255, 255));
         DatosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -285,6 +258,7 @@ public class MenuCurso extends javax.swing.JPanel {
         DatosPanel.add(BuscarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 380, 40));
 
         TablaAlumno.setBackground(new java.awt.Color(255, 255, 255));
+        TablaAlumno.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblCurso.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -307,26 +281,7 @@ public class MenuCurso extends javax.swing.JPanel {
         tblCurso.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(tblCurso);
 
-        javax.swing.GroupLayout TablaAlumnoLayout = new javax.swing.GroupLayout(TablaAlumno);
-        TablaAlumno.setLayout(TablaAlumnoLayout);
-        TablaAlumnoLayout.setHorizontalGroup(
-            TablaAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TablaAlumnoLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
-        );
-        TablaAlumnoLayout.setVerticalGroup(
-            TablaAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TablaAlumnoLayout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
-        );
-
-        DatosPanel.add(TablaAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 710, 560));
-
-        add(DatosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, -1));
+        TablaAlumno.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 67, 720, 430));
 
         SeccionPanel.setBackground(new java.awt.Color(96, 131, 165));
         SeccionPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -362,20 +317,28 @@ public class MenuCurso extends javax.swing.JPanel {
         SeccionPanel.setLayout(SeccionPanelLayout);
         SeccionPanelLayout.setHorizontalGroup(
             SeccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SeccionPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(AgregarSeccion)
-                .addContainerGap(17, Short.MAX_VALUE))
+            .addGap(0, 130, Short.MAX_VALUE)
+            .addGroup(SeccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(SeccionPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AgregarSeccion)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         SeccionPanelLayout.setVerticalGroup(
             SeccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SeccionPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(AgregarSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 42, Short.MAX_VALUE)
+            .addGroup(SeccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(SeccionPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AgregarSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        add(SeccionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 610, -1, -1));
+        TablaAlumno.add(SeccionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
+
+        DatosPanel.add(TablaAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 810, 560));
+
+        add(DatosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void actualizar() {
@@ -500,12 +463,10 @@ public class MenuCurso extends javax.swing.JPanel {
     private javax.swing.JPanel EliminarPanel;
     private javax.swing.JPanel FiltrarPanel;
     private javax.swing.JPanel ModificarPanel;
-    private javax.swing.JPanel MostrarDatos;
     private javax.swing.JPanel RegistrarPanel;
     private javax.swing.JPanel SeccionPanel;
     private javax.swing.JPanel TablaAlumno;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -19,6 +19,7 @@ public class ReporteMatriculaÚnica {
     private String fecha;    
     private String periodo;
     private String curso;
+    
     public ReporteMatriculaÚnica() {
     }
 

@@ -22,7 +22,7 @@ public class tablaGenérica<T> {
     public void actualizarTabla(ArrayList<T> lista, String[] columnas, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
         
-        //PARA REEMPLAZAR
+        
         for(String columna : columnas){
             modelo.addColumn(columna);
         }
