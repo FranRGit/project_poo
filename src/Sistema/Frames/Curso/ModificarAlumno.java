@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package Sistema.Frames.Alumno;
+package Sistema.Frames.Curso;
 
 
+import Sistema.Frames.Alumno.*;
 import Sistema.Clases.*;
 import Sistema.Frames.ErrorDialog;
 import Sistema.Frames.RegistroExitosoDialog;
@@ -19,12 +20,13 @@ import java.util.Locale;
  *
  * @author USUARIO
  */
-public final class RegistrarAlumno extends javax.swing.JDialog {
-
+public final class ModificarAlumno extends javax.swing.JDialog {
+    
+    Alumno alumnoAEditar = new Alumno();
     /**
      * Creates new form RegistrarAlumno2
      */
-    public RegistrarAlumno(java.awt.Frame parent, boolean modal) {
+    public ModificarAlumno(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         llenarComboBoxSexo();
@@ -40,6 +42,7 @@ public final class RegistrarAlumno extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         pnlUpAlumno5 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
@@ -48,7 +51,7 @@ public final class RegistrarAlumno extends javax.swing.JDialog {
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
-        btnSubirAlumno = new javax.swing.JButton();
+        btnEditarAlumno = new javax.swing.JButton();
         txtEmail = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
         txtNombre1 = new javax.swing.JTextField();
@@ -64,15 +67,15 @@ public final class RegistrarAlumno extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1190, 750));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         pnlUpAlumno5.setBackground(new java.awt.Color(255, 255, 255));
         pnlUpAlumno5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel41.setFont(new java.awt.Font("Consolas", 0, 30)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(72, 99, 124));
-        jLabel41.setText("SUBIR NUEVO ALUMNO");
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel41.setText("EDITAR ALUMNO");
         jLabel41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pnlUpAlumno5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 320, 51));
 
@@ -96,19 +99,19 @@ public final class RegistrarAlumno extends javax.swing.JDialog {
         jLabel47.setText("Teléfono");
         pnlUpAlumno5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 172, -1));
 
-        btnSubirAlumno.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        btnSubirAlumno.setText("SUBIR ALUMNO");
-        btnSubirAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEditarAlumno.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        btnEditarAlumno.setText("EDITAR ALUMNO");
+        btnEditarAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSubirAlumnoMouseClicked(evt);
+                btnEditarAlumnoMouseClicked(evt);
             }
         });
-        btnSubirAlumno.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubirAlumnoActionPerformed(evt);
+                btnEditarAlumnoActionPerformed(evt);
             }
         });
-        pnlUpAlumno5.add(btnSubirAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 196, 44));
+        pnlUpAlumno5.add(btnEditarAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 196, 44));
 
         txtEmail.setText("Ingrese el email del alumno");
         txtEmail.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -214,7 +217,13 @@ public final class RegistrarAlumno extends javax.swing.JDialog {
         });
         pnlUpAlumno5.add(jcbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 200, 30));
 
-        getContentPane().add(pnlUpAlumno5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, 550));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = 56;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(90, 240, 110, 272);
+        getContentPane().add(pnlUpAlumno5, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -254,37 +263,41 @@ public final class RegistrarAlumno extends javax.swing.JDialog {
         
     }
     
+    public void enviarAlumno(Alumno alumno){
+        this.alumnoAEditar = alumno;
+    }
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         dispose();
     }//GEN-LAST:event_jPanel6MouseClicked
 
-    private void btnSubirAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubirAlumnoMouseClicked
+    private void btnEditarAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarAlumnoMouseClicked
 
         try {
             int edad = Integer.parseInt(txtEdad.getText());
-            Usuario usuario = new Alumno(jcbNivelAcademico.getSelectedItem().toString(), 0,0, txtNombre1.getText().toString(),edad,jcbSexo.getSelectedItem().toString(),txtTelefono.getText(), txtEmail.getText(), jcbNacionalidad.getSelectedItem().toString(), "");
+            Usuario usuario = new Alumno(jcbNivelAcademico.getSelectedItem().toString(), alumnoAEditar.getId_alumno(),alumnoAEditar.getId_usuario(), txtNombre1.getText().toString(),edad,jcbSexo.getSelectedItem().toString(),txtTelefono.getText(), txtEmail.getText(), jcbNacionalidad.getSelectedItem().toString(), "");
             daoUsuario dUsuario = new daoUsuario(usuario);
 
-            if(dUsuario.agregar()){
-                System.out.println("Se agregó al usuario");
+            if(dUsuario.modificar()){
+                System.out.println("Se editó al usuario");
                 RegistroExitosoDialog re = new RegistroExitosoDialog();
                 re.setVisible(true);
+                dispose();
             } else {
                 throw new Exception("ERROR : ");
             }
         } catch (Exception e) {
-             mostrarErrorDialog("No se puede agregar al usuario:");
+             mostrarErrorDialog("No se puede editar al usuario:");
         }
-    }//GEN-LAST:event_btnSubirAlumnoMouseClicked
+    }//GEN-LAST:event_btnEditarAlumnoMouseClicked
     
     private void mostrarErrorDialog(String errorMessage) {
         ErrorDialog errorDialog = new ErrorDialog(errorMessage);
         errorDialog.setVisible(true);
     }
     
-    private void btnSubirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirAlumnoActionPerformed
+    private void btnEditarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarAlumnoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSubirAlumnoActionPerformed
+    }//GEN-LAST:event_btnEditarAlumnoActionPerformed
 
     private void txtNombre1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombre1MouseClicked
         txtNombre1.setText("");
@@ -340,21 +353,27 @@ public final class RegistrarAlumno extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                RegistrarAlumno dialog = new RegistrarAlumno(new javax.swing.JFrame(), true);
+                ModificarAlumno dialog = new ModificarAlumno(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -367,7 +386,7 @@ public final class RegistrarAlumno extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSubirAlumno;
+    private javax.swing.JButton btnEditarAlumno;
     private javax.swing.JPanel exitPanel;
     private javax.swing.JLabel exittxt;
     private javax.swing.JLabel jLabel41;

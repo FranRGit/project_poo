@@ -60,8 +60,9 @@ public class daoCurso implements CRUD{
         try {
             PreparedStatement ps = null;
             ps = cx.conectar().prepareStatement("DELETE FROM Curso WHERE id_curso = ?");
-            ps.setInt(1, curso.getId_curso());
+            ps.setInt(1, id);
             ps.executeUpdate();
+            ps.close();
             cx.desconectar();
         } catch (SQLException ex) {
             ex.printStackTrace();

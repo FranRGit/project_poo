@@ -42,8 +42,6 @@ public class MenuCurso extends javax.swing.JPanel {
         tblAlumno = new javax.swing.JTable();
         MostrarDatos = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        SeccionPanel = new javax.swing.JPanel();
-        AgregarSeccion = new javax.swing.JLabel();
         DatosPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         RegistrarPanel = new javax.swing.JPanel();
@@ -59,6 +57,8 @@ public class MenuCurso extends javax.swing.JPanel {
         TablaAlumno = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCurso = new javax.swing.JTable();
+        SeccionPanel = new javax.swing.JPanel();
+        AgregarSeccion = new javax.swing.JLabel();
 
         tblAlumno.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,6 +81,7 @@ public class MenuCurso extends javax.swing.JPanel {
         tblAlumno.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblAlumno);
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         MostrarDatos.setBackground(new java.awt.Color(255, 255, 255));
@@ -88,53 +89,6 @@ public class MenuCurso extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(96, 131, 165));
         jLabel2.setText("Datos del curso :");
-
-        SeccionPanel.setBackground(new java.awt.Color(96, 131, 165));
-        SeccionPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SeccionPanelMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                SeccionPanelMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                SeccionPanelMouseExited(evt);
-            }
-        });
-
-        AgregarSeccion.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        AgregarSeccion.setForeground(new java.awt.Color(242, 242, 242));
-        AgregarSeccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        AgregarSeccion.setLabelFor(SeccionPanel);
-        AgregarSeccion.setText("Agregar Sección");
-        AgregarSeccion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AgregarSeccionMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                AgregarSeccionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                AgregarSeccionMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout SeccionPanelLayout = new javax.swing.GroupLayout(SeccionPanel);
-        SeccionPanel.setLayout(SeccionPanelLayout);
-        SeccionPanelLayout.setHorizontalGroup(
-            SeccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SeccionPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(AgregarSeccion)
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-        SeccionPanelLayout.setVerticalGroup(
-            SeccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SeccionPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(AgregarSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout MostrarDatosLayout = new javax.swing.GroupLayout(MostrarDatos);
         MostrarDatos.setLayout(MostrarDatosLayout);
@@ -144,22 +98,16 @@ public class MenuCurso extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(MostrarDatosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(SeccionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MostrarDatosLayout.setVerticalGroup(
             MostrarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MostrarDatosLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel2)
-                .addGap(29, 29, 29)
-                .addComponent(SeccionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(533, Short.MAX_VALUE))
+                .addContainerGap(514, Short.MAX_VALUE))
         );
 
-        add(MostrarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 210, 650));
+        add(MostrarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 210, 560));
 
         DatosPanel.setBackground(new java.awt.Color(255, 255, 255));
         DatosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -167,7 +115,7 @@ public class MenuCurso extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(96, 131, 165));
         jLabel1.setText("MENU MATERIA");
-        DatosPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 18, 269, 40));
+        DatosPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 269, 40));
 
         RegistrarPanel.setBackground(new java.awt.Color(96, 131, 165));
         RegistrarPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -378,7 +326,56 @@ public class MenuCurso extends javax.swing.JPanel {
 
         DatosPanel.add(TablaAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 710, 560));
 
-        add(DatosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(DatosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, -1));
+
+        SeccionPanel.setBackground(new java.awt.Color(96, 131, 165));
+        SeccionPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SeccionPanelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SeccionPanelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                SeccionPanelMouseExited(evt);
+            }
+        });
+
+        AgregarSeccion.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        AgregarSeccion.setForeground(new java.awt.Color(242, 242, 242));
+        AgregarSeccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AgregarSeccion.setLabelFor(SeccionPanel);
+        AgregarSeccion.setText("Agregar Sección");
+        AgregarSeccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AgregarSeccionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AgregarSeccionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AgregarSeccionMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SeccionPanelLayout = new javax.swing.GroupLayout(SeccionPanel);
+        SeccionPanel.setLayout(SeccionPanelLayout);
+        SeccionPanelLayout.setHorizontalGroup(
+            SeccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SeccionPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(AgregarSeccion)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        SeccionPanelLayout.setVerticalGroup(
+            SeccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SeccionPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(AgregarSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        add(SeccionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 610, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void actualizar() {
@@ -420,9 +417,11 @@ public class MenuCurso extends javax.swing.JPanel {
     private void EliminarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarPanelMouseClicked
         JPrincipal jp = new JPrincipal();
         Point aux = this.getLocationOnScreen();
-        EliminarPanel ep = new EliminarPanel(jp, true);
-        ep.setLocation(aux.x, aux.y);
+        EliminarCurso ep = new EliminarCurso(jp, true);
+        ep.setLocation(aux.x-304, aux.y);
         ep.setVisible(true);
+        actualizar();
+        
     }//GEN-LAST:event_EliminarPanelMouseClicked
 
     private void EliminarPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarPanelMouseEntered

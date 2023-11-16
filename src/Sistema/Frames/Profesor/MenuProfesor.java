@@ -8,6 +8,7 @@ package Sistema.Frames.Profesor;
 
 import Sistema.Clases.Profesor;
 import Sistema.Clases.daoUsuario;
+import Sistema.Frames.Alumno.BuscarAlumno;
 import Sistema.Frames.Tablas.tableDesigner;
 import Sistema.Frames.Tablas.tablaGenérica;
 import Sistema.Frames.Principal.JPrincipal;
@@ -99,7 +100,7 @@ public class MenuProfesor extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(96, 131, 165));
         jLabel1.setText("MENU PROFESOR");
-        DatosPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 19, 269, 39));
+        DatosPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 269, 39));
 
         RegistrarPanel.setBackground(new java.awt.Color(96, 131, 165));
         RegistrarPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -323,7 +324,12 @@ public class MenuProfesor extends javax.swing.JPanel {
     }//GEN-LAST:event_RegistrarPanelMouseClicked
 
     private void ModificarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarPanelMouseClicked
-        // TODO add your handling code here:
+        JPrincipal jp = new JPrincipal();
+        Point aux = this.getLocationOnScreen();
+        BuscarProfesor ep = new BuscarProfesor(jp, true);
+        ep.setLocation(aux.x-304, aux.y);
+        ep.setVisible(true);
+        actualizar();   
     }//GEN-LAST:event_ModificarPanelMouseClicked
 
     private void ModificarPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarPanelMouseEntered
@@ -338,8 +344,9 @@ public class MenuProfesor extends javax.swing.JPanel {
         JPrincipal jp = new JPrincipal();
         Point aux = this.getLocationOnScreen();
         EliminarProfesor ep = new EliminarProfesor(jp, true);
-        ep.setLocation(aux.x, aux.y);
+        ep.setLocation(aux.x-304, aux.y);
         ep.setVisible(true);
+        actualizar();
     }//GEN-LAST:event_EliminarPanelMouseClicked
 
     private void EliminarPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarPanelMouseEntered

@@ -17,6 +17,8 @@ public class RegistrarCurso extends javax.swing.JDialog {
     public RegistrarCurso(java.awt.Frame parent, boolean modal) {
         super(parent,modal);
         initComponents();
+        llenarComboBoxPeriodo();
+        llenarComboBoxCategoria();
         setBackground(new Color(0, 0, 0, 80)); // Configura el fondo transparente
 //         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
@@ -32,19 +34,20 @@ public class RegistrarCurso extends javax.swing.JDialog {
 
         pnlUpAlumno5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel48 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         txtIdNombreCurso = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
-        txtPeriodo = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
-        txtCategoria = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel48 = new javax.swing.JLabel();
+        jComboBoxCategoria = new javax.swing.JComboBox<>();
+        jComboBoxPeriodo = new javax.swing.JComboBox<>();
 
         setUndecorated(true);
 
         pnlUpAlumno5.setBackground(new java.awt.Color(255, 255, 255));
+        pnlUpAlumno5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -53,34 +56,28 @@ public class RegistrarCurso extends javax.swing.JDialog {
             }
         });
 
-        jLabel48.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel48.setText("X");
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 61, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabel48)
-                .addContainerGap())
+            .addGap(0, 47, Short.MAX_VALUE)
         );
+
+        pnlUpAlumno5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 6, -1, -1));
 
         jLabel41.setFont(new java.awt.Font("Consolas", 0, 30)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(72, 99, 124));
         jLabel41.setText("SUBIR NUEVO CURSO");
         jLabel41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pnlUpAlumno5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 320, 51));
 
         jLabel42.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel42.setText("Nombre:");
+        pnlUpAlumno5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 105, 30));
 
         txtIdNombreCurso.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtIdNombreCurso.setText("Series Y Ecuaciones Diferenciales");
@@ -89,28 +86,15 @@ public class RegistrarCurso extends javax.swing.JDialog {
                 txtIdNombreCursoActionPerformed(evt);
             }
         });
+        pnlUpAlumno5.add(txtIdNombreCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 356, 30));
 
         jLabel43.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel43.setText("Periodo:");
-
-        txtPeriodo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtPeriodo.setText("2023 - I");
-        txtPeriodo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtPeriodoMouseClicked(evt);
-            }
-        });
-        txtPeriodo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPeriodoActionPerformed(evt);
-            }
-        });
+        pnlUpAlumno5.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 173, 25));
 
         jLabel46.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel46.setText("Categoría:");
-
-        txtCategoria.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtCategoria.setText("jTextField3");
+        pnlUpAlumno5.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 135, 27));
 
         jButton1.setText("SUBIR CURSO");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -123,79 +107,49 @@ public class RegistrarCurso extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
+        pnlUpAlumno5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 196, 44));
 
-        javax.swing.GroupLayout pnlUpAlumno5Layout = new javax.swing.GroupLayout(pnlUpAlumno5);
-        pnlUpAlumno5.setLayout(pnlUpAlumno5Layout);
-        pnlUpAlumno5Layout.setHorizontalGroup(
-            pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(670, 670, 670)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUpAlumno5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
-            .addGroup(pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                    .addGap(41, 41, 41)
-                    .addGroup(pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtIdNombreCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(323, Short.MAX_VALUE)))
-        );
-        pnlUpAlumno5Layout.setVerticalGroup(
-            pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
-                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(342, Short.MAX_VALUE))
-            .addGroup(pnlUpAlumno5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlUpAlumno5Layout.createSequentialGroup()
-                    .addGap(159, 159, 159)
-                    .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(txtIdNombreCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(txtPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(159, Short.MAX_VALUE)))
-        );
+        jLabel48.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel48.setText("X");
+        jLabel48.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel48MouseClicked(evt);
+            }
+        });
+        pnlUpAlumno5.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 49, -1));
+
+        jComboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matemática", "Ciencia", "Inglés" }));
+        jComboBoxCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCategoriaActionPerformed(evt);
+            }
+        });
+        pnlUpAlumno5.add(jComboBoxCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 350, 30));
+
+        jComboBoxPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022-I", "2022-II", "2023-I", "2023-II" }));
+        jComboBoxPeriodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPeriodoActionPerformed(evt);
+            }
+        });
+        pnlUpAlumno5.add(jComboBoxPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 350, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1190, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 230, Short.MAX_VALUE)
-                    .addComponent(pnlUpAlumno5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 229, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(342, 342, 342)
+                .addComponent(pnlUpAlumno5, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(342, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlUpAlumno5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addComponent(pnlUpAlumno5, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         pack();
@@ -204,14 +158,6 @@ public class RegistrarCurso extends javax.swing.JDialog {
     private void txtIdNombreCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdNombreCursoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdNombreCursoActionPerformed
-
-    private void txtPeriodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPeriodoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPeriodoMouseClicked
-
-    private void txtPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPeriodoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPeriodoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -224,7 +170,7 @@ public class RegistrarCurso extends javax.swing.JDialog {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         try {
             
-            Curso curso = new Curso(0, txtIdNombreCurso.getText(), txtPeriodo.getText(), txtCategoria.getText());
+            Curso curso = new Curso(0, txtIdNombreCurso.getText(), (String)jComboBoxPeriodo.getSelectedItem(), (String)jComboBoxCategoria.getSelectedItem());
             daoCurso dCurso = new daoCurso(curso);
 
             if(dCurso.agregar()){
@@ -239,6 +185,34 @@ public class RegistrarCurso extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void jLabel48MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel48MouseClicked
+        dispose();
+    }//GEN-LAST:event_jLabel48MouseClicked
+
+    private void jComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCategoriaActionPerformed
+
+    private void jComboBoxPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPeriodoActionPerformed
+        // TODO add your handling code here:
+                
+    }//GEN-LAST:event_jComboBoxPeriodoActionPerformed
+
+    //LLENAR COMBOBOX DE PERIODO
+    public void llenarComboBoxPeriodo(){
+        jComboBoxPeriodo.removeAllItems();
+        jComboBoxPeriodo.addItem("2022-I");
+        jComboBoxPeriodo.addItem("2022-II");
+        jComboBoxPeriodo.addItem("2023-I");
+        jComboBoxPeriodo.addItem("2023-II");
+    }
+    //LLENAR COMBOBOX DE CATEGORÍA
+    public void llenarComboBoxCategoria(){
+        jComboBoxPeriodo.removeAllItems();
+        jComboBoxPeriodo.addItem("Matemática");
+        jComboBoxPeriodo.addItem("Ciencia");
+        jComboBoxPeriodo.addItem("Inglés");
+    }
     /**
      * @param args the command line arguments
      */
@@ -283,6 +257,8 @@ public class RegistrarCurso extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBoxCategoria;
+    private javax.swing.JComboBox<String> jComboBoxPeriodo;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -290,8 +266,6 @@ public class RegistrarCurso extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel pnlUpAlumno5;
-    private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtIdNombreCurso;
-    private javax.swing.JTextField txtPeriodo;
     // End of variables declaration//GEN-END:variables
 }

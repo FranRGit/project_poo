@@ -144,12 +144,14 @@ public class BuscarAlumno extends javax.swing.JDialog {
     private void BuscarbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarbtnMouseClicked
         try {
             int idBuscado = Integer.parseInt(idtxt.getText());
-            if(buscarIDAlumno(idBuscado)>0) {
+            if(buscarIDAlumno(idBuscado) != null) {
                 JPrincipal jp = new JPrincipal();
                 Point aux = this.getLocationOnScreen();
                 ModificarAlumno mpa = new ModificarAlumno(jp, true);
-                mpa.setLocation(aux.x-304, aux.y);
+                mpa.enviarAlumno( buscarIDAlumno(idBuscado));
+                mpa.setLocation(aux.x, aux.y);
                 mpa.setVisible(true);
+                dispose();
             } else {
                 throw new Exception("Error");
             }
@@ -159,16 +161,16 @@ public class BuscarAlumno extends javax.swing.JDialog {
 
     }//GEN-LAST:event_BuscarbtnMouseClicked
 
-    private int buscarIDAlumno(int idBuscado){
+    private Alumno buscarIDAlumno(int idBuscado){
         
         daoUsuario dao = new daoUsuario();
         ArrayList<Alumno> listaAlumno =  dao.obtenerListaAlumno();
         for(Alumno alumno : listaAlumno) {
-            if(idBuscado == alumno.getId_usuario()){
-                return idBuscado;
+            if(idBuscado == alumno.getId_alumno()){
+                return alumno;
             }
         }
-        return 0;
+        return null;
     }
 
     private void mostrarErrorDialog(String errorMessage) {

@@ -5,6 +5,7 @@
 package Sistema.Frames;
 
 import Sistema.Frames.Alumno.MenuAlumno;
+import Sistema.Frames.Profesor.MenuProfesor;
 import Sistema.Frames.Curso.MenuCurso;
 import Sistema.Frames.Seccion.RegistrarSeccion;
 import Sistema.Reportes.MenuReporte;
@@ -283,6 +284,22 @@ public class InicioPanel extends javax.swing.JPanel {
 
     private void ProfesorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfesorMouseClicked
         // TODO add your handling code here:
+        MenuProfesor mp = new MenuProfesor();
+        mp.setSize(860, 720);
+        mp.setLocation(0, 0);
+
+        // Obtén el contenedor principal
+        Container contenedorPrincipal = this.getParent();
+
+        // Elimina el panel actual
+        contenedorPrincipal.remove(this);
+
+        // Agrega el nuevo panel (MenuUsuario)
+        contenedorPrincipal.add(mp);
+
+        // Valida y repinta el contenedor principal
+        contenedorPrincipal.validate();
+        contenedorPrincipal.repaint();
         
     }//GEN-LAST:event_ProfesorMouseClicked
 

@@ -2,23 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package Sistema.Frames.Alumno;
+package Sistema.Frames.Profesor;
 
 
+import Sistema.Clases.Profesor;
 import Sistema.Clases.daoUsuario;
+import Sistema.Frames.ErrorDialog;
+import Sistema.Frames.Principal.JPrincipal;
 import java.awt.Color;
+import java.awt.Point;
+import java.util.ArrayList;
 
 
 /**
  *
  * @author USUARIO
  */
-public class EliminarAlumno extends javax.swing.JDialog {
+public class BuscarProfesor extends javax.swing.JDialog {
 
     /**
      * Creates new form RegistrarAlumno2
      */
-    public EliminarAlumno(java.awt.Frame parent, boolean modal) {
+    public BuscarProfesor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
@@ -41,7 +46,7 @@ public class EliminarAlumno extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         idtxt = new javax.swing.JTextField();
-        Eliminarbtn = new javax.swing.JButton();
+        Buscarbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -85,12 +90,13 @@ public class EliminarAlumno extends javax.swing.JDialog {
 
         Titulotxt.setFont(new java.awt.Font("Consolas", 0, 30)); // NOI18N
         Titulotxt.setForeground(new java.awt.Color(72, 99, 124));
-        Titulotxt.setText("ELIMINAR ALUMNO");
+        Titulotxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Titulotxt.setText("MODIFICAR PROFESOR");
         Titulotxt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pnlUpAlumno5.add(Titulotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 320, 51));
 
         jLabel1.setText("ID de alumno");
-        pnlUpAlumno5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        pnlUpAlumno5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,17 +108,17 @@ public class EliminarAlumno extends javax.swing.JDialog {
                 idtxtActionPerformed(evt);
             }
         });
-        jPanel1.add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 400, 40));
+        jPanel1.add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 40));
 
         pnlUpAlumno5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 420, 60));
 
-        Eliminarbtn.setText("Eliminar");
-        Eliminarbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        Buscarbtn.setText("Buscar");
+        Buscarbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EliminarbtnMouseClicked(evt);
+                BuscarbtnMouseClicked(evt);
             }
         });
-        pnlUpAlumno5.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
+        pnlUpAlumno5.add(Buscarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -135,14 +141,42 @@ public class EliminarAlumno extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_idtxtActionPerformed
 
-    private void EliminarbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarbtnMouseClicked
-        daoUsuario dao = new daoUsuario();
-        int id = Integer.parseInt(idtxt.getText());
-        dao.eliminarxTipoUsuario(id,"Alumno","id_alumno");
-        
-    }//GEN-LAST:event_EliminarbtnMouseClicked
+    private void BuscarbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarbtnMouseClicked
+        try {
+            int idBuscado = Integer.parseInt(idtxt.getText());
+            if(buscarIDProfesor(idBuscado) != null) {
+                JPrincipal jp = new JPrincipal();
+                Point aux = this.getLocationOnScreen();
+                ModificarProfesor mpa = new ModificarProfesor(jp, true);
+                mpa.enviarProfesor( buscarIDProfesor(idBuscado));
+                mpa.setLocation(aux.x, aux.y);
+                mpa.setVisible(true);
+               
+                dispose();
+            } else {
+                throw new Exception("Error");
+            }
+        } catch (Exception e) {
+            mostrarErrorDialog("No se pudo encontrar al alumno");
+        }
 
-    
+    }//GEN-LAST:event_BuscarbtnMouseClicked
+
+    private Profesor buscarIDProfesor(int idBuscado){
+        daoUsuario dao = new daoUsuario();
+        ArrayList<Profesor> listaAlumno =  dao.obtenerListaProfesor();
+        for(Profesor profesor : listaAlumno) {
+            if(idBuscado == profesor.getId_profesor()){
+                return profesor;
+            }
+        }
+        return null;
+    }
+
+    private void mostrarErrorDialog(String errorMessage) {
+        ErrorDialog errorDialog = new ErrorDialog(errorMessage);
+        errorDialog.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
@@ -160,14 +194,134 @@ public class EliminarAlumno extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EliminarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EliminarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EliminarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EliminarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -180,7 +334,7 @@ public class EliminarAlumno extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                EliminarAlumno dialog = new EliminarAlumno(new javax.swing.JFrame(), true);
+                BuscarProfesor dialog = new BuscarProfesor(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -193,7 +347,7 @@ public class EliminarAlumno extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Eliminarbtn;
+    private javax.swing.JButton Buscarbtn;
     private javax.swing.JLabel Titulotxt;
     private javax.swing.JPanel exitPanel;
     private javax.swing.JLabel exittxt;

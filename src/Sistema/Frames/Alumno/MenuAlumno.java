@@ -98,7 +98,7 @@ public class MenuAlumno extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(96, 131, 165));
         jLabel1.setText("MENU ALUMNO");
-        DatosPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 19, 269, 39));
+        DatosPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 269, 39));
 
         RegistrarPanel.setBackground(new java.awt.Color(96, 131, 165));
         RegistrarPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -249,7 +249,6 @@ public class MenuAlumno extends javax.swing.JPanel {
         tblAlumno.setRowHeight(40);
         tblAlumno.setSelectionBackground(new java.awt.Color(204, 204, 204));
         tblAlumno.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        tblAlumno.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jScrollPane1.setViewportView(tblAlumno);
 
         DatosPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 530, 430));
@@ -258,7 +257,6 @@ public class MenuAlumno extends javax.swing.JPanel {
         BuscarPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(96, 131, 165), 2));
 
         txtBuscar.setBackground(new java.awt.Color(255, 255, 251));
-        txtBuscar.setForeground(new java.awt.Color(0, 0, 0));
         txtBuscar.setText("Escribe el nombre del alumno....");
         txtBuscar.setBorder(null);
         txtBuscar.setPreferredSize(new java.awt.Dimension(179, 46));

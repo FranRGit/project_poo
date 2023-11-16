@@ -43,13 +43,12 @@ public class tablaGenérica<T> {
         
         if (elemento instanceof Alumno) {
             Usuario usuario = (Alumno) elemento;
-            return new Object[]{usuario.getId_usuario(), usuario.getNombre(), usuario.getEdad(), usuario.getTelefono(),((Alumno)usuario).getNivel_Academico()};
+            return new Object[]{((Alumno)elemento).getId_alumno(), usuario.getNombre(), usuario.getEdad(), usuario.getTelefono(),((Alumno)usuario).getNivel_Academico()};
         }
         
         if(elemento instanceof Profesor) {
             Usuario usuario = (Profesor) elemento;
-            System.out.println("Hola");
-            return new Object[]{usuario.getId_usuario(), usuario.getNombre(), usuario.getEdad(), usuario.getTelefono(),((Profesor)usuario).getEspecialidad()};
+            return new Object[]{((Profesor)elemento).getId_profesor(), usuario.getNombre(), usuario.getEdad(), usuario.getTelefono(),((Profesor)usuario).getEspecialidad()};
         }
         
         if(elemento instanceof Curso) {
