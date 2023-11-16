@@ -7,14 +7,15 @@ package Sistema.Frames.Curso;
 import Sistema.Clases.*;
 import Sistema.Frames.RegistroExitosoDialog;
 import java.awt.Color;
-import javax.swing.JFrame;
 
-public class RegistrarCurso extends javax.swing.JDialog {
 
+public class ModificarCurso extends javax.swing.JDialog {
+    
+    Curso cursoEditar = new Curso();
     /**
      * Creates new form RegistrarCurso
      */
-    public RegistrarCurso(java.awt.Frame parent, boolean modal) {
+    public ModificarCurso(java.awt.Frame parent, boolean modal) {
         super(parent,modal);
         initComponents();
         llenarComboBoxPeriodo();
@@ -71,7 +72,8 @@ public class RegistrarCurso extends javax.swing.JDialog {
 
         jLabel41.setFont(new java.awt.Font("Consolas", 0, 30)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(72, 99, 124));
-        jLabel41.setText("SUBIR NUEVO CURSO");
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel41.setText("MODIFICAR CURSO");
         jLabel41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pnlUpAlumno5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 320, 51));
 
@@ -96,7 +98,7 @@ public class RegistrarCurso extends javax.swing.JDialog {
         jLabel46.setText("Categoría:");
         pnlUpAlumno5.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 135, 27));
 
-        jButton1.setText("SUBIR CURSO");
+        jButton1.setText("MODIFICAR");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -107,7 +109,7 @@ public class RegistrarCurso extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        pnlUpAlumno5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 196, 44));
+        pnlUpAlumno5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 150, 44));
 
         jLabel48.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -154,7 +156,11 @@ public class RegistrarCurso extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void enviarCurso(Curso curso){
+        this.cursoEditar = curso;
+    }
+    
     private void txtIdNombreCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdNombreCursoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdNombreCursoActionPerformed
@@ -170,10 +176,10 @@ public class RegistrarCurso extends javax.swing.JDialog {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         try {
             
-            Curso curso = new Curso(0, txtIdNombreCurso.getText(), (String)jComboBoxPeriodo.getSelectedItem(), (String)jComboBoxCategoria.getSelectedItem());
+            Curso curso = new Curso(cursoEditar.getId_curso(), txtIdNombreCurso.getText(), (String)jComboBoxPeriodo.getSelectedItem(), (String)jComboBoxCategoria.getSelectedItem());
             daoCurso dCurso = new daoCurso(curso);
 
-            if(dCurso.agregar()){
+            if(dCurso.modificar()){
                 System.out.println("Se agregó el nuevo curso");
                 RegistroExitosoDialog re = new RegistroExitosoDialog();
                 re.setVisible(true);
@@ -213,6 +219,7 @@ public class RegistrarCurso extends javax.swing.JDialog {
         jComboBoxCategoria.addItem("Ciencia");
         jComboBoxCategoria.addItem("Inglés");
     }
+    
     /**
      * @param args the command line arguments
      */
@@ -230,20 +237,21 @@ public class RegistrarCurso extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                RegistrarCurso dialog = new RegistrarCurso(new javax.swing.JFrame(), true);
+                ModificarCurso dialog = new ModificarCurso(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

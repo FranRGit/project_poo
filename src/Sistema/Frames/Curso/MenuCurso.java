@@ -114,7 +114,7 @@ public class MenuCurso extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(96, 131, 165));
-        jLabel1.setText("MENU MATERIA");
+        jLabel1.setText("MENU CURSO");
         DatosPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 269, 40));
 
         RegistrarPanel.setBackground(new java.awt.Color(96, 131, 165));
@@ -403,7 +403,12 @@ public class MenuCurso extends javax.swing.JPanel {
     }//GEN-LAST:event_RegistrarPanelMouseExited
 
     private void ModificarPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarPanelMouseClicked
-        // TODO add your handling code here:
+        JPrincipal jp = new JPrincipal();
+        Point aux = this.getLocationOnScreen();
+        BuscarCurso ra = new BuscarCurso(jp, true);
+        ra.setLocation(aux.x-304, aux.y);
+        ra.setVisible(true);
+        actualizar();
     }//GEN-LAST:event_ModificarPanelMouseClicked
 
     private void ModificarPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarPanelMouseEntered

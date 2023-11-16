@@ -5,6 +5,7 @@
 package Sistema.Frames.Matricula;
 
 import Sistema.Clases.*;
+import java.util.ArrayList;
 
 
 
@@ -19,6 +20,8 @@ public class MatriculaPanel extends javax.swing.JPanel {
      */
     public MatriculaPanel() {
         initComponents();
+        llenarCbxCurso();
+        llenarCbxSeccion();
     }
 
     /**
@@ -114,20 +117,59 @@ public class MatriculaPanel extends javax.swing.JPanel {
         txtestado.setText("Estado");
         add(txtestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 260, 30));
     }// </editor-fold>//GEN-END:initComponents
-
+   public void llenarCbxCurso(){
+        daoCurso cursos = new daoCurso();
+        CboxCursos.removeAllItems();
+        ArrayList<Curso> listaCursos = cursos.obtenerLista();
+        for(Curso curso : listaCursos){
+            CboxCursos.addItem(curso.getNombreCurso());
+        }
+    }
+    public void llenarCbxSeccion(){
+        daoSeccion secciones = new daoSeccion();
+        CboxSecciones.removeAllItems();
+        ArrayList<Seccion> listaSeccion = secciones.obtenerLista();
+        for(Seccion seccion : listaSeccion){
+            if(seccion.getId_curso()==obtenerIDcurso())
+                CboxSecciones.addItem(seccion.getNombreSeccion());
+            
+        }
+    }
+    public int obtenerIDcurso(){
+        int idCurso=0;
+        daoCurso cursos = new daoCurso();
+        ArrayList<Curso> listaCursos = cursos.obtenerLista();
+        for(Curso curso : listaCursos){
+            if(CboxCursos.getSelectedItem()==curso.getNombreCurso()){
+                idCurso = curso.getId_curso();
+            }
+        }
+        return idCurso;
+    }
+    public int obtenerIDseccion(){
+        int idSecc=0;
+        daoSeccion secc = new daoSeccion();
+        ArrayList<Seccion> listaSecciones = secc.obtenerLista();
+        for(Seccion seccion : listaSecciones){
+            if(CboxSecciones.getSelectedItem()==seccion.getNombreSeccion()){
+                idSecc = seccion.getId_seccion();
+            }
+        }
+        return idSecc;
+    }
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
         try {
-            int idEstudiante;
+            int idEstudiante, idseccion;
             idEstudiante = Integer.parseInt(id_alumnoM.getText());
+            idseccion=obtenerIDseccion();
             daoMatrícula matricula = new daoMatrícula();
             //OJOOOOOOOOOOOOOOOO
-            Matricula m1 = new Matricula(3, 0, idEstudiante, txtFechaM.getText(), txtestado.getText());
+            Matricula m1 = new Matricula(3, idseccion, idEstudiante, txtFechaM.getText(), txtestado.getText());
             
-
             if(matricula.realizarMatricula(m1)){
                 System.out.println("Se realizo la matricula exitosamente");
             } else {

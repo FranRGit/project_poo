@@ -34,6 +34,7 @@ public class RegistrarSeccion extends javax.swing.JDialog {
         initComponents();
         llenarComboBoxCursos();
         llenarComboBoxProfesores();
+        llenarComboBoxHorario();
         setBackground(new Color(0, 0, 0, 80)); // Configura el fondo transparente
         actualizar();
 

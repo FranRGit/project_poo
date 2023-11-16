@@ -7,6 +7,8 @@ package Sistema.Frames.Curso;
 
 import Sistema.Frames.Alumno.*;
 import Sistema.Clases.Alumno;
+import Sistema.Clases.Curso;
+import Sistema.Clases.daoCurso;
 import Sistema.Clases.daoUsuario;
 import Sistema.Frames.ErrorDialog;
 import Sistema.Frames.Principal.JPrincipal;
@@ -19,12 +21,12 @@ import java.util.ArrayList;
  *
  * @author USUARIO
  */
-public class BuscarProfesor extends javax.swing.JDialog {
+public class BuscarCurso extends javax.swing.JDialog {
 
     /**
      * Creates new form RegistrarAlumno2
      */
-    public BuscarProfesor(java.awt.Frame parent, boolean modal) {
+    public BuscarCurso(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
@@ -91,18 +93,18 @@ public class BuscarProfesor extends javax.swing.JDialog {
         Titulotxt.setFont(new java.awt.Font("Consolas", 0, 30)); // NOI18N
         Titulotxt.setForeground(new java.awt.Color(72, 99, 124));
         Titulotxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Titulotxt.setText("MODIFICAR ALUMNO");
+        Titulotxt.setText("MODIFICAR CURSO");
         Titulotxt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pnlUpAlumno5.add(Titulotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 320, 51));
 
-        jLabel1.setText("ID de alumno");
+        jLabel1.setText("ID de curso");
         pnlUpAlumno5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         idtxt.setBackground(new java.awt.Color(255, 255, 255));
-        idtxt.setText("Digite el id del usuario");
+        idtxt.setText("Digite el id del curso");
         idtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idtxtActionPerformed(evt);
@@ -144,11 +146,11 @@ public class BuscarProfesor extends javax.swing.JDialog {
     private void BuscarbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarbtnMouseClicked
         try {
             int idBuscado = Integer.parseInt(idtxt.getText());
-            if(buscarIDAlumno(idBuscado) != null) {
+            if(buscarIDCurso(idBuscado) != null) {
                 JPrincipal jp = new JPrincipal();
                 Point aux = this.getLocationOnScreen();
-                ModificarAlumno mpa = new ModificarAlumno(jp, true);
-                mpa.enviarAlumno( buscarIDAlumno(idBuscado));
+                ModificarCurso mpa = new ModificarCurso(jp, true);
+                mpa.enviarCurso(buscarIDCurso(idBuscado));
                 mpa.setLocation(aux.x, aux.y);
                 mpa.setVisible(true);
                 dispose();
@@ -156,18 +158,18 @@ public class BuscarProfesor extends javax.swing.JDialog {
                 throw new Exception("Error");
             }
         } catch (Exception e) {
-            mostrarErrorDialog("No se pudo encontrar al alumno");
+            mostrarErrorDialog("No se pudo encontrar al curso");
         }
 
     }//GEN-LAST:event_BuscarbtnMouseClicked
 
-    private Alumno buscarIDAlumno(int idBuscado){
+    private Curso buscarIDCurso(int idBuscado){
         
-        daoUsuario dao = new daoUsuario();
-        ArrayList<Alumno> listaAlumno =  dao.obtenerListaAlumno();
-        for(Alumno alumno : listaAlumno) {
-            if(idBuscado == alumno.getId_alumno()){
-                return alumno;
+        daoCurso dao = new daoCurso();
+        ArrayList<Curso> listaCurso =  dao.obtenerLista();
+        for(Curso curso : listaCurso) {
+            if(idBuscado == curso.getId_curso()){
+                return curso;
             }
         }
         return null;
@@ -194,14 +196,142 @@ public class BuscarProfesor extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BuscarProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BuscarProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BuscarProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BuscarProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -334,7 +464,7 @@ public class BuscarProfesor extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                BuscarProfesor dialog = new BuscarProfesor(new javax.swing.JFrame(), true);
+                BuscarCurso dialog = new BuscarCurso(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
