@@ -4,11 +4,12 @@
  */
 package Sistema.Frames.Curso;
 
-
+import Sistema.Clases.Curso;
+import Sistema.Clases.Seccion;
 import Sistema.Clases.daoCurso;
-import Sistema.Frames.Alumno.*;
-import Sistema.Clases.daoUsuario;
+import Sistema.Clases.daoSeccion;
 import java.awt.Color;
+import java.util.ArrayList;
 
 
 /**
@@ -141,9 +142,17 @@ public class EliminarCurso extends javax.swing.JDialog {
 
     private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
         daoCurso dao = new daoCurso();
+        daoSeccion daoS = new daoSeccion();
+        ArrayList<Seccion> listaSeccion = daoS.obtenerLista();
         int id = Integer.parseInt(idtxt.getText());
+        
+        for (Seccion seccion : listaSeccion) {
+            if(id==seccion.getId_curso()){
+                daoS.eliminar(id);
+            }
+       }
+           
         dao.eliminar(id);
-
     }//GEN-LAST:event_btnEliminarMouseClicked
 
     

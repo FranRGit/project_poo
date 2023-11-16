@@ -4,7 +4,6 @@
  */
 package Sistema.Frames.Seccion;
 
-import Sistema.Clases.Alumno;
 import Sistema.Clases.Curso;
 import Sistema.Clases.Profesor;
 import Sistema.Clases.Seccion;
@@ -177,9 +176,8 @@ public class RegistrarSeccion extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     //LLENAR COMBOBOX DE HORARIO
-    public void llenarComboBoxHorario(){
+    public void llenarComboBoxHorario() {
         jComboBoxHorario.removeAllItems();
         jComboBoxHorario.addItem("Lunes 8:00-12:00");
         jComboBoxHorario.addItem("Lunes 14:00-18:00");
@@ -192,12 +190,14 @@ public class RegistrarSeccion extends javax.swing.JDialog {
         jComboBoxHorario.addItem("Viernes 8:00-12:00");
         jComboBoxHorario.addItem("Viernes 14:00-18:00");
     }
-    
+
     private void actualizar() {
         tablaGenérica<Curso> tablaActualizada = new tablaGenérica<>(); //TABLA GENERICA
         String[] columnas = {"ID_Curso", "Nombre", "Periodo", "Categoria"}; //COLUMNAS
 //        tablaActualizada.actualizarTabla(dao.obtenerLista(), columnas, tblCurso);
+
     }
+
     //LLENAR COMBOBOX DE CURSOS
     public void llenarComboBoxCursos() {
         daoCurso cursos = new daoCurso();
@@ -221,20 +221,24 @@ public class RegistrarSeccion extends javax.swing.JDialog {
     }
 
     //OBTENER ULTIMO CURSO
-    public String obtenerUltimoCurso() {
-        daoCurso cursos = new daoCurso();
-        String zz = null;
-//        jComboBoxCurso.removeAllItems();
-        ArrayList<Curso> listaCursos = cursos.obtenerLista();
-        // Verificar si la lista de cursos no está vacía
-        if (!listaCursos.isEmpty()) {
-            // Obtener el último curso de la lista
-            Curso ultimoCurso = listaCursos.get(listaCursos.size() - 1);
-            zz = ultimoCurso.getNombreCurso();
-            // Agregar el último curso al JComboBox
-//            jComboBox.addItem(ultimoCurso.getNombreCurso());
+    public int obtenerContadorSeccion() {
+        Seccion sec = new Seccion();
+        daoSeccion dSeccion = new daoSeccion();
+        Curso curso = new Curso();
+        daoCurso dCurso = new daoCurso();
+        int cont = 0;
+        ArrayList<Seccion> listaSeccion = dSeccion.obtenerLista();
+        ArrayList<Curso> listaCurso = dCurso.obtenerLista();
+        for(Curso cur : listaCurso){
+            if(cur.getNombreCurso().equals(jComboBoxCurso.getSelectedItem().toString())){
+                for(Seccion C : listaSeccion){
+                    if(C.getId_curso() == cur.getId_curso()){
+                        cont++;
+                    }
+                }
+            }
         }
-        return zz;
+        return cont; 
     }
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
@@ -249,7 +253,7 @@ public class RegistrarSeccion extends javax.swing.JDialog {
 
     private void btnSubirCursoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubirCursoMouseClicked
         try {
-            Seccion seccion = new Seccion(0, txtIdNombre.getText(), obtenerIDCurso(), obtenerIDProfesor(), jComboBoxHorario.getSelectedItem().toString());
+            Seccion seccion = new Seccion(0, txtIdNombre.getText(), obtenerIDcurso(), obtenerIDProfesor(), jComboBoxHorario.getSelectedItem().toString());
             daoSeccion dSeccion = new daoSeccion(seccion);
 
             if (dSeccion.agregar()) {
@@ -263,30 +267,31 @@ public class RegistrarSeccion extends javax.swing.JDialog {
             e.getMessage();
         }
     }//GEN-LAST:event_btnSubirCursoMouseClicked
-
-    //OBTNER ID DEL CURSO
-    public int obtenerIDCurso(){
-        Curso aux = new Curso();
-        daoCurso cursos = new daoCurso(aux);
-        ArrayList<Curso> listaCursos = cursos.obtenerLista();
-        for(Curso curso : listaCursos){
-            if(jComboBoxCurso.getSelectedItem().equals(curso.getNombreCurso())) {
-                return curso.getId_curso();
+    
+    //OBTENER ID DE PROFESOR
+    public int obtenerIDProfesor(){
+        int idProfesor=0;
+        daoUsuario lista = new daoUsuario();
+        ArrayList<Profesor> profesores = lista.obtenerListaProfesor();
+        for(Profesor profesor : profesores) {
+            if(profesor.getNombre().equals(jComboBoxProfesor.getSelectedItem())){
+                idProfesor = profesor.getId_profesor();
             }
         }
-        return 0;
+        return idProfesor;
     }
     
-    //OBTENER ID DEL PROFESOR
-    public int obtenerIDProfesor(){
-        daoUsuario dao = new daoUsuario();
-        ArrayList<Profesor> lista = dao.obtenerListaProfesor();
-        for(Profesor profesor : lista){
-            if(profesor.getNombre().equals(jComboBoxProfesor.getSelectedItem())){
-                return profesor.getId_profesor();
+    //OBTENER ID DE CURSO
+    public int obtenerIDcurso(){
+        int idCurso=0;
+        daoCurso cursos = new daoCurso();
+        ArrayList<Curso> listaCursos = cursos.obtenerLista();
+        for(Curso curso : listaCursos){
+            if(curso.getNombreCurso().equals(jComboBoxCurso.getSelectedItem())){
+                idCurso = curso.getId_curso();
             }
         }
-        return 0;
+        return idCurso;
     }
     
     private void btnSubirCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirCursoActionPerformed
@@ -300,9 +305,12 @@ public class RegistrarSeccion extends javax.swing.JDialog {
     private void txtIdNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdNombreMouseClicked
         // TODO add your handling code here:
         // TODO add your handling code here:
-        txtIdNombre.setText(obtenerUltimoCurso()+" - Sección " );
+        int cont = obtenerContadorSeccion()+1;
+        String contString = String.valueOf(cont);
+        txtIdNombre.setText(jComboBoxCurso.getSelectedItem().toString() + " - Sección " + contString);
         actualizar();
     }//GEN-LAST:event_txtIdNombreMouseClicked
+
 
     /**
      * @param args the command line arguments

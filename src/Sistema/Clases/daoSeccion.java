@@ -55,7 +55,7 @@ public class daoSeccion implements CRUD{
             PreparedStatement ps = null;
 
             // ELIMINAR LA SECCIÓN DE LA TABLA
-            ps = cs.conectar().prepareStatement("DELETE FROM Seccion WHERE id_seccion = ?");
+            ps = cs.conectar().prepareStatement("DELETE FROM Seccion WHERE id_curso = ?");
             ps.setInt(1, id);
             ps.executeUpdate();
 

@@ -76,7 +76,7 @@ public class ReporteMatriculas {
      public Alumno obtenerNombreAlumno(){
          for(Alumno alumno : listaAlumno){
              if(alumno.getId_alumno()==matricula.getId_estudiante()){
-             return alumno;
+                return alumno;
             }
          }
         return null;
