@@ -9,6 +9,7 @@ import Sistema.Clases.Curso;
 import Sistema.Clases.Matricula;
 import Sistema.Clases.Profesor;
 import Sistema.Clases.ReporteMatricula;
+import Sistema.Clases.ReporteMatriculaÚnica;
 import Sistema.Clases.Seccion;
 import Sistema.Clases.daoCurso;
 import Sistema.Clases.daoMatrícula;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
  *
  * @author USUARIO
  */
-public class ReporteMatriculaÚnica {
+public class ReporteMatriculaxAlumno {
     private daoUsuario daoU = new daoUsuario();
     daoSeccion daoS = new daoSeccion();
     daoCurso daoC = new daoCurso();
@@ -31,7 +32,7 @@ public class ReporteMatriculaÚnica {
     ArrayList<Curso> listaCurso = new ArrayList<>();
     ArrayList<Seccion> listaSeccion = new ArrayList<>();
     ArrayList<Matricula> listaMatri = new ArrayList<>();
-    ArrayList<ReporteMatricula> listareporteMatri = new ArrayList<>();
+    ArrayList<ReporteMatriculaÚnica> listareporteMatri = new ArrayList<>();
 
     
      public ArrayList filtrarDatos(){
@@ -41,21 +42,23 @@ public class ReporteMatriculaÚnica {
          listaProfesor =daoU.obtenerListaProfesor();
          listaSeccion = daoS.obtenerLista();
          listaMatri= daoM.obtenerLista();
+         
          for (Matricula matricula : listaMatri) {
-             ReporteMatricula reporteM = new ReporteMatricula(); // Crear un nuevo objeto para cada iteración
+             ReporteMatriculaÚnica reporteM = new ReporteMatriculaÚnica(); // Crear un nuevo objeto para cada iteración
 
              reporteM.setFecha(matricula.getFechaMatricula());
-
+  
 
              Seccion seccion = obtenerNombreSeccion(matricula);
              if (seccion != null) {
                  reporteM.setNombreS(seccion.getNombreSeccion());
                  
-                 Curso curso = obtenerCurso(seccion.getId_curso());
+                 Curso curso = obtenerCurso(seccion);
                  if(curso != null) {
                      reporteM.setCurso(curso.getNombreCurso());
+                     reporteM.setPeriodo(curso.getPeriodo());
                  }
-                 
+                
                  Profesor profesor = obtenerProfesor(seccion.getId_profesor());
                  if (profesor != null) {
                      reporteM.setNombreP(profesor.getNombre());
@@ -66,7 +69,7 @@ public class ReporteMatriculaÚnica {
 
              listareporteMatri.add(reporteM);
          }
-
+         
           
         return listareporteMatri; 
         
@@ -99,10 +102,10 @@ public class ReporteMatriculaÚnica {
         return null;
     }
     
-    public Curso obtenerCurso(int IDCurso){
+    public Curso obtenerCurso(Seccion seccion){
         for(Curso curso : listaCurso){
-            if(curso.getId_curso() == IDCurso)
-               return curso;
+            if(curso.getId_curso() == seccion.getId_curso())
+                return curso;
         }
         return null;
     }

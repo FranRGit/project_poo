@@ -95,6 +95,11 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
 
         jPanel4.setBackground(new java.awt.Color(253, 253, 253));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtOpciones2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -116,7 +121,7 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-    ReporteUsuarios ma = new ReporteUsuarios();
+        ReporteUsuarios ma = new ReporteUsuarios();
         ma.setSize(890, 750); 
         ma.setLocation(0, 0);
         
@@ -153,6 +158,25 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
         contenedorPrincipal.validate();
         contenedorPrincipal.repaint();
     }//GEN-LAST:event_pnlMatriculaxseccMouseClicked
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        MatriculaUnica mu = new MatriculaUnica();
+        mu.setSize(890, 750);
+        mu.setLocation(0, 0);
+
+        // Obtén el contenedor principal
+        Container contenedorPrincipal = this.getParent();
+
+        // Elimina el panel actual
+        contenedorPrincipal.remove(this);
+
+        // Agrega el nuevo panel (MenuUsuario)
+        contenedorPrincipal.add(mu);
+
+        // Valida y repinta el contenedor principal
+        contenedorPrincipal.validate();
+        contenedorPrincipal.repaint();
+    }//GEN-LAST:event_jPanel4MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
