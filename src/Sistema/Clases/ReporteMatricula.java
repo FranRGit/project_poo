@@ -17,7 +17,8 @@ public class ReporteMatricula {
     private String nombreS;
     private String horario;
     private String fecha;    
-
+    private String periodo;
+    private String curso;
     public ReporteMatricula() {
     }
 
@@ -30,6 +31,23 @@ public class ReporteMatricula {
         this.fecha = fecha;
     }
 
+    public String getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+    
+    
     public int getIdMatricula() {
         return idMatricula;
     }

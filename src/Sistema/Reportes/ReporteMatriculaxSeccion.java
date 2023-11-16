@@ -4,12 +4,13 @@
  */
 package Sistema.Reportes;
 
-import Sistema.Clases.Usuario;
-import Sistema.Clases.daoMatrícula;
-import Sistema.Clases.daoUsuario;
+import Sistema.Clases.ReporteMatricula;
 import Sistema.Frames.Tablas.tableDesigner;
 import Sistema.Frames.Tablas.tablaGenérica;
-import Sistema.Frames.Tablas.tablaReporteUsuarios;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -44,6 +45,7 @@ public class ReporteMatriculaxSeccion extends javax.swing.JPanel{
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMatriculaxSeccion = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jButtonTXT = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(253, 253, 253));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,7 +69,6 @@ public class ReporteMatriculaxSeccion extends javax.swing.JPanel{
         tblMatriculaxSeccion.setRowHeight(40);
         tblMatriculaxSeccion.setSelectionBackground(new java.awt.Color(204, 204, 204));
         tblMatriculaxSeccion.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        tblMatriculaxSeccion.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jScrollPane1.setViewportView(tblMatriculaxSeccion);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 760, 580));
@@ -76,10 +77,67 @@ public class ReporteMatriculaxSeccion extends javax.swing.JPanel{
         jLabel1.setForeground(new java.awt.Color(96, 131, 165));
         jLabel1.setText("REPORTE  USUARIOS");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 269, 39));
+
+        jButtonTXT.setBackground(new java.awt.Color(255, 0, 0));
+        jButtonTXT.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        jButtonTXT.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonTXT.setText("DESCARGAR TXT");
+        jButtonTXT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonTXTMouseClicked(evt);
+            }
+        });
+        jButtonTXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTXTActionPerformed(evt);
+            }
+        });
+        add(jButtonTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonTXTActionPerformed
+
+    private void jButtonTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonTXTMouseClicked
+        ArrayList<ReporteMatricula> listaReporteMatricula = rm.filtrarDatos(); // Obtén la lista real de reportes
+
+    if (listaReporteMatricula != null && !listaReporteMatricula.isEmpty()) {
+        exportarTXT(listaReporteMatricula);
+    } else {
+        System.out.println("La lista de reportes de matrícula está vacía o es nula.");
+    }
+    }//GEN-LAST:event_jButtonTXTMouseClicked
+    public static void exportarTXT(ArrayList<ReporteMatricula> listaReporteMatricula) {
+        try {
+            // Crear un archivo de texto en el directorio del proyecto
+            File txtFile = new File("ReporteMatriculas.txt");
+            FileWriter writer = new FileWriter(txtFile);
+
+            // Escribir encabezado
+            writer.write("Reporte de Matrículas\n");
+            writer.write("ID Matrícula\tFecha\tNombre del Alumno\tNombre del Profesor\n");
+
+            // Escribir datos
+            for (ReporteMatricula reporteMatricula : listaReporteMatricula) {
+                writer.write(reporteMatricula.getIdMatricula() + "\t");
+                writer.write(reporteMatricula.getFecha() + "\t");
+                writer.write(reporteMatricula.getNombreA() + "\t");
+                writer.write(reporteMatricula.getNombreP() + "\n");
+            }
+
+            // Cerrar el escritor
+            writer.close();
+
+            System.out.println("ReporteMatriculas.txt creado con éxito.");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonTXT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblMatriculaxSeccion;

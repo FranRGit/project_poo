@@ -128,13 +128,13 @@ public class daoUsuario implements CRUD{
                 rs.close();
                 ps3.close();
                 cx.desconectar();
-                return true;
+                
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-
+            return false;
         }
-        return false;
+        return true;
     }
 
     @Override

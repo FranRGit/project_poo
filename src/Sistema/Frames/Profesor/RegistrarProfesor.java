@@ -59,7 +59,7 @@ public final class RegistrarProfesor extends javax.swing.JDialog {
         exittxt = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         jcbNacionalidad = new javax.swing.JComboBox<>();
-        jcbNivelAcademico = new javax.swing.JComboBox<>();
+        jcbEspecialidad = new javax.swing.JComboBox<>();
         jLabel48 = new javax.swing.JLabel();
         jcbSexo = new javax.swing.JComboBox<>();
 
@@ -98,7 +98,7 @@ public final class RegistrarProfesor extends javax.swing.JDialog {
         pnlUpAlumno5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 172, -1));
 
         btnSubirAlumno.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        btnSubirAlumno.setText("SUBIR ALUMNO");
+        btnSubirAlumno.setText("SUBIR PROFESOR");
         btnSubirAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSubirAlumnoMouseClicked(evt);
@@ -195,13 +195,13 @@ public final class RegistrarProfesor extends javax.swing.JDialog {
         });
         pnlUpAlumno5.add(jcbNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 160, 30));
 
-        jcbNivelAcademico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jcbNivelAcademico.addActionListener(new java.awt.event.ActionListener() {
+        jcbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbEspecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbNivelAcademicoActionPerformed(evt);
+                jcbEspecialidadActionPerformed(evt);
             }
         });
-        pnlUpAlumno5.add(jcbNivelAcademico, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 300, 30));
+        pnlUpAlumno5.add(jcbEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 300, 30));
 
         jLabel48.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel48.setText("Especialidad");
@@ -237,12 +237,12 @@ public final class RegistrarProfesor extends javax.swing.JDialog {
     
     //LLENAR COMBOBOX DE NACADEMICO
     public void llenarComboBoxEspecialidad(){
-        jcbNivelAcademico.removeAllItems();
-        jcbNivelAcademico.addItem("Matematicas");
-        jcbNivelAcademico.addItem("Ciencias");
-        jcbNivelAcademico.addItem("Idiomas");
-        jcbNivelAcademico.addItem("Sociales");
-        jcbNivelAcademico.addItem("Otro");
+        jcbEspecialidad.removeAllItems();
+        jcbEspecialidad.addItem("Matematicas");
+        jcbEspecialidad.addItem("Ciencias");
+        jcbEspecialidad.addItem("Idiomas");
+        jcbEspecialidad.addItem("Sociales");
+        jcbEspecialidad.addItem("Otro");
     }
     
     //LLENAR COMBOBOX DE Nacionalidad
@@ -271,7 +271,7 @@ public final class RegistrarProfesor extends javax.swing.JDialog {
 
         try {
             int edad = Integer.parseInt(txtEdad.getText());
-            Usuario usuario = new Alumno(jcbNivelAcademico.getSelectedItem().toString(), 0,0, txtNombre1.getText().toString(),edad,jcbSexo.getSelectedItem().toString(),txtTelefono.getText(), txtEmail.getText(), jcbNacionalidad.getSelectedItem().toString(), "");
+            Usuario usuario = new Profesor(jcbEspecialidad.getSelectedItem().toString(), 0,0, txtNombre1.getText().toString(),edad,jcbSexo.getSelectedItem().toString(),txtTelefono.getText(), txtEmail.getText(), jcbNacionalidad.getSelectedItem().toString(), "");
             daoUsuario dUsuario = new daoUsuario(usuario);
 
             if(dUsuario.agregar()){
@@ -307,9 +307,9 @@ public final class RegistrarProfesor extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbNacionalidadActionPerformed
 
-    private void jcbNivelAcademicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbNivelAcademicoActionPerformed
+    private void jcbEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbEspecialidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcbNivelAcademicoActionPerformed
+    }//GEN-LAST:event_jcbEspecialidadActionPerformed
 
     private void jcbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSexoActionPerformed
         // TODO add your handling code here:
@@ -401,8 +401,8 @@ public final class RegistrarProfesor extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
+    private javax.swing.JComboBox<String> jcbEspecialidad;
     private javax.swing.JComboBox<String> jcbNacionalidad;
-    private javax.swing.JComboBox<String> jcbNivelAcademico;
     private javax.swing.JComboBox<String> jcbSexo;
     private javax.swing.JPanel pnlUpAlumno5;
     private javax.swing.JTextField txtEdad;

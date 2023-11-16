@@ -107,12 +107,16 @@ public class RegistrarSeccion extends javax.swing.JDialog {
         jLabel41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pnlUpAlumno5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 76, 340, 51));
 
-        jLabel42.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jLabel42.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(102, 102, 255));
         jLabel42.setText("Nombre:");
-        pnlUpAlumno5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 140, 105, 30));
+        pnlUpAlumno5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 105, 30));
 
+        txtIdNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtIdNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtIdNombre.setForeground(new java.awt.Color(51, 51, 51));
         txtIdNombre.setText("Series Y Ecuaciones Diferenciales");
+        txtIdNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtIdNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtIdNombreMouseClicked(evt);
@@ -123,17 +127,22 @@ public class RegistrarSeccion extends javax.swing.JDialog {
                 txtIdNombreActionPerformed(evt);
             }
         });
-        pnlUpAlumno5.add(txtIdNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 188, 356, 30));
+        pnlUpAlumno5.add(txtIdNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 320, 40));
 
-        jLabel43.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jLabel43.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel43.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(102, 102, 255));
         jLabel43.setText("Curso:");
-        pnlUpAlumno5.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 236, 173, 25));
+        pnlUpAlumno5.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 173, 25));
 
-        jLabel46.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jLabel46.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(102, 102, 255));
         jLabel46.setText("Profesor:");
-        pnlUpAlumno5.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 330, 135, 27));
+        pnlUpAlumno5.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 135, 27));
 
+        btnSubirCurso.setBackground(new java.awt.Color(102, 102, 255));
         btnSubirCurso.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        btnSubirCurso.setForeground(new java.awt.Color(255, 255, 255));
         btnSubirCurso.setText("SUBIR SECCIÓN");
         btnSubirCurso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -145,25 +154,29 @@ public class RegistrarSeccion extends javax.swing.JDialog {
                 btnSubirCursoActionPerformed(evt);
             }
         });
-        pnlUpAlumno5.add(btnSubirCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 196, 44));
+        pnlUpAlumno5.add(btnSubirCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 196, 44));
 
-        jLabel47.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jLabel47.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(102, 102, 255));
         jLabel47.setText("Horario:");
-        pnlUpAlumno5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 135, 27));
+        pnlUpAlumno5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 135, 27));
 
+        jComboBoxCurso.setBackground(new java.awt.Color(204, 204, 255));
         jComboBoxCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlUpAlumno5.add(jComboBoxCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 280, 40));
+        pnlUpAlumno5.add(jComboBoxCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 320, 40));
 
+        jComboBoxProfesor.setBackground(new java.awt.Color(204, 204, 255));
         jComboBoxProfesor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxProfesor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxProfesorActionPerformed(evt);
             }
         });
-        pnlUpAlumno5.add(jComboBoxProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 280, 40));
+        pnlUpAlumno5.add(jComboBoxProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 280, 40));
 
+        jComboBoxHorario.setBackground(new java.awt.Color(204, 204, 255));
         jComboBoxHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlUpAlumno5.add(jComboBoxHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 210, 40));
+        pnlUpAlumno5.add(jComboBoxHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 270, 40));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
