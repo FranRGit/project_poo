@@ -243,23 +243,28 @@ public class MatriculaPanel extends javax.swing.JPanel {
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
         try {
-            int idEstudiante, idseccion;
-            idEstudiante = obtenerIDAlumno();
-            idseccion=obtenerIDseccion();
-            daoMatrícula matricula = new daoMatrícula();
+        int idEstudiante, idseccion;
+        idEstudiante = obtenerIDAlumno();
+        idseccion = obtenerIDseccion();
+        daoMatrícula matricula = new daoMatrícula();
 
+        // Verificar si el alumno ya está matriculado en esa sección
+        if (matricula.alumnoYaMatriculado(idEstudiante, idseccion)) {
+            System.out.println("El alumno ya está matriculado en esta sección");
+        } else {
+            // Realizar la matrícula solo si el alumno no está matriculado en esa sección
             Matricula m1 = new Matricula(3, idseccion, idEstudiante, txtFechaM.getText(), txtestado.getText());
-            
-            if(matricula.realizarMatricula(m1)){
-                System.out.println("Se realizo la matricula exitosamente");
+
+            if (matricula.realizarMatricula(m1)) {
+                System.out.println("Se realizó la matrícula exitosamente");
             } else {
-                System.out.println("Error al realizar matricula");
+                System.out.println("Error al realizar matrícula");
             }
-            
-        } catch (Exception e) {
-            System.out.println("ERROR");
-        }    // TODO add your handling code here:
-     
+        }
+    } catch (Exception e) {
+        System.out.println("ERROR");
+    }
+ 
     }//GEN-LAST:event_btnRegistrarMouseClicked
 
     private void jComboBoxIDAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDAlumnoActionPerformed

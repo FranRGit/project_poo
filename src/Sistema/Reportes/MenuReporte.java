@@ -41,9 +41,6 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
         txtOpciones1 = new javax.swing.JLabel();
         txtOpciones3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        txtOpciones2 = new javax.swing.JLabel();
-        txtOpciones = new javax.swing.JLabel();
         txtOpciones4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(253, 253, 253));
@@ -66,7 +63,7 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/matriculaSeccion.png"))); // NOI18N
         pnlMatriculaxsecc.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 130, 130));
 
-        add(pnlMatriculaxsecc, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 220, 210));
+        add(pnlMatriculaxsecc, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 220, 210));
 
         jPanel3.setBackground(new java.awt.Color(253, 253, 253));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -91,23 +88,7 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/reporteUsuario.png"))); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 140, 130));
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 220, 210));
-
-        jPanel4.setBackground(new java.awt.Color(253, 253, 253));
-        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtOpciones2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        txtOpciones2.setForeground(new java.awt.Color(96, 131, 165));
-        txtOpciones2.setText("MATRICULA UNICA");
-        jPanel4.add(txtOpciones2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
-
-        txtOpciones.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        txtOpciones.setForeground(new java.awt.Color(96, 131, 165));
-        txtOpciones.setText("MATRICULA UNICA");
-        jPanel4.add(txtOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
-
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, 220, 210));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 220, 210));
 
         txtOpciones4.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         txtOpciones4.setForeground(new java.awt.Color(96, 131, 165));
@@ -158,11 +139,8 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel pnlMatriculaxsecc;
-    private javax.swing.JLabel txtOpciones;
     private javax.swing.JLabel txtOpciones1;
-    private javax.swing.JLabel txtOpciones2;
     private javax.swing.JLabel txtOpciones3;
     private javax.swing.JLabel txtOpciones4;
     private javax.swing.JLabel txtOpciones5;

@@ -7,6 +7,7 @@ package Sistema.Frames.Tablas;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import Sistema.Clases.*;
+import Sistema.Reportes.ReporteMatriculaxAlumno;
 import javax.swing.JTable;
 
 
@@ -21,7 +22,7 @@ public class tablaGenérica<T> {
     public void actualizarTabla(ArrayList<T> lista, String[] columnas, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
         
-        //PARA REEMPLAZAR
+        
         for(String columna : columnas){
             modelo.addColumn(columna);
         }
@@ -59,6 +60,11 @@ public class tablaGenérica<T> {
         if(elemento instanceof ReporteMatricula){
             ReporteMatricula rm = (ReporteMatricula) elemento;
             return new Object[]{rm.getIdMatricula(),rm.getNombreA(),rm.getNombreP(),rm.getNombreS(),rm.getHorario(),rm.getFecha()};
+        }
+        
+        if(elemento instanceof ReporteMatriculaÚnica) {
+            ReporteMatriculaÚnica rmu = (ReporteMatriculaÚnica) elemento;
+            return new Object[]{rmu.getPeriodo(),rmu.getCurso(),rmu.getNombreS(),rmu.getNombreP(),rmu.getFecha()};
         }
         return new Object[0];
     }

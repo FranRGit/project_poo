@@ -78,4 +78,34 @@ public class daoMatrícula {
         
          return matriculas;
     }
+    
+    public boolean alumnoYaMatriculado(int idEstudiante, int idSeccion) {
+        Conexion cx = new Conexion();
+
+        try {
+            PreparedStatement ps = cx.conectar().prepareStatement(
+                    "SELECT COUNT(*) FROM Matricula WHERE id_alumno = ? AND id_seccion = ?");
+            ps.setInt(1, idEstudiante);
+            ps.setInt(2, idSeccion);
+
+            ResultSet rs = ps.executeQuery();
+
+            // Si hay algún resultado, significa que el alumno ya está matriculado en la sección
+            if (rs.next() && rs.getInt(1) > 0) {
+                rs.close();
+                ps.close();
+                cx.desconectar();
+                return true;
+            }
+
+            rs.close();
+            ps.close();
+            cx.desconectar();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false; // El alumno no está matriculado en la sección
+    }    
 }

@@ -5,12 +5,10 @@
 package Sistema.Reportes;
 
 import Sistema.Clases.Alumno;
-import Sistema.Clases.Usuario;
-import Sistema.Clases.daoMatrícula;
+import Sistema.Clases.ReporteMatriculaÚnica;
 import Sistema.Clases.daoUsuario;
 import Sistema.Frames.Tablas.tableDesigner;
 import Sistema.Frames.Tablas.tablaGenérica;
-import Sistema.Frames.Tablas.tablaReporteUsuarios;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +17,7 @@ import java.util.ArrayList;
  */
 public class MatriculaUnica extends javax.swing.JPanel{
     
-    ReporteMatriculaÚnica rmu = new ReporteMatriculaÚnica();
+    ReporteMatriculaxAlumno rmu = new ReporteMatriculaxAlumno();
     /**
      * Creates new customizer ReporteUsuarios
      */
@@ -31,7 +29,7 @@ public class MatriculaUnica extends javax.swing.JPanel{
         actualizar();
     }
     public void actualizar(){
-        tablaGenérica<ReporteMatriculas> tru = new tablaGenérica<>();
+        tablaGenérica<ReporteMatriculaÚnica> tru = new tablaGenérica<>();
         String[] columna = {"Periodo","Curso","Seccion","Profesor Asignado","Fecha"};
         tru.actualizarTabla(rmu.filtrarDatos(), columna, tblMatriculaUnica);
     }

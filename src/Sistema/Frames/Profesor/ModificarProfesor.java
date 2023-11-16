@@ -113,7 +113,7 @@ public final class ModificarProfesor extends javax.swing.JDialog {
         });
         pnlUpAlumno5.add(btnEditarProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 196, 44));
 
-        txtEmail.setText("Ingrese el email del alumno");
+        txtEmail.setText(" Ingrese el email del profesor");
         txtEmail.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtEmailMouseClicked(evt);
@@ -130,7 +130,7 @@ public final class ModificarProfesor extends javax.swing.JDialog {
         pnlUpAlumno5.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 200, 32));
 
         txtNombre1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtNombre1.setText(" Ingrese nombre del alumno ");
+        txtNombre1.setText(" Ingrese nombre del profesor");
         txtNombre1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtNombre1MouseClicked(evt);
