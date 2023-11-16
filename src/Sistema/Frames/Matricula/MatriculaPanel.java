@@ -5,6 +5,8 @@
 package Sistema.Frames.Matricula;
 
 import Sistema.Clases.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
@@ -22,6 +24,8 @@ public class MatriculaPanel extends javax.swing.JPanel {
         initComponents();
         llenarCbxCurso();
         llenarCbxSeccion();
+        llenarCbxAlumnos();
+        actionSeccionActualizar();
     }
 
     /**
@@ -34,7 +38,6 @@ public class MatriculaPanel extends javax.swing.JPanel {
         matriculaPanel1 = new Sistema.MatriculaPrueba.MatriculaPanel2();
         btnRegistrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        id_alumnoM = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         CboxCursos = new javax.swing.JComboBox<>();
@@ -45,6 +48,7 @@ public class MatriculaPanel extends javax.swing.JPanel {
         txtFechaM = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtestado = new javax.swing.JTextField();
+        jComboBoxIDAlumno = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(670, 580));
@@ -70,12 +74,8 @@ public class MatriculaPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 320, 70));
 
-        id_alumnoM.setText("Ingrese el ID del alumno");
-        id_alumnoM.setMinimumSize(new java.awt.Dimension(142, 22));
-        add(id_alumnoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 260, 50));
-
         jLabel2.setText("ID Alumno:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 220, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 220, 30));
 
         jLabel3.setText("Curso a matricular:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 220, 30));
@@ -96,11 +96,11 @@ public class MatriculaPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 430, 540));
@@ -116,8 +116,18 @@ public class MatriculaPanel extends javax.swing.JPanel {
 
         txtestado.setText("Estado");
         add(txtestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 260, 30));
+
+        jComboBoxIDAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxIDAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxIDAlumnoActionPerformed(evt);
+            }
+        });
+        add(jComboBoxIDAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 270, 60));
     }// </editor-fold>//GEN-END:initComponents
-   public void llenarCbxCurso(){
+   
+    //LLENAR CURSOS COMBOBOX
+    public void llenarCbxCurso(){
         daoCurso cursos = new daoCurso();
         CboxCursos.removeAllItems();
         ArrayList<Curso> listaCursos = cursos.obtenerLista();
@@ -125,38 +135,80 @@ public class MatriculaPanel extends javax.swing.JPanel {
             CboxCursos.addItem(curso.getNombreCurso());
         }
     }
+    
+    //LLENAR CURSOS COMBOBOX
     public void llenarCbxSeccion(){
         daoSeccion secciones = new daoSeccion();
         CboxSecciones.removeAllItems();
+        
+        int idCurso = obtenerIDcurso();
+        
         ArrayList<Seccion> listaSeccion = secciones.obtenerLista();
         for(Seccion seccion : listaSeccion){
-            if(seccion.getId_curso()==obtenerIDcurso())
+            if(seccion.getId_curso()==idCurso)
                 CboxSecciones.addItem(seccion.getNombreSeccion());
             
         }
     }
+
+    //LLENAR CURSOS COMBOBOX
+    public void llenarCbxAlumnos(){
+        daoUsuario listaAlumno = new daoUsuario();
+        jComboBoxIDAlumno.removeAllItems();
+        ArrayList<Alumno> listaAlumnos = listaAlumno.obtenerListaAlumno();
+        for(Alumno alumno : listaAlumnos){
+            jComboBoxIDAlumno.addItem(alumno.getNombre());
+        }
+            
+        
+    }
+
+    public int obtenerIDAlumno(){
+        daoUsuario dao = new daoUsuario();
+        ArrayList<Alumno> lista = dao.obtenerListaAlumno();
+        for(Alumno alumno : lista){
+            if(alumno.getNombre().equals(jComboBoxIDAlumno.getSelectedItem())){
+                return alumno.getId_alumno();
+            }
+        }
+        return 0;
+    }
+    
     public int obtenerIDcurso(){
         int idCurso=0;
         daoCurso cursos = new daoCurso();
         ArrayList<Curso> listaCursos = cursos.obtenerLista();
         for(Curso curso : listaCursos){
-            if(CboxCursos.getSelectedItem()==curso.getNombreCurso()){
+            if(curso.getNombreCurso().equals(CboxCursos.getSelectedItem())){
                 idCurso = curso.getId_curso();
             }
         }
         return idCurso;
     }
+    
     public int obtenerIDseccion(){
-        int idSecc=0;
+
         daoSeccion secc = new daoSeccion();
         ArrayList<Seccion> listaSecciones = secc.obtenerLista();
         for(Seccion seccion : listaSecciones){
-            if(CboxSecciones.getSelectedItem()==seccion.getNombreSeccion()){
-                idSecc = seccion.getId_seccion();
+            if(seccion.getNombreSeccion().equals(CboxSecciones.getSelectedItem())){
+                return seccion.getId_seccion();
             }
         }
-        return idSecc;
+        return 0;
     }
+    
+    //ActionListener para los combobox 
+    public void actionSeccionActualizar(){
+        CboxCursos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Cuando cambia la selección en el ComboBox de curso, actualiza el ComboBox de sección
+                llenarCbxSeccion();
+            }
+        });
+    }
+    
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -164,10 +216,10 @@ public class MatriculaPanel extends javax.swing.JPanel {
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
         try {
             int idEstudiante, idseccion;
-            idEstudiante = Integer.parseInt(id_alumnoM.getText());
+            idEstudiante = obtenerIDAlumno();
             idseccion=obtenerIDseccion();
             daoMatrícula matricula = new daoMatrícula();
-            //OJOOOOOOOOOOOOOOOO
+
             Matricula m1 = new Matricula(3, idseccion, idEstudiante, txtFechaM.getText(), txtestado.getText());
             
             if(matricula.realizarMatricula(m1)){
@@ -182,12 +234,16 @@ public class MatriculaPanel extends javax.swing.JPanel {
      
     }//GEN-LAST:event_btnRegistrarMouseClicked
 
+    private void jComboBoxIDAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxIDAlumnoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CboxCursos;
     private javax.swing.JComboBox<String> CboxSecciones;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JTextField id_alumnoM;
+    private javax.swing.JComboBox<String> jComboBoxIDAlumno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

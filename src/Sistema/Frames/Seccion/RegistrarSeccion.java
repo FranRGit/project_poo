@@ -4,6 +4,7 @@
  */
 package Sistema.Frames.Seccion;
 
+import Sistema.Clases.Alumno;
 import Sistema.Clases.Curso;
 import Sistema.Clases.Profesor;
 import Sistema.Clases.Seccion;
@@ -196,7 +197,6 @@ public class RegistrarSeccion extends javax.swing.JDialog {
         tablaGenérica<Curso> tablaActualizada = new tablaGenérica<>(); //TABLA GENERICA
         String[] columnas = {"ID_Curso", "Nombre", "Periodo", "Categoria"}; //COLUMNAS
 //        tablaActualizada.actualizarTabla(dao.obtenerLista(), columnas, tblCurso);
-
     }
     //LLENAR COMBOBOX DE CURSOS
     public void llenarComboBoxCursos() {
@@ -249,7 +249,7 @@ public class RegistrarSeccion extends javax.swing.JDialog {
 
     private void btnSubirCursoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubirCursoMouseClicked
         try {
-            Seccion seccion = new Seccion(0, txtIdNombre.getText(), 0, 0, jComboBoxHorario.getSelectedItem().toString());
+            Seccion seccion = new Seccion(0, txtIdNombre.getText(), obtenerIDCurso(), obtenerIDProfesor(), jComboBoxHorario.getSelectedItem().toString());
             daoSeccion dSeccion = new daoSeccion(seccion);
 
             if (dSeccion.agregar()) {
@@ -264,6 +264,31 @@ public class RegistrarSeccion extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnSubirCursoMouseClicked
 
+    //OBTNER ID DEL CURSO
+    public int obtenerIDCurso(){
+        Curso aux = new Curso();
+        daoCurso cursos = new daoCurso(aux);
+        ArrayList<Curso> listaCursos = cursos.obtenerLista();
+        for(Curso curso : listaCursos){
+            if(jComboBoxCurso.getSelectedItem().equals(curso.getNombreCurso())) {
+                return curso.getId_curso();
+            }
+        }
+        return 0;
+    }
+    
+    //OBTENER ID DEL PROFESOR
+    public int obtenerIDProfesor(){
+        daoUsuario dao = new daoUsuario();
+        ArrayList<Profesor> lista = dao.obtenerListaProfesor();
+        for(Profesor profesor : lista){
+            if(profesor.getNombre().equals(jComboBoxProfesor.getSelectedItem())){
+                return profesor.getId_profesor();
+            }
+        }
+        return 0;
+    }
+    
     private void btnSubirCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirCursoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSubirCursoActionPerformed
