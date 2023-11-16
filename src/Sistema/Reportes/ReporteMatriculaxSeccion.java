@@ -111,7 +111,12 @@ public class ReporteMatriculaxSeccion extends javax.swing.JPanel{
     public static void exportarTXT(ArrayList<ReporteMatricula> listaReporteMatricula) {
         try {
             // Crear un archivo de texto en el directorio del proyecto
-            File txtFile = new File("ReporteMatriculas.txt");
+            String rutaProyecto = System.getProperty("user.dir");
+            
+            String rutaArchivoRelativa = "ReporteMatriculas.txt";
+            String ReporteMatrícula = rutaProyecto + File.separator + rutaArchivoRelativa;
+            
+            File txtFile = new File("ReporteMatrícula.txt");
             FileWriter writer = new FileWriter(txtFile);
 
             // Escribir encabezado

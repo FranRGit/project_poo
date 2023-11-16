@@ -39,10 +39,18 @@ public class ReporteUsuarios extends javax.swing.JPanel{
     public static void exportarTXT(List<Usuario> listaUsuarios) {
         try {
             // Utilizar FileOutputStream y OutputStreamWriter para escribir en el archivo
-            FileOutputStream fos = new FileOutputStream(new File("ReporteUsuarios.txt"));
+            String rutaProyecto = System.getProperty("user.dir");
+            
+            String rutaArchivoRelativa = "ReporteUsuario.txt";
+            String ReporteMatrícula = rutaProyecto + File.separator + rutaArchivoRelativa;
+            
+            File txtFile = new File("ReporteUsuario.txt");
+            
+            FileOutputStream fos = new FileOutputStream(new File("ReporteMatrícula.txt"));
             OutputStreamWriter osw = new OutputStreamWriter(fos);
             BufferedWriter writer = new BufferedWriter(osw);
-
+            
+            
             // Escribir encabezado
             writer.write("Reporte de Usuarios\n");
             writer.write("Nombre\tEdad\tTeléfono\n");
