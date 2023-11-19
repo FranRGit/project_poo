@@ -39,9 +39,12 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txtOpciones1 = new javax.swing.JLabel();
-        txtOpciones3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        txtOpciones6 = new javax.swing.JLabel();
         txtOpciones4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        txtOpciones3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(253, 253, 253));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,7 +66,7 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/matriculaSeccion.png"))); // NOI18N
         pnlMatriculaxsecc.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 130, 130));
 
-        add(pnlMatriculaxsecc, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 220, 210));
+        add(pnlMatriculaxsecc, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 220, 210));
 
         jPanel3.setBackground(new java.awt.Color(253, 253, 253));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -79,21 +82,40 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
         txtOpciones1.setText("USUARIOS REGISTRADOS");
         jPanel3.add(txtOpciones1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
-        txtOpciones3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        txtOpciones3.setForeground(new java.awt.Color(96, 131, 165));
-        txtOpciones3.setText("USUARIO");
-        jPanel3.add(txtOpciones3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
-
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/reporteUsuario.png"))); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 140, 130));
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 220, 210));
+        txtOpciones6.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        txtOpciones6.setForeground(new java.awt.Color(96, 131, 165));
+        txtOpciones6.setText("USUARIO");
+        jPanel3.add(txtOpciones6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 220, 210));
 
         txtOpciones4.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         txtOpciones4.setForeground(new java.awt.Color(96, 131, 165));
         txtOpciones4.setText("MENU DE REPORTES");
-        add(txtOpciones4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+        add(txtOpciones4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(253, 253, 253));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtOpciones3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        txtOpciones3.setForeground(new java.awt.Color(96, 131, 165));
+        txtOpciones3.setText("MATRICULA ALUMNO");
+        jPanel1.add(txtOpciones3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sistema/Imagenes/AlumnoMatricula.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 100, 120));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, 220, 210));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
@@ -135,14 +157,36 @@ public class MenuReporte extends javax.swing.JPanel implements java.beans.Custom
         contenedorPrincipal.repaint();
     }//GEN-LAST:event_pnlMatriculaxseccMouseClicked
 
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        MatriculaUnica mu = new MatriculaUnica();
+        mu.setSize(890, 750); 
+        mu.setLocation(0, 0);
+        
+        // Obtén el contenedor principal
+        Container contenedorPrincipal = this.getParent();
+
+        // Elimina el panel actual
+        contenedorPrincipal.remove(this);
+
+        // Agrega el nuevo panel (MenuUsuario)
+        contenedorPrincipal.add(mu);
+
+        // Valida y repinta el contenedor principal
+        contenedorPrincipal.validate();
+        contenedorPrincipal.repaint();
+    }//GEN-LAST:event_jPanel1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel pnlMatriculaxsecc;
     private javax.swing.JLabel txtOpciones1;
     private javax.swing.JLabel txtOpciones3;
     private javax.swing.JLabel txtOpciones4;
     private javax.swing.JLabel txtOpciones5;
+    private javax.swing.JLabel txtOpciones6;
     // End of variables declaration//GEN-END:variables
 }

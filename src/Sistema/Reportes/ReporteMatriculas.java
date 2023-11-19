@@ -27,20 +27,15 @@ public class ReporteMatriculas {
     daoCurso daoC = new daoCurso();
     daoMatrícula daoM = new daoMatrícula();
     
-    ArrayList<Profesor> listaProfesor = new ArrayList<>();
-    ArrayList<Alumno> listaAlumno = new ArrayList<>();
-    ArrayList<Seccion> listaSeccion = new ArrayList<>();
-    ArrayList<Matricula> listaMatri = new ArrayList<>();
+    ArrayList<Profesor> listaProfesor = daoU.obtenerListaProfesor();
+    ArrayList<Alumno> listaAlumno = daoU.obtenerListaAlumno();
+    ArrayList<Seccion> listaSeccion = daoS.obtenerLista();
+    ArrayList<Matricula> listaMatri = daoM.obtenerLista();
     ArrayList<ReporteMatricula> listareporteMatri = new ArrayList<>();
 
     
      public ArrayList filtrarDatos(){
-         
-         
-         listaAlumno = daoU.obtenerListaAlumno();
-         listaProfesor =daoU.obtenerListaProfesor();
-         listaSeccion = daoS.obtenerLista();
-         listaMatri= daoM.obtenerLista();
+
          for (Matricula matricula : listaMatri) {
              ReporteMatricula reporteM = new ReporteMatricula(); // Crear un nuevo objeto para cada iteración
 

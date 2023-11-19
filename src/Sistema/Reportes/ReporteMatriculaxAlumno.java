@@ -8,7 +8,6 @@ import Sistema.Clases.Alumno;
 import Sistema.Clases.Curso;
 import Sistema.Clases.Matricula;
 import Sistema.Clases.Profesor;
-import Sistema.Clases.ReporteMatricula;
 import Sistema.Clases.ReporteMatriculaÚnica;
 import Sistema.Clases.Seccion;
 import Sistema.Clases.daoCurso;
@@ -22,68 +21,47 @@ import java.util.ArrayList;
  * @author USUARIO
  */
 public class ReporteMatriculaxAlumno {
+    
     private daoUsuario daoU = new daoUsuario();
     daoSeccion daoS = new daoSeccion();
     daoCurso daoC = new daoCurso();
     daoMatrícula daoM = new daoMatrícula();
     
-    ArrayList<Profesor> listaProfesor = new ArrayList<>();
-    ArrayList<Alumno> listaAlumno = new ArrayList<>();
-    ArrayList<Curso> listaCurso = new ArrayList<>();
-    ArrayList<Seccion> listaSeccion = new ArrayList<>();
-    ArrayList<Matricula> listaMatri = new ArrayList<>();
-    ArrayList<ReporteMatriculaÚnica> listareporteMatri = new ArrayList<>();
+    ArrayList<Profesor> listaProfesor = daoU.obtenerListaProfesor();
+    ArrayList<Alumno> listaAlumno = daoU.obtenerListaAlumno();
+    ArrayList<Curso> listaCurso = daoC.obtenerLista();
+    ArrayList<Seccion> listaSeccion = daoS.obtenerLista();
+    ArrayList<Matricula> listaMatri = daoM.obtenerLista();
+
 
     
-     public ArrayList filtrarDatos(){
-         
-         
-         listaAlumno = daoU.obtenerListaAlumno();
-         listaProfesor =daoU.obtenerListaProfesor();
-         listaSeccion = daoS.obtenerLista();
-         listaMatri= daoM.obtenerLista();
-         
-         for (Matricula matricula : listaMatri) {
-             ReporteMatriculaÚnica reporteM = new ReporteMatriculaÚnica(); // Crear un nuevo objeto para cada iteración
+    public ArrayList<ReporteMatriculaÚnica> filtrarDatosPorAlumno(String nombreAlumno) {
+        ArrayList<ReporteMatriculaÚnica> datosFiltrados = new ArrayList<>();
 
-             reporteM.setFecha(matricula.getFechaMatricula());
-  
+        for (Alumno alumno : listaAlumno) {
+            if (alumno.getNombre().equals(nombreAlumno)) {
+                for (Matricula matricula : listaMatri) {
+                    if (matricula.getId_estudiante() == alumno.getId_alumno()) {
+                        Seccion seccion = obtenerNombreSeccion(matricula);
+                        Curso curso = obtenerCurso(seccion);
+                        Profesor profesor = obtenerProfesor(seccion.getId_profesor());
 
-             Seccion seccion = obtenerNombreSeccion(matricula);
-             if (seccion != null) {
-                 reporteM.setNombreS(seccion.getNombreSeccion());
-                 
-                 Curso curso = obtenerCurso(seccion);
-                 if(curso != null) {
-                     reporteM.setCurso(curso.getNombreCurso());
-                     reporteM.setPeriodo(curso.getPeriodo());
-                 }
-                
-                 Profesor profesor = obtenerProfesor(seccion.getId_profesor());
-                 if (profesor != null) {
-                     reporteM.setNombreP(profesor.getNombre());
-                 }
+                        ReporteMatriculaÚnica rmu = new ReporteMatriculaÚnica();
+                        rmu.setFecha(matricula.getFechaMatricula());
+                        rmu.setNombreS(seccion.getNombreSeccion());
+                        rmu.setCurso(curso.getNombreCurso());
+                        rmu.setPeriodo(curso.getPeriodo());
+                        rmu.setNombreP(profesor.getNombre());
 
-                 
-             }
-
-             listareporteMatri.add(reporteM);
-         }
-         
-          
-        return listareporteMatri; 
-        
-     }       
-            
-     public Alumno obtenerNombreAlumno(Matricula matricula){
-         for(Alumno alumno : listaAlumno){
-             if(alumno.getId_alumno()==matricula.getId_estudiante()){
-                return alumno;
+                        datosFiltrados.add(rmu);
+                    }
+                }
             }
-         }
-        return null;
+        }
+
+        return datosFiltrados;
     }
-     
+
      public Seccion obtenerNombreSeccion(Matricula matricula) {
         for(Seccion seccion : listaSeccion){
             if(seccion.getId_seccion()==matricula.getId_seccion()) {

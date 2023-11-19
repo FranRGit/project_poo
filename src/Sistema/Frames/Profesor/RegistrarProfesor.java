@@ -282,7 +282,7 @@ public final class RegistrarProfesor extends javax.swing.JDialog {
                 
             }
         } catch (Exception e) {
-             mostrarErrorDialog("No se puede agregar al usuario:");
+            
         }
     }//GEN-LAST:event_btnSubirAlumnoMouseClicked
     

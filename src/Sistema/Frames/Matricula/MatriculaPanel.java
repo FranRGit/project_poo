@@ -5,6 +5,7 @@
 package Sistema.Frames.Matricula;
 
 import Sistema.Clases.*;
+import Sistema.Frames.ErrorDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -250,7 +251,7 @@ public class MatriculaPanel extends javax.swing.JPanel {
 
         // Verificar si el alumno ya está matriculado en esa sección
         if (matricula.alumnoYaMatriculado(idEstudiante, idseccion)) {
-            System.out.println("El alumno ya está matriculado en esta sección");
+            throw new Exception("Alumno ya matriculado");
         } else {
             // Realizar la matrícula solo si el alumno no está matriculado en esa sección
             Matricula m1 = new Matricula(3, idseccion, idEstudiante, txtFechaM.getText(), txtestado.getText());
@@ -258,15 +259,20 @@ public class MatriculaPanel extends javax.swing.JPanel {
             if (matricula.realizarMatricula(m1)) {
                 System.out.println("Se realizó la matrícula exitosamente");
             } else {
-                System.out.println("Error al realizar matrícula");
+                throw new Exception("Error al realizar matrícula");
             }
         }
     } catch (Exception e) {
-        System.out.println("ERROR");
+        mostrarErrorDialog(e.getMessage());
+        
     }
- 
     }//GEN-LAST:event_btnRegistrarMouseClicked
 
+    private void mostrarErrorDialog(String errorMessage) {
+        ErrorDialog errorDialog = new ErrorDialog(errorMessage);
+        errorDialog.setVisible(true);
+    }
+    
     private void jComboBoxIDAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDAlumnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxIDAlumnoActionPerformed

@@ -9,6 +9,8 @@ import Sistema.Clases.ReporteMatriculaÚnica;
 import Sistema.Clases.daoUsuario;
 import Sistema.Frames.Tablas.tableDesigner;
 import Sistema.Frames.Tablas.tablaGenérica;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
@@ -27,11 +29,27 @@ public class MatriculaUnica extends javax.swing.JPanel{
         tabla.designTable(tblMatriculaUnica);
         llenarCbxAlumnos();
         actualizar();
+        //ActionListener para manejar el evento de selección
+        jComboBoxAlumno.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actualizar();
+            }
+        });
     }
     public void actualizar(){
         tablaGenérica<ReporteMatriculaÚnica> tru = new tablaGenérica<>();
         String[] columna = {"Periodo","Curso","Seccion","Profesor Asignado","Fecha"};
-        tru.actualizarTabla(rmu.filtrarDatos(), columna, tblMatriculaUnica);
+
+        //Obtener el alumno seleccionado
+        String nombreAlumnoSeleccionado = (String) jComboBoxAlumno.getSelectedItem();
+        
+        //Obtener los datos filtrados del alumno
+        ArrayList<ReporteMatriculaÚnica> datosFiltrados = rmu.filtrarDatosPorAlumno(nombreAlumnoSeleccionado);
+        
+        //Construir la tabla con el arreglo de datos
+        tru.actualizarTabla(datosFiltrados, columna, tblMatriculaUnica);
+
     }
 
     /**
@@ -51,6 +69,7 @@ public class MatriculaUnica extends javax.swing.JPanel{
         setBackground(new java.awt.Color(253, 253, 253));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblMatriculaUnica.setForeground(new java.awt.Color(60, 63, 65));
         tblMatriculaUnica.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -99,6 +118,7 @@ public class MatriculaUnica extends javax.swing.JPanel{
         }
     }
 
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBoxAlumno;
     private javax.swing.JLabel jLabel1;

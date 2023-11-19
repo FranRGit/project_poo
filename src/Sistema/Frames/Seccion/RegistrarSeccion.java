@@ -11,6 +11,7 @@ import Sistema.Clases.Usuario;
 import Sistema.Clases.daoCurso;
 import Sistema.Clases.daoSeccion;
 import Sistema.Clases.daoUsuario;
+import Sistema.Frames.ErrorDialog;
 import Sistema.Frames.RegistroExitosoDialog;
 import Sistema.Frames.Tablas.tablaGenérica;
 import java.awt.Color;
@@ -270,7 +271,6 @@ public class RegistrarSeccion extends javax.swing.JDialog {
             daoSeccion dSeccion = new daoSeccion(seccion);
 
             if (dSeccion.agregar()) {
-                System.out.println("Se agregó el nuevo curso");
                 RegistroExitosoDialog re = new RegistroExitosoDialog();
                 re.setVisible(true);
             } else {
@@ -278,8 +278,14 @@ public class RegistrarSeccion extends javax.swing.JDialog {
             }
         } catch (Exception e) {
             e.getMessage();
+            mostrarErrorDialog("No se puede agregar la sección:");
         }
     }//GEN-LAST:event_btnSubirCursoMouseClicked
+    
+      private void mostrarErrorDialog(String errorMessage) {
+        ErrorDialog errorDialog = new ErrorDialog(errorMessage);
+        errorDialog.setVisible(true);
+    }
     
     //OBTENER ID DE PROFESOR
     public int obtenerIDProfesor(){

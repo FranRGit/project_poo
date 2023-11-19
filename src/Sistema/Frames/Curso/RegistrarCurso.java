@@ -5,6 +5,7 @@
 package Sistema.Frames.Curso;
 
 import Sistema.Clases.*;
+import Sistema.Frames.ErrorDialog;
 import Sistema.Frames.RegistroExitosoDialog;
 import java.awt.Color;
 import javax.swing.JFrame;
@@ -182,9 +183,15 @@ public class RegistrarCurso extends javax.swing.JDialog {
             }
         } catch (Exception e) {
             e.getMessage();
+            mostrarErrorDialog("No se puede registrar el curso:");
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
+     private void mostrarErrorDialog(String errorMessage) {
+        ErrorDialog errorDialog = new ErrorDialog(errorMessage);
+        errorDialog.setVisible(true);
+    }
+    
     private void jLabel48MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel48MouseClicked
         dispose();
     }//GEN-LAST:event_jLabel48MouseClicked
