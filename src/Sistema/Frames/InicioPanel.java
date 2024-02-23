@@ -262,6 +262,26 @@ public class InicioPanel extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 290, 430));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void MateriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MateriaMouseClicked
+        // TODO add your handling code here:
+        MenuCurso mc = new MenuCurso();
+        mc.setSize(840, 720);
+        mc.setLocation(0, 0);
+
+        // Obtén el contenedor principal
+        Container contenedorPrincipal = this.getParent();
+
+        // Elimina el panel actual
+        contenedorPrincipal.remove(this);
+
+        // Agrega el nuevo panel (MenuUsuario)
+        contenedorPrincipal.add(mc);
+
+        // Valida y repinta el contenedor principal
+        contenedorPrincipal.validate();
+        contenedorPrincipal.repaint();
+    }//GEN-LAST:event_MateriaMouseClicked
+
     private void ReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportesMouseClicked
         // TODO add your handling code here:
         MenuReporte mr = new MenuReporte();
@@ -300,7 +320,7 @@ public class InicioPanel extends javax.swing.JPanel {
         // Valida y repinta el contenedor principal
         contenedorPrincipal.validate();
         contenedorPrincipal.repaint();
-        
+
     }//GEN-LAST:event_ProfesorMouseClicked
 
     private void AlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlumnoMouseClicked
@@ -321,26 +341,6 @@ public class InicioPanel extends javax.swing.JPanel {
         contenedorPrincipal.validate();
         contenedorPrincipal.repaint();
     }//GEN-LAST:event_AlumnoMouseClicked
-
-    private void MateriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MateriaMouseClicked
-        // TODO add your handling code here:
-        MenuCurso mc = new MenuCurso();
-        mc.setSize(840, 720);
-        mc.setLocation(0, 0);
-
-        // Obtén el contenedor principal
-        Container contenedorPrincipal = this.getParent();
-
-        // Elimina el panel actual
-        contenedorPrincipal.remove(this);
-
-        // Agrega el nuevo panel (MenuUsuario)
-        contenedorPrincipal.add(mc);
-
-        // Valida y repinta el contenedor principal
-        contenedorPrincipal.validate();
-        contenedorPrincipal.repaint();
-    }//GEN-LAST:event_MateriaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

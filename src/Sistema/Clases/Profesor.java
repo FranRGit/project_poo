@@ -11,6 +11,7 @@ public class Profesor extends Usuario {
     // Atributo adicional específico para la clase Profesor
     protected String especialidad;
     protected int id_profesor;
+    
     public Profesor() {
     }
 

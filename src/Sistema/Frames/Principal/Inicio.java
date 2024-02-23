@@ -138,7 +138,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         if (txtCodigoA.getText() != null && txtContraseniaAdmi.getText() != null &&
-        txtCodigoA.getText().equals("administrador") && txtContraseniaAdmi.getText().equals("1234")) {
+        txtCodigoA.getText().equals("") && txtContraseniaAdmi.getText().equals("")) {
         
         // Cierra el JFrame actual (Inicio)
         this.dispose();
